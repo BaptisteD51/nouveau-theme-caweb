@@ -2,6 +2,6 @@
 Theme Name: Nouveau theme CAWEB
 */
 
-body{
-    background-color: red;
+*{
+    font-family: 'Courier New', Courier, monospace;
 }
