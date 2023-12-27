@@ -3,8 +3,11 @@ function caweb_theme_supports(){
     add_theme_support( "title-tag" );
     add_theme_support('post-thumbnails');
     add_theme_support('menus');
-    register_nav_menus(['main-menu', 'footer-menu'],);
-}
+    register_nav_menus([
+        'footer-menu'=> 'Menu secondaire',
+        'main-menu'=>'Menu principal',
+    ]);
+};
 
 function caweb_theme_assets(){
     wp_register_style( 'baptiste', 'https://baptistedufour.fr/style.css');

@@ -5,17 +5,17 @@
         <h1>Derniers posts</h1>
         <ul>
         <?php while (have_posts()): the_post();?>
-            <!-- Pour exclure les articles de la catégorie intervenants --> 
-            <?php if(get_the_category()[0]->term_id != 198): ?> 
-                <li>
-                    <h3><?php the_title();?></h3>
-                    <?php the_post_thumbnail("medium");?> 
-                    <?php the_excerpt();?>
-                    <a href="<?php the_permalink(); ?>">Lire la suite</a>
-                </li>
-            <?php endif; ?>
+            <li>
+                <h3><?php the_title();?></h3>
+                <?php the_post_thumbnail("medium");?> 
+                <?php the_excerpt();?>
+                <a href="<?php the_permalink(); ?>">Lire la suite</a>
+            </li>
         <?php endwhile ?>
         </ul>
+        <?php the_posts_pagination();?>
+        <?php /*echo previous_posts_link();*/?>
+        <?php /*echo next_posts_link();*/?>
     <?php else: ?>
         <h1>Pas de posts</h1>
     <?php endif; ?>

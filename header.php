@@ -6,4 +6,10 @@
     <?php wp_head() ?>
 </head>
 <body <?php body_class();?>>
-    <?php wp_nav_menu('main-menu');?>
+    <header>
+        <?php 
+            bloginfo('name');
+            wp_nav_menu(['theme_location'=>'main-menu']); //theme_location with underscore !!!
+            get_search_form();
+        ?>
+    </header>

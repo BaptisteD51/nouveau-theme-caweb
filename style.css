@@ -5,3 +5,12 @@ Theme Name: Nouveau theme CAWEB
 *{
     font-family: 'Courier New', Courier, monospace;
 }
+
+main,footer,header{
+    border:solid 1px black;
+}
+
+nav.next-previous-posts{
+    display:flex;
+    justify-content: space-between;
+}
