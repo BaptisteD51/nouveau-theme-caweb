@@ -18,3 +18,38 @@ nav.next-previous-posts{
 div.author-box{
     border:solid 1px black;
 }
+
+/* Responsive menu */
+
+header{
+    position:relative;
+}
+
+#burger{
+    height:50px;
+    width:50px;
+    background-color: red;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position:absolute;
+    top:0px;
+    right:0px;
+}
+
+#burger i{
+    font-size:35px;
+}
+
+@media screen and (max-width:999px) {
+    #menu-menu-principal{
+        display:none;/* Don't touch this line ! */
+    }
+}
+
+@media screen and (min-width:1000px) {
+    #burger{
+        display:none;/* Don't touch this line ! */
+    }
+}

@@ -14,4 +14,7 @@
         <?php
         wp_nav_menu(['theme_location' => 'main-menu', "nav", 'container' => 'nav']); //theme_location with underscore !!!
         ?>
+        <div id="burger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
     </header>
