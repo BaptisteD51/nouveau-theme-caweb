@@ -1,3 +1,9 @@
+<?php
+/**
+ * Template Name: Post with no author info
+ * Template Post Type: post
+ */
+?>
 <?php get_header() ?>
 <main>
     <?php if (have_posts()) : ?>
@@ -7,13 +13,6 @@
             <?php the_post_thumbnail("large"); ?>
             <?php the_content(); ?>
         <?php endwhile ?>
-
-        <div class='author-box'>
-            <p> Auteur : </p>
-            <?php echo get_avatar(get_the_author_meta('id')); ?>
-            <h4> <?php the_author_meta('display_name'); ?> </h4>
-            <p> <?php the_author_meta('description'); ?> </p>
-        </div>
 
         <nav class='next-previous-posts'>
             <p><?php echo previous_post_link(); ?></p>

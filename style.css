@@ -14,3 +14,7 @@ nav.next-previous-posts{
     display:flex;
     justify-content: space-between;
 }
+
+div.author-box{
+    border:solid 1px black;
+}

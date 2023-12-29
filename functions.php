@@ -3,6 +3,7 @@ function caweb_theme_supports(){
     add_theme_support( "title-tag" );
     add_theme_support('post-thumbnails');
     add_theme_support('menus');
+    add_theme_support( 'custom-logo');
     register_nav_menus([
         'footer-menu'=> 'Menu secondaire',
         'main-menu'=>'Menu principal',
