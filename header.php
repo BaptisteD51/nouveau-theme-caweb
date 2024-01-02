@@ -8,6 +8,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <?php wp_body_open();?>
     <header>
         <?php the_custom_logo(); ?>
         <p class="site-title"> <?php bloginfo('name'); ?> </p>

@@ -53,3 +53,9 @@ header{
         display:none;/* Don't touch this line ! */
     }
 }
+
+/* Apply the 'content size' property defined in theme.json */
+main > *:not(.alignfull){
+    max-width:var(--wp--style--global--content-size);
+    margin:auto;
+}
