@@ -55,7 +55,7 @@ header{
 }
 
 /* Apply the 'content size' property defined in theme.json */
-main > *:not(.alignfull){
+main > *:not(.alignfull){ /* should add a support for align right and align left*/
     max-width:var(--wp--style--global--content-size);
     margin:auto;
 }

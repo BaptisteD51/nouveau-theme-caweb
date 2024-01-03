@@ -24,6 +24,19 @@ function caweb_theme_assets_footer(){//to add script at the bottom of the body
     wp_enqueue_script('menu-burger');
 }
 
+function caweb_theme_init(){
+    register_post_type('intervenant',[
+        'label' => 'Intervenant',
+        'public' => true,
+        'menu_position' => 22,
+        'has_archive' => true,
+        'menu_icon' => 'dashicons-businesswoman',
+        'supports' => ['title', 'thumbnail', 'editor'], /* Maybe add 'custom-fields' later */
+        'show_in_nav_menus' => false,
+    ]);
+}
+
+add_action('init', 'caweb_theme_init');
 add_action('after_setup_theme', 'caweb_theme_supports');
 add_action('wp_enqueue_scripts', 'caweb_theme_assets');
 add_action( 'wp_footer', 'caweb_theme_assets_footer');
