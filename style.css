@@ -2,60 +2,66 @@
 Theme Name: Nouveau theme CAWEB
 */
 
-*{
+* {
     font-family: 'Courier New', Courier, monospace;
 }
 
-main,footer,header{
-    border:solid 1px black;
+main,
+footer,
+header {
+    border: solid 1px black;
 }
 
-nav.next-previous-posts{
-    display:flex;
+nav.next-previous-posts {
+    display: flex;
     justify-content: space-between;
 }
 
-div.author-box{
-    border:solid 1px black;
+div.author-box {
+    border: solid 1px black;
 }
 
 /* Responsive menu */
 
-header{
-    position:relative;
+header {
+    position: relative;
+    background-color: var(--wp--preset--color--rouge);
 }
 
-#burger{
-    height:50px;
-    width:50px;
+#burger {
+    height: 50px;
+    width: 50px;
     background-color: red;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    position:absolute;
-    top:0px;
-    right:0px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
-#burger i{
-    font-size:35px;
+#burger i {
+    font-size: 35px;
 }
 
 @media screen and (max-width:999px) {
-    #menu-menu-principal{
-        display:none;/* Don't touch this line ! */
+    #menu-menu-principal {
+        display: none;
+        /* Don't touch this line ! */
     }
 }
 
 @media screen and (min-width:1000px) {
-    #burger{
-        display:none;/* Don't touch this line ! */
+    #burger {
+        display: none;
+        /* Don't touch this line ! */
     }
 }
 
 /* Apply the 'content size' property defined in theme.json */
-main > *:not(.alignfull){ /* should add a support for align right and align left*/
-    max-width:var(--wp--style--global--content-size);
-    margin:auto;
+main>*:not(.alignfull) {
+    /* should add a support for align right and align left*/
+    max-width: var(--wp--style--global--content-size);
+    margin: auto;
 }
