@@ -46,7 +46,7 @@ header {
 }
 
 @media screen and (max-width:999px) {
-    #menu-menu-principal {
+    #main-menu {
         display: none;
         /* Don't touch this line ! */
     }
