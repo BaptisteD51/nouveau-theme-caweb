@@ -1,6 +1,6 @@
     <footer>
         <?php
-            wp_nav_menu(['theme_location'=>'footer-menu','container' => 'nav']);//theme_location with underscore !!!
+            wp_nav_menu(['theme_location'=>'footer-menu','container' => 'nav','container_id'=>'footer-menu-wrapper','menu_id'=>'footer-menu',]);//theme_location with underscore !!!
             get_search_form();
         ?>
     </footer>
