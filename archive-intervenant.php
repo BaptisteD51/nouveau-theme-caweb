@@ -10,6 +10,10 @@
                     <h2><?php the_title(); ?></h2>
                     <?php the_post_thumbnail("thumbnail"); ?>
                     <?php the_content(); ?>
+                    <?php if(get_field("youtube_video")!=null):?>
+                        <a href="<?= get_field("youtube_video"); ?>">YouTube</a>
+                    <?php endif; ?>
+                    <a href="<?= get_field("linkedin_profile"); ?>">LinkedIn</a>
                 </li>
             <?php endwhile ?>
         </ul>

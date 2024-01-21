@@ -31,10 +31,12 @@ function caweb_theme_init(){
         'menu_position' => 22,
         'has_archive' => true,
         'menu_icon' => 'dashicons-businesswoman',
-        'supports' => ['title', 'thumbnail', 'editor'], /* Maybe add 'custom-fields' later */
+        'supports' => ['title', 'thumbnail', 'editor'],
         'show_in_nav_menus' => false,
     ]);
 }
+
+include 'advanced-custom-fields.php';
 
 add_action('init', 'caweb_theme_init');
 add_action('after_setup_theme', 'caweb_theme_supports');
