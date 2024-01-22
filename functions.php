@@ -7,6 +7,7 @@ function caweb_theme_supports(){
     register_nav_menus([
         'footer-menu'=> 'Menu secondaire',
         'main-menu'=>'Menu principal',
+        'social-menu'=>'Menu réseaux sociaux',
     ]);
 };
 
