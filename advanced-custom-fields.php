@@ -62,4 +62,50 @@ add_action( 'acf/include_fields', function() {
 	'description' => '',
 	'show_in_rest' => 0,
 ) );
+
+	acf_add_local_field_group( array(
+	'key' => 'group_65ae65d03c01d',
+	'title' => 'Social Icons',
+	'fields' => array(
+		array(
+			'key' => 'field_65ae65d008279',
+			'label' => 'Icône du réseau social (ajouter une icône FontAwesome en HTML)',
+			'name' => 'social_icon',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'maxlength' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'nav_menu_item',
+				'operator' => '==',
+				'value' => 'location/social-menu',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+) );
 } );
+

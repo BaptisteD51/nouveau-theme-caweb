@@ -1,4 +1,7 @@
 <?php
+
+include 'advanced-custom-fields.php';
+
 function caweb_theme_supports(){
     add_theme_support( "title-tag" );
     add_theme_support('post-thumbnails');
@@ -37,9 +40,29 @@ function caweb_theme_init(){
     ]);
 }
 
-include 'advanced-custom-fields.php';
+/**
+ * That's such a pain... I figured out how to make it work in the end though
+ * $items are each individual menu items
+ * $args is an anonymous object (stdobject) that contains infos on each menu items
+ */
+function caweb_theme_wp_nav_menu_objects($items, $args){
+    if($args->theme_location == 'social-menu'){
+        foreach($items as $item){
+            $item->title = get_field('social_icon', $item);
+        }
+    }
+    return $items;
+}
 
 add_action('init', 'caweb_theme_init');
 add_action('after_setup_theme', 'caweb_theme_supports');
 add_action('wp_enqueue_scripts', 'caweb_theme_assets');
 add_action( 'wp_footer', 'caweb_theme_assets_footer');
+
+/**
+ * 10 -> the priority
+ * 2 -> the number of arguments that the callback takes
+ * They are needed in order to avoid any error messages
+ */
+add_filter('wp_nav_menu_objects', 'caweb_theme_wp_nav_menu_objects', 10, 2);
+
