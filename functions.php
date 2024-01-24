@@ -11,6 +11,7 @@ function caweb_theme_supports(){
         'footer-menu'=> 'Menu secondaire',
         'main-menu'=>'Menu principal',
         'social-menu'=>'Menu réseaux sociaux',
+        'contact-menu'=>'Menu contact secrétariat ',
     ]);
 };
 
@@ -44,11 +45,27 @@ function caweb_theme_init(){
  * That's such a pain... I figured out how to make it work in the end though
  * $items are each individual menu items
  * $args is an anonymous object (stdobject) that contains infos on each menu items
+ * Don't hesitate to var_dump
  */
 function caweb_theme_wp_nav_menu_objects($items, $args){
     if($args->theme_location == 'social-menu'){
         foreach($items as $item){
             $item->title = get_field('social_icon', $item);
+        }
+    }
+    if($args->theme_location == 'contact-menu'){
+        
+        foreach($items as $item){
+            $phone = get_field('secretary_phone', $item);
+            $email = get_field('secretary_email', $item);
+            
+            $args->before = "<ul>";
+
+            $args->after = "<li><a href='tel:".$phone."'>".$phone."</li>";
+            $args->after .= "<li><a href='mailto:".$email."'>".$email."</li>";
+            $args->after .= "</ul>";
+
+            $item->url = '';
         }
     }
     return $items;

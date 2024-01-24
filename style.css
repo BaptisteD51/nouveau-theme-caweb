@@ -21,6 +21,10 @@ div.author-box {
     border: solid 1px black;
 }
 
+nav{
+    border:solid 1px black;
+}
+
 /* Responsive menu */
 
 header {
