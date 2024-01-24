@@ -2,6 +2,22 @@
 Theme Name: Nouveau theme CAWEB
 */
 
+:root{
+    --page-width:1000px;
+    --post-width:700px;
+}
+
+/* Include unistra fonts */
+@font-face {
+    font-family: 'Brill';
+    src: url("fonts/brill/Brill\ Roman\ 2.06\ 051.ttf") format("truetype"), url("fonts/brill/Brill\ Bold\ 2.06\ 051.ttf") format("truetype"), url("fonts/brill/Brill\ Italic\ 2.06\ 051.ttf") format("truetype"), url("fonts/brill/Brill\ Bold\ Italic\ 2.06\ 051.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Unistra';
+    src: url("fonts/unistra/UnistraA-Regular.ttf") format("truetype"), url("fonts/unistra/UnistraA-Bold.ttf") format("truetype"), url("fonts/unistra/UnistraA-Italic.ttf") format("truetype"), url("fonts/unistra/UnistraA-BoldItalic.ttf") format("truetype");
+}
+
 /* Adding css for custom colors defined in the editor */
 /* Also have to add it the styles of gutenberg latter */
 
@@ -29,34 +45,96 @@ Theme Name: Nouveau theme CAWEB
     color:var(--wp--preset--color--rouge);
 }
 .has-bleu-background-color{
-    color:var(--wp--preset--color--bleu);
+    background-color:var(--wp--preset--color--bleu);
 }
 
 .has-vert-background-color{
-    color:var(--wp--preset--color--vert);
+    background-color:var(--wp--preset--color--vert);
 }
 
 .has-orange-background-color{
-    color:var(--wp--preset--color--orange);
+    background-color:var(--wp--preset--color--orange);
 }
 
 .has-rose-background-color{
-    color:var(--wp--preset--color--rose);
+    background-color:var(--wp--preset--color--rose);
 }
 
 .has-rouge-background-color{
-    color:var(--wp--preset--color--rouge);
+    background-color:var(--wp--preset--color--rouge);
 }
+
+/* Width of main following the post type */
+
+header{
+    /* box-sizing:border-box; */
+    padding: 0px calc((100% - var(--page-width))/2 );
+}
+
+main{
+    width:var(--page-width);
+    margin:auto;
+}
+
+body.single main{
+    width:var(--post-width);
+    padding-right:calc(var(--page-width) - var(--post-width));
+}
+
+.alignfull{
+    width:100vw;
+    margin-left:calc( -1 * ((100vw - var(--page-width)) / 2) );
+}
+
 
 /* --------------------------- */
 
-* {
-    font-family: 'Courier New', Courier, monospace;
+html,body{
+    margin:0px;
+    padding:0px;
+    overflow-x: hidden;
 }
 
-main,
-footer,
-header {
+body{
+    font-family: Brill, Arial, Helvetica, sans-serif;
+}
+
+h1,h2,h3{
+    font-family: Unistra, Arial, Helvetica, sans-serif;;
+}
+
+p{
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+li{
+    font-size: 20px;
+    margin-bottom:5px;
+}
+
+h2{
+    font-size:36px;
+    margin-top: 40px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+h3{
+    font-size:26px;
+    margin-top:24px;
+    margin-bottom: 0px;
+    letter-spacing: 1px;
+}
+
+nav ul{
+    list-style-type:none;
+    padding-left:0px;
+}
+
+footer{
     border: solid 1px black;
 }
 
@@ -69,15 +147,11 @@ div.author-box {
     border: solid 1px black;
 }
 
-nav{
-    border:solid 1px black;
-}
-
 /* Responsive menu */
 
 header {
     position: relative;
-    background-color: var(--wp--preset--color--rouge);
+    background: var(--wp--preset--gradient--gradient-caweb);
 }
 
 #burger {
@@ -109,11 +183,4 @@ header {
         display: none;
         /* Don't touch this line ! */
     }
-}
-
-/* Apply the 'content size' property defined in theme.json */
-main>*:not(.alignfull) {
-    /* should add a support for align right and align left*/
-    max-width: var(--wp--style--global--content-size);
-    margin: auto;
 }

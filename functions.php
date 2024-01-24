@@ -104,8 +104,8 @@ function caweb_theme_wp_nav_menu_objects($items, $args){
             
             $args->before = "<ul>";
 
-            $args->after = "<li><a href='tel:".$phone."'>".$phone."</li>";
-            $args->after .= "<li><a href='mailto:".$email."'>".$email."</li>";
+            $args->after = "<li><a href='tel:".$phone."'>".$phone."</a></li>";
+            $args->after .= "<li><a href='mailto:".$email."'>".$email."</a></li>";
             $args->after .= "</ul>";
 
             $item->url = '';
