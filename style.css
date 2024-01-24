@@ -2,6 +2,54 @@
 Theme Name: Nouveau theme CAWEB
 */
 
+/* Adding css for custom colors defined in the editor */
+/* Also have to add it the styles of gutenberg latter */
+
+.has-gradient-caweb-gradient-background{
+    background: var(--wp--preset--gradient--gradient-caweb);
+}
+
+.has-bleu-color{
+    color:var(--wp--preset--color--bleu);
+}
+
+.has-vert-color{
+    color:var(--wp--preset--color--vert);
+}
+
+.has-orange-color{
+    color:var(--wp--preset--color--orange);
+}
+
+.has-rose-color{
+    color:var(--wp--preset--color--rose);
+}
+
+.has-rouge-color{
+    color:var(--wp--preset--color--rouge);
+}
+.has-bleu-background-color{
+    color:var(--wp--preset--color--bleu);
+}
+
+.has-vert-background-color{
+    color:var(--wp--preset--color--vert);
+}
+
+.has-orange-background-color{
+    color:var(--wp--preset--color--orange);
+}
+
+.has-rose-background-color{
+    color:var(--wp--preset--color--rose);
+}
+
+.has-rouge-background-color{
+    color:var(--wp--preset--color--rouge);
+}
+
+/* --------------------------- */
+
 * {
     font-family: 'Courier New', Courier, monospace;
 }

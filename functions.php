@@ -4,7 +4,50 @@ include 'advanced-custom-fields.php';
 
 function caweb_theme_supports(){
     add_theme_support( "title-tag" );
-    add_theme_support('post-thumbnails');
+
+    /**
+     * Activate the post-thumbnail fonctionality only for posts ans intervanant pages
+     */
+    add_theme_support('post-thumbnails',['post', 'intervenant']);
+
+    $palette = [
+        [
+            "slug" => "bleu",
+            "color" => "#27526A",
+            "name" => "Bleu"
+        ],[
+            "slug" => "vert",
+            "color" => "#78999C",
+            "name" => "Vert"
+        ],[
+            "slug" => "orange",
+            "color" => "#FCA45D",
+            "name" => "Orange"
+        ],[
+            "slug" => "rose",
+            "color" => "#F77B65",
+            "name" => "Rose"
+        ],[
+            "slug" => "rouge",
+            "color" => "#DA2317",
+            "name" => "Rouge"
+        ],
+    ];
+    add_theme_support('editor-color-palette', $palette);
+
+    $gradients = [
+        [
+            "slug" => "gradient-caweb",
+            "gradient" => "linear-gradient(90deg,#da2014 44.27%,#fca45d 100%)",
+            "name" => "Dégradé Caweb",
+        ]
+    ];
+    /**
+     * This function crate the css variable and the class relative to the slug. But you need to 
+     * create a rule in style.css in order for it to be displayed in front end
+     */
+    add_theme_support('editor-gradient-presets', $gradients);
+    
     add_theme_support('menus');
     add_theme_support( 'custom-logo');
     register_nav_menus([
