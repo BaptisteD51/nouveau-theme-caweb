@@ -56,6 +56,8 @@ function caweb_theme_supports(){
         'social-menu'=>'Menu réseaux sociaux',
         'contact-menu'=>'Menu contact secrétariat ',
     ]);
+
+    add_image_size('author-format', 150, 150, true);
 };
 
 function caweb_theme_assets(){

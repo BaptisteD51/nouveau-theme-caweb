@@ -9,10 +9,23 @@
         <?php endwhile ?>
 
         <div class='author-box'>
+
+            <?php
+                $authorID = get_the_author_meta('id');
+                $acfAuthorID = 'user_'.$authorID; // need to add 'user_' before the id, check on acf doc
+                $authPic = get_field('author_picture', $acfAuthorID);
+                //echo get_avatar($authorID);
+                //the_author_meta('description');
+
+                $authPicAlt = $authPic['alt'];
+                $authPicTitle = $authPic['title'];
+                $authPicUrl = $authPic['sizes']['author-format'];
+            ?>
+
             <p> Auteur : </p>
-            <?php echo get_avatar(get_the_author_meta('id')); ?>
             <h4> <?php the_author_meta('display_name'); ?> </h4>
-            <p> <?php the_author_meta('description'); ?> </p>
+            <p><img src="<?= $authPicUrl ?>" alt="<?= $authPicAlt?>" title="<?= $authPicTitle ?>"></p>
+            <p> <?php the_field('author_biography', $acfAuthorID); ?></p>
         </div>
 
         <nav class='next-previous-posts'>
