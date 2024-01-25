@@ -10,13 +10,14 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open();?>
     <header>
-        <?php the_custom_logo(); ?>
-        <p class="site-title"> <?php bloginfo('name'); ?> </p>
-        <?php
-        wp_nav_menu(['theme_location' => 'main-menu', 'container' => 'nav', 'container_id' => 'main-menu-wrapper', 'menu_id' => 'main-menu',]); //theme_location with underscore !!!
-        wp_nav_menu(['theme_location' => 'social-menu', 'container' => 'nav', 'container_id' => 'social-menu-wrapper', 'menu_id' => 'social-menu',]);
-        ?>
-        <div id="burger">
-            <i class="fa-solid fa-bars"></i>
+        <div class="header-wrapper">
+            <p class="site-logo"><?php the_custom_logo(); ?></p>
+            <!--<p class="site-title"> <?php bloginfo('name'); ?> </p>-->
+            <?php
+            wp_nav_menu(['theme_location' => 'main-menu', 'container' => 'nav', 'container_id' => 'main-menu-wrapper', 'menu_id' => 'main-menu',]); //theme_location with underscore !!!
+            ?>
+            <div id="burger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
     </header>

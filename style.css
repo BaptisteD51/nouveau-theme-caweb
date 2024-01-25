@@ -2,9 +2,9 @@
 Theme Name: Nouveau theme CAWEB
 */
 
-:root{
-    --page-width:1000px;
-    --post-width:700px;
+:root {
+    --page-width: 1000px;
+    --post-width: 700px;
 }
 
 /* Include unistra fonts */
@@ -21,121 +21,130 @@ Theme Name: Nouveau theme CAWEB
 /* Adding css for custom colors defined in the editor */
 /* Also have to add it the styles of gutenberg latter */
 
-.has-gradient-caweb-gradient-background{
+.has-gradient-caweb-gradient-background {
     background: var(--wp--preset--gradient--gradient-caweb);
 }
 
-.has-bleu-color{
-    color:var(--wp--preset--color--bleu);
+.has-bleu-color {
+    color: var(--wp--preset--color--bleu);
 }
 
-.has-vert-color{
-    color:var(--wp--preset--color--vert);
+.has-vert-color {
+    color: var(--wp--preset--color--vert);
 }
 
-.has-orange-color{
-    color:var(--wp--preset--color--orange);
+.has-orange-color {
+    color: var(--wp--preset--color--orange);
 }
 
-.has-rose-color{
-    color:var(--wp--preset--color--rose);
+.has-rose-color {
+    color: var(--wp--preset--color--rose);
 }
 
-.has-rouge-color{
-    color:var(--wp--preset--color--rouge);
-}
-.has-bleu-background-color{
-    background-color:var(--wp--preset--color--bleu);
+.has-rouge-color {
+    color: var(--wp--preset--color--rouge);
 }
 
-.has-vert-background-color{
-    background-color:var(--wp--preset--color--vert);
+.has-bleu-background-color {
+    background-color: var(--wp--preset--color--bleu);
 }
 
-.has-orange-background-color{
-    background-color:var(--wp--preset--color--orange);
+.has-vert-background-color {
+    background-color: var(--wp--preset--color--vert);
 }
 
-.has-rose-background-color{
-    background-color:var(--wp--preset--color--rose);
+.has-orange-background-color {
+    background-color: var(--wp--preset--color--orange);
 }
 
-.has-rouge-background-color{
-    background-color:var(--wp--preset--color--rouge);
+.has-rose-background-color {
+    background-color: var(--wp--preset--color--rose);
+}
+
+.has-rouge-background-color {
+    background-color: var(--wp--preset--color--rouge);
 }
 
 /* Width of main following the post type */
 
-header{
+header {
     /* box-sizing:border-box; */
-    padding: 0px calc((100% - var(--page-width))/2 );
+    padding: 0px calc((100% - var(--page-width))/2);
 }
 
-main{
-    width:var(--page-width);
-    margin:auto;
+main {
+    width: var(--page-width);
+    margin: auto;
 }
 
-body.single main{
-    width:var(--post-width);
-    padding-right:calc(var(--page-width) - var(--post-width));
+body.single main {
+    width: var(--post-width);
+    padding-right: calc(var(--page-width) - var(--post-width));
 }
 
-.alignfull{
-    width:100vw;
-    margin-left:calc( -1 * ((100vw - var(--page-width)) / 2) );
+.alignfull {
+    width: 100vw;
+    margin-left: calc(-1 * ((100vw - var(--page-width)) / 2));
 }
 
 
 /* --------------------------- */
 
-html,body{
-    margin:0px;
-    padding:0px;
+html,
+body {
+    margin: 0px;
+    padding: 0px;
     overflow-x: hidden;
 }
 
-body{
+body {
     font-family: Brill, Arial, Helvetica, sans-serif;
 }
 
-h1,h2,h3{
-    font-family: Unistra, Arial, Helvetica, sans-serif;;
+h1,
+h2,
+h3 {
+    font-family: Unistra, Arial, Helvetica, sans-serif;
+    ;
 }
 
-p{
+p {
     font-size: 20px;
     line-height: 28px;
     margin-top: 0px;
     margin-bottom: 20px;
 }
 
-li{
+main li {
     font-size: 20px;
-    margin-bottom:5px;
+    margin-bottom: 5px;
 }
 
-h2{
-    font-size:36px;
+h2 {
+    font-size: 36px;
     margin-top: 40px;
     margin-bottom: 12px;
     letter-spacing: 2px;
 }
 
-h3{
-    font-size:26px;
-    margin-top:24px;
+h3 {
+    font-size: 26px;
+    margin-top: 24px;
     margin-bottom: 0px;
     letter-spacing: 1px;
 }
 
-nav ul{
-    list-style-type:none;
-    padding-left:0px;
+nav ul {
+    list-style-type: none;
+    padding-left: 0px;
 }
 
-footer{
+footer {
     border: solid 1px black;
+    display: flex;
+    width: var(--page-width);
+    margin: auto;
+    justify-content: space-between;
 }
 
 nav.next-previous-posts {
@@ -172,7 +181,7 @@ header {
 }
 
 @media screen and (max-width:999px) {
-    #main-menu {
+    body #main-menu {
         display: none;
         /* Don't touch this line ! */
     }
@@ -183,4 +192,68 @@ header {
         display: none;
         /* Don't touch this line ! */
     }
+}
+
+div.header-wrapper {
+    position: relative;
+    display: flex;
+}
+
+nav#main-menu-wrapper {
+    flex: 1;
+}
+
+#main-menu {
+    display: flex;
+    height: 100%;
+    margin: 0px;
+    width: 100%;
+}
+
+#main-menu>li {
+    flex: 1;
+}
+
+p.site-logo {
+    margin: 0px;
+}
+
+#main-menu>li>ul.sub-menu {
+    display: none;
+    left: 0px;
+    position: absolute;
+    top: 100%;
+    background-color: green;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#main-menu>li:hover>ul.sub-menu {
+    display: flex;
+}
+
+#main-menu ul.sub-menu ul.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    background-color: pink;
+}
+
+#main-menu>li>ul.sub-menu>li {
+    position: relative;
+}
+
+#main-menu ul.sub-menu>li:hover>ul.sub-menu {
+    display: block;
+}
+
+#main-menu li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-menu>li:hover {
+    background-color: red;
 }
