@@ -5,6 +5,51 @@ add_action( 'acf/include_fields', function() {
 	}
 
 	acf_add_local_field_group( array(
+	'key' => 'group_65bd13c2cc86d',
+	'title' => 'Class personnalisées pour menu principal',
+	'fields' => array(
+		array(
+			'key' => 'field_65bd13c3c23e5',
+			'label' => 'Class personnalisée pour l\'élément de menu',
+			'name' => 'menu-item-class',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'maxlength' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'nav_menu_item',
+				'operator' => '==',
+				'value' => 'location/main-menu',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+) );
+
+	acf_add_local_field_group( array(
 	'key' => 'group_65b1231aa88b4',
 	'title' => 'Contact secrétariat',
 	'fields' => array(
@@ -242,3 +287,4 @@ add_action( 'acf/include_fields', function() {
 	'show_in_rest' => 0,
 ) );
 } );
+

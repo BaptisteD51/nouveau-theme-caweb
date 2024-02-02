@@ -113,6 +113,13 @@ function caweb_theme_wp_nav_menu_objects($items, $args){
             $item->url = '';
         }
     }
+    if($args->theme_location == 'main-menu'){
+        foreach($items as $item){
+            if(get_field('menu-item-class', $item)!==''){
+                $item->classes[0] = get_field('menu-item-class', $item);
+            }
+        }
+    }
     return $items;
 }
 
