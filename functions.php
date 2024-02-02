@@ -49,7 +49,7 @@ function caweb_theme_supports(){
     add_theme_support('editor-gradient-presets', $gradients);
     
     add_theme_support('menus');
-    add_theme_support( 'custom-logo');
+    add_theme_support( 'custom-logo', ["height"=>60,"width"=>210]);
     register_nav_menus([
         'footer-menu'=> 'Menu secondaire',
         'main-menu'=>'Menu principal',
