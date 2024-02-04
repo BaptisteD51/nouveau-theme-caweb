@@ -323,11 +323,15 @@ body.single main{
 body.single main>article{
     width: var(--post-width);
     max-width: 100%;
-    /* padding-right: calc(var(--page-width) - var(--post-width)); */
 }
 
 body.single main>aside{
     flex:1 25%;
+}
+
+body.single main figure.post-image img{
+    max-width:100%;
+    height:auto;
 }
 
 /* Footer styles */

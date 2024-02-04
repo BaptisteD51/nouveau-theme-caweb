@@ -5,7 +5,7 @@
 
         <?php while (have_posts()) : the_post(); ?>
             <h1><?php the_title(); ?></h1>
-            <figure><?php the_post_thumbnail("medium"); ?></figure>
+            <figure class='post-image'><?php the_post_thumbnail("medium"); ?></figure>
             <?php the_content(); ?>
         <?php endwhile ?>
 
