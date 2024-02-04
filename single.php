@@ -1,5 +1,6 @@
 <?php get_header() ?>
 <main>
+    <article>
     <?php if (have_posts()) : ?>
 
         <?php while (have_posts()) : the_post(); ?>
@@ -38,6 +39,9 @@
         <h1>Pas de posts</h1>
 
     <?php endif; ?>
-
+    </article>
+    <aside>
+        test test test
+    </aside>
 </main>
 <?php get_footer() ?>

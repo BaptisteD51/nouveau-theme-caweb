@@ -11,8 +11,13 @@
     <?php wp_body_open();?>
     <header>
         <div class="header-wrapper">
-            <div class="site-logo"><?php the_custom_logo(); ?></div>
-            <!--<p class="site-title"> <?php bloginfo('name'); ?> </p>-->
+            <div class="site-logo">
+                <?php the_custom_logo();?>
+                <a href="<?= get_site_url() ?>" class="custom-icon-link" rel="home" aria-current="page">
+                    <img src="<?=get_site_icon_url()?>">
+                    <?= bloginfo('name');?>
+                </a>
+            </div>
             <?php
             wp_nav_menu(['theme_location' => 'main-menu', 'container' => 'nav', 'container_id' => 'main-menu-wrapper', 'container_class' => 'main-menu-wrapper', 'menu_id' => 'main-menu',]); //theme_location with underscore !!!
             ?>

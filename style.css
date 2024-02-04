@@ -2,10 +2,14 @@
 Theme Name: Nouveau theme CAWEB
 */
 
+/* Imports */
+@import url(css/menu-burger.css); /* Here is the css to make the burger menu work, be cautious */
+
 /* Css variables */
 :root {
     --page-width: 1000px;
     --post-width: 700px;
+    --padding-main:15px;
 }
 
 /* Include unistra fonts */
@@ -64,32 +68,33 @@ Theme Name: Nouveau theme CAWEB
     background-color: var(--wp--preset--color--rouge);
 }
 
-/* Width of main following the post type */
-main {
-    width: var(--page-width);
-    margin: auto;
-}
-
-body.single main {
-    width: var(--post-width);
-    padding-right: calc(var(--page-width) - var(--post-width));
-}
-
 /* Wordpress Classes Styles */
-.alignfull {
+.alignfull{
     width: 100vw;
-    margin-left: calc(-1 * ((100vw - var(--page-width)) / 2));
+}
+
+@media screen and (min-width:1000px){
+    .alignfull {
+        margin-left: calc( (-1 * ((100vw - var(--page-width)) / 2)) - var(--padding-main));
+    }
+}
+
+@media screen and (max-width:1000px){
+    .alignfull{
+        margin-left: calc( -1 * var(--padding-main))
+    }
 }
 
 /* Header styles */
 header {
-    /* padding: 0px calc((100% - var(--page-width))/2); */
     background: var(--wp--preset--gradient--gradient-caweb);
     font-family: 'Unistra';
+    box-sizing: border-box;
 }
 
 div.header-wrapper {
     position: relative;
+    z-index:1;
     display: flex;
     width: var(--page-width);
     max-width: 100%;
@@ -97,7 +102,17 @@ div.header-wrapper {
 }
 
 div.site-logo {
-    padding: 15px 0px 10px 0px;
+    padding: 15px 0px 10px var(--padding-main);
+}
+
+div.site-logo a{
+    display:flex;
+    align-items: center;
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    gap:15px;
 }
 
 #main-menu-wrapper {
@@ -123,6 +138,10 @@ nav a {
         align-items: center;
     }
 
+    div.site-logo a.custom-icon-link{
+        display:none;
+    }
+
     /* Level 1 */
 
     #main-menu {
@@ -131,16 +150,29 @@ nav a {
         margin: 0px;
         width: 100%;
         font-weight: bold;
+        font-size:18px;
     }
 
-    #main-menu>li {
+    #main-menu>li:not(.main-menu-button) {
         flex: 1;
         color: white;
     }
 
-    #main-menu>li:hover {
+    #main-menu>li:not(.main-menu-button):hover {
         background-color:orangered;
     }
+
+    li.main-menu-button{
+        color:var(--wp--preset--color--orange);
+        padding:0px 10px;
+    }
+
+    li.main-menu-button a{
+        background-color: white;
+        padding:5px 15px;
+        border-radius: 100px;
+    }
+
     /* Level 2 */
     #main-menu>li>ul.sub-menu {
         display: none;
@@ -200,11 +232,111 @@ nav a {
     }
 }
 
+/* Main menu styles mobile */
+@media screen and (max-width:999px) {
+    body.menu-open>*:where(main, footer){
+        filter: brightness(60%) blur(3px);
+    }
+
+    div.site-logo a.custom-logo-link{
+        display:none;
+    }
+
+    #main-menu-wrapper{
+        position: absolute;
+        top: 100%;
+        left:0px;
+        right:0px;
+        background-color: white;
+        box-shadow: 0px 2px 10px #aaa;
+    }
+
+    #main-menu li{
+        text-align:center;
+        font-size: 20px;
+    }
+
+    #main-menu li:not(.main-menu-button) a{
+        display:inline-block;
+        padding:15px 0px 10px 0px;
+    }
+
+    #main-menu li.menu-item-has-children a{
+        padding-right:20px;
+    }
+
+    #main-menu li.menu-item-has-children i{
+        transform: translateX(-20px);
+        cursor: pointer;
+    }
+
+    #main-menu>li{
+        font-weight:bold;
+    }
+
+    #main-menu>li:not(.main-menu-button)>a{
+        border-bottom: 1px solid var(--wp--preset--color--orange);
+    }
+
+    #main-menu ul.sub-menu li{
+        font-weight:normal;
+    }
+
+    #main-menu ul ul li{
+        font-weight:normal;
+        font-style: italic;
+    }
+
+    .main-menu-button a{
+        padding:5px 15px;
+        border-radius: 100px;
+        background-color: var(--wp--preset--color--orange);
+        min-width: 80px;
+        display:inline-block;
+        margin:25px 0px;
+        color:white;
+    }
+
+    .main-menu-button{
+        display: inline-block;
+        position: relative;
+        left: 50%;
+        transform:translateX(-110%);
+    }
+
+}
+
+/* Main styles */
+main {
+    width: var(--page-width);
+    max-width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    padding:0px var(--padding-main);
+}
+
+body.single main{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+body.single main>article{
+    width: var(--post-width);
+    max-width: 100%;
+    /* padding-right: calc(var(--page-width) - var(--post-width)); */
+}
+
+body.single main>aside{
+    flex:1 25%;
+}
+
 /* Footer styles */
 footer {
+    box-sizing: border-box;
     border: solid 1px black;
     display: flex;
     width: var(--page-width);
+    max-width: 100%;
     margin: auto;
     justify-content: space-between;
 }
@@ -264,34 +396,3 @@ div.author-box {
     border: solid 1px black;
 }
 
-/* Responsive menu */
-#burger {
-    height: 50px;
-    width: 50px;
-    background-color: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-}
-
-#burger i {
-    font-size: 35px;
-}
-
-@media screen and (max-width:999px) {
-    body #main-menu {
-        display: none;
-        /* Don't touch this line ! */
-    }
-}
-
-@media screen and (min-width:1000px) {
-    #burger {
-        display: none;
-        /* Don't touch this line ! */
-    }
-}

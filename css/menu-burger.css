@@ -1,0 +1,45 @@
+/* Responsive menu */
+/* I put it here so that the developpers don't break it by mistake in the main style.css */
+
+#burger {
+    height: 50px;
+    width: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+}
+
+#burger i {
+    font-size: 35px;
+    color:white;
+}
+
+/* If you want to change the main menu breakpoints*/
+@media screen and (max-width:999px) {
+    body #main-menu {
+        display: none;
+        /* Don't touch this line ! */
+    }
+
+    #main-menu li.menu-item-has-children>ul{
+        display:none;
+    }    
+}
+
+@media screen and (min-width:1000px) {
+    #burger {
+        display: none;
+        /* Don't touch this line ! */
+    }
+
+    #main-menu i.menu-arrow{
+        display:none;
+    }
+}
