@@ -14,7 +14,7 @@
             <div class="site-logo">
                 <?php the_custom_logo();?>
                 <a href="<?= get_site_url() ?>" class="custom-icon-link" rel="home" aria-current="page">
-                    <img src="<?=get_site_icon_url()?>">
+                    <img src="<?=get_site_icon_url()?>" height="50px" width="50px">
                     <?= bloginfo('name');?>
                 </a>
             </div>
