@@ -98,21 +98,23 @@ function caweb_theme_wp_nav_menu_objects($items, $args){
             $item->title = get_field('social_icon', $item);
         }
     }
+
     if($args->theme_location == 'contact-menu'){
-        
         foreach($items as $item){
             $phone = get_field('secretary_phone', $item);
             $email = get_field('secretary_email', $item);
+
+            $html = '<ul>';
+            $html .= '<li>'.$item->title.'</li>';
+            $html .= '<li><a href="tel:'.$phone.'">'.$phone.'</a></li>';
+            $html .= '<li><a href="mailto:'.$email.'">'.$email.'</a></li>';
+            $html .= '</ul>';
             
-            $args->before = "<ul>";
-
-            $args->after = "<li><a href='tel:".$phone."'>".$phone."</a></li>";
-            $args->after .= "<li><a href='mailto:".$email."'>".$email."</a></li>";
-            $args->after .= "</ul>";
-
+            $item->title = $html;
             $item->url = '';
         }
     }
+
     if($args->theme_location == 'main-menu'){
         foreach($items as $item){
             if(get_field('menu-item-class', $item)!==''){
@@ -120,6 +122,7 @@ function caweb_theme_wp_nav_menu_objects($items, $args){
             }
         }
     }
+
     return $items;
 }
 

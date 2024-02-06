@@ -123,6 +123,7 @@ div.site-logo a{
 nav ul {
     list-style-type: none;
     padding-left: 0px;
+    margin:0px;
 }
 
 nav a {
@@ -335,14 +336,54 @@ body.single main figure.post-image img{
 }
 
 /* Footer styles */
-footer {
-    box-sizing: border-box;
-    border: solid 1px black;
+footer{
+    background-color: var(--wp--preset--color--bleu);
+}
+
+#footer-wrapper {
     display: flex;
+    justify-content: space-between;
+    gap:25px;
+    flex-wrap: wrap;
+    
+    box-sizing: border-box;
     width: var(--page-width);
     max-width: 100%;
     margin: auto;
-    justify-content: space-between;
+    padding: 50px var(--padding-main);
+
+    color:white;
+    font-family: Unistra;
+    font-size:18px;
+    font-weight: bold;
+}
+
+.footer-element-container{
+    flex:1;
+}
+
+.footer-element-container:has(#contact-menu){
+    flex:2;
+}
+
+#social-menu{
+    font-size:30px;
+    display:flex;
+    gap:10px;
+}
+
+#contact-menu{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+#contact-menu ul>*{
+    display:block;
+    margin-bottom: 10px;
+}
+
+#footer-menu li{
+    margin-bottom: 10px;
 }
 
 /* General styles */
