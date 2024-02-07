@@ -286,5 +286,63 @@ add_action( 'acf/include_fields', function() {
 	'description' => '',
 	'show_in_rest' => 0,
 ) );
-} );
 
+	acf_add_local_field_group( array(
+	'key' => 'group_65c2beb3c091d',
+	'title' => 'Titre a afficher pour le menu dans le footer',
+	'fields' => array(
+		array(
+			'key' => 'field_65c2beb4fccf7',
+			'label' => 'Titre de la navigation',
+			'name' => 'nav_title',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'maxlength' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'nav_menu',
+				'operator' => '==',
+				'value' => 'location/footer-menu',
+			),
+		),
+		array(
+			array(
+				'param' => 'nav_menu',
+				'operator' => '==',
+				'value' => 'location/social-menu',
+			),
+		),
+		array(
+			array(
+				'param' => 'nav_menu',
+				'operator' => '==',
+				'value' => 'location/contact-menu',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+) );
+} );
