@@ -41,7 +41,29 @@
     <?php endif; ?>
     </article>
     <aside>
-        test test test
+        <h3> Autres articles </h3>
+        <ul>
+        <?php
+        $query = new WP_Query([
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'post__not_in' => [get_the_id()],
+            'orderby' => 'rand',
+            'posts_per_page' => 3,
+        ]);
+        //var_dump($query->get_posts());
+        ?>
+        <?php if ( $query->have_posts() ) : ?>
+            <?php while ( $query->have_posts() ) : $query->the_post();?>
+                <li>
+                    <a href="<?php the_permalink();?>">
+                        <?= the_title();?>
+                        <?php the_post_thumbnail("thumbnail"); ?>
+                    </a>
+                </li>
+            <?php endwhile; wp_reset_postdata();?>
+        <?php endif;?>
+        </ul>
     </aside>
 </main>
 <?php get_footer() ?>

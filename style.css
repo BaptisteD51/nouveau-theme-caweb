@@ -464,3 +464,22 @@ div.author-box {
     border: solid 1px black;
 }
 
+/* Some tests */
+main aside li{
+    max-width:200px;
+    list-style-type: none;
+}
+
+main aside ul{
+    padding:0px;
+    margin:0px;
+}
+
+main aside{
+    padding-left:20px;
+}
+
+main aside img{
+    max-width:250px;
+    height:auto;
+}
