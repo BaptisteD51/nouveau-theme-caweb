@@ -132,10 +132,32 @@ function caweb_theme_wp_nav_menu_objects($items, $args){
     return $items;
 }
 
+function caweb_theme_register_widgets(){
+    register_sidebar([
+        'id' => 'bottom-footer-sidebar',
+        'name'=>'Bandeau en bas du footer',
+        'before_widget'=>"<div class='bottom-footer-widget-element'>",
+        'after_widget'=>"</div>",
+        'before_sidebar'=>"<div class='bottom-footer-sidebar'>",
+        'after_sidebar'=>"</div>",
+    ]);
+}
+
+
+/**
+ * This add a shortcode to easily display the current year in WordPress posts and widgets 
+ */
+//[year]
+function display_current_year(){
+    return date('Y');
+}
+add_shortcode('year', 'display_current_year');
+
 add_action('init', 'caweb_theme_init');
 add_action('after_setup_theme', 'caweb_theme_supports');
 add_action('wp_enqueue_scripts', 'caweb_theme_assets');
 add_action( 'wp_footer', 'caweb_theme_assets_footer');
+add_action( 'widgets_init', 'caweb_theme_register_widgets');
 
 /**
  * 10 -> the priority

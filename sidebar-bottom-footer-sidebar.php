@@ -1,0 +1,1 @@
+<?php dynamic_sidebar('bottom-footer-sidebar') ?>

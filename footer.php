@@ -22,6 +22,9 @@
                 ?>
             </div>
         </div>
+        <div id="bottom-footer-wrapper">
+            <?= get_sidebar('bottom-footer-sidebar');?>
+        </div>
     </footer>
 <?php wp_footer(); ?>
 </body>

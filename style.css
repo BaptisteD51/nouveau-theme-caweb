@@ -338,6 +338,9 @@ body.single main figure.post-image img{
 /* Footer styles */
 footer{
     background-color: var(--wp--preset--color--bleu);
+    color:white;
+    font-family: Unistra;
+    font-size:18px;
 }
 
 #footer-wrapper {
@@ -351,11 +354,6 @@ footer{
     max-width: 100%;
     margin: auto;
     padding: 50px var(--padding-main);
-
-    color:white;
-    font-family: Unistra;
-    font-size:18px;
-    /* font-weight: bold; */
 }
 
 .footer-element-container{
@@ -391,6 +389,24 @@ footer{
 footer h4{
     margin-top:0px;
     margin-bottom:15px;
+}
+
+#bottom-footer-wrapper{
+    background-color: #132935;
+}
+
+.bottom-footer-sidebar{
+    padding:25px var(--padding-main);
+    margin:auto;
+    width:var(--page-width);
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#bottom-footer-wrapper p{
+    margin:0px;
+    text-align: center;
+    font-size:18px;
 }
 
 /* General styles */
