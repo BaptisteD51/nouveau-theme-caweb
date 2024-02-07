@@ -343,7 +343,7 @@ footer{
 #footer-wrapper {
     display: flex;
     justify-content: space-between;
-    gap:25px;
+    gap: 40px;
     flex-wrap: wrap;
     
     box-sizing: border-box;
@@ -374,7 +374,9 @@ footer{
 
 #contact-menu{
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 #contact-menu ul>*{
@@ -389,10 +391,6 @@ footer{
 footer h4{
     margin-top:0px;
     margin-bottom:15px;
-}
-
-.footer-element-container:has(#contact-menu) h4{
-    text-align:center;
 }
 
 /* General styles */
