@@ -123,6 +123,12 @@ function caweb_theme_wp_nav_menu_objects($items, $args){
         }
     }
 
+    if(($args->theme_location == 'contact-menu') || ($args->theme_location == 'footer-menu') || ($args->theme_location == 'social-menu')){
+        $menu = wp_get_nav_menu_object($args->menu);
+        $navTitle = get_field('nav_title', $menu);
+        echo '<h4>'.$navTitle.'</h4>';
+    }
+
     return $items;
 }
 

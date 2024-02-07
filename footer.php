@@ -16,6 +16,7 @@
                 ?>
             </div>
             <div class="footer-element-container">
+                <h4>Rechercher :</h4>
                 <?php 
                     get_search_form();
                 ?>
