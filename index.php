@@ -2,16 +2,26 @@
 <main>
     <?php if (have_posts()) : ?>
 
-        <h1>Derniers posts</h1>
+        <h1>Blog</h1>
 
-        <ul>
+        <ul class="article-list">
 
             <?php while (have_posts()) : the_post(); ?>
                 <li>
-                    <h2><?php the_title(); ?></h2>
-                    <?php the_post_thumbnail("thumbnail"); ?>
-                    <?php the_excerpt(); ?>
-                    <a href="<?php the_permalink(); ?>">Lire la suite</a>
+                    <a href="<?php the_permalink(); ?>">
+                        <?php the_post_thumbnail("thumbnail"); ?>
+                        <h2><?php the_title(); ?></h2>
+                        <div class="post-meta">
+                            <div class="post-categories">
+                                <?php $categories = get_the_category(); foreach($categories as $categorie) :?>
+                                    <p> <?= $categorie->name; ?></p>        
+                                <?php endforeach; ?>
+                            </div>
+
+                            <time><?php echo get_the_date('Y-m-d'); ?></time>
+                        </div>
+                        <p class="post-excerpt"><?= get_the_excerpt(); ?></p>
+                    </a>
                 </li>
             <?php endwhile ?>
 
@@ -21,7 +31,7 @@
 
     <?php else : ?>
 
-        <h1>Pas de posts</h1>
+        <h1>Pas d'articles à afficher</h1>
 
     <?php endif; ?>
 </main>

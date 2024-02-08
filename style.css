@@ -95,14 +95,18 @@ header {
 div.header-wrapper {
     position: relative;
     z-index:1;
-    display: flex;
+    margin: auto;
+    
     width: var(--page-width);
     max-width: 100%;
-    margin: auto;
+    box-sizing: border-box;
+    padding:0px var(--padding-main);
+
+    display: flex;
 }
 
 div.site-logo {
-    padding: 15px 0px 10px var(--padding-main);
+    padding: 15px 10px 10px 0px;
 }
 
 div.site-logo a{
@@ -464,7 +468,81 @@ div.author-box {
     border: solid 1px black;
 }
 
-/* Some tests */
+/* Blog archive page CSS */
+ul.article-list{
+    padding:0px;
+    margin:0px;
+
+    display:flex;
+    flex-wrap: wrap;
+    gap:35px;
+}
+
+ul.article-list li{
+    width:300px;
+    max-width:100%;
+    list-style-type: none;
+    padding:0px;
+    box-shadow: 0px 2px 5px #eee;
+    transition: transform 0.3s;
+}
+
+ul.article-list li:hover{
+    transform: scale(102.5%);
+}
+
+ul.article-list img{
+    max-width:100%;
+    height:auto;
+}
+
+ul.article-list h2{
+    margin:0px;
+    font-size:22px;
+    padding:0px 5px;
+}
+
+ul.article-list p{
+    margin:0px;
+    font-size: 18px;
+}
+
+ul.article-list p.post-excerpt{
+    font-size:17px;
+    padding: 0px 5px 5px 5px;
+    text-align: justify;
+    line-height: initial;
+}
+
+ul.article-list a{
+    text-decoration: none;
+    color:inherit;
+}
+
+ul.article-list div.post-meta{
+    display:flex;
+    justify-content: space-between;
+    margin:5px 0px;
+}
+
+ul.article-list div.post-categories p{
+    background-color: var(--wp--preset--color--orange);
+    padding:0px 15px 0px 5px;
+    border-radius: 0px 25px 25px 0px;
+    color:white;
+    font-weight: bold;
+}
+
+ul.article-list div.post-categories p+p{
+    margin-top:5px;
+}
+
+ul.article-list time{
+    padding-right:5px;
+    font-size: 18px;
+}
+
+/* Some tests for single posts random articles */
 main aside li{
     max-width:200px;
     list-style-type: none;

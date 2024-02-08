@@ -143,6 +143,9 @@ function caweb_theme_register_widgets(){
     ]);
 }
 
+function caweb_theme_excerpt_length($length){
+    return 20;
+}
 
 /**
  * This add a shortcode to easily display the current year in WordPress posts and widgets 
@@ -165,4 +168,5 @@ add_action( 'widgets_init', 'caweb_theme_register_widgets');
  * They are needed in order to avoid any error messages
  */
 add_filter('wp_nav_menu_objects', 'caweb_theme_wp_nav_menu_objects', 10, 2);
+add_filter( 'excerpt_length', 'caweb_theme_excerpt_length'/*, 999 */);
 
