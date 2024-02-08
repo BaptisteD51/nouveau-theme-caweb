@@ -90,11 +90,11 @@ header {
     background: var(--wp--preset--gradient--gradient-caweb);
     font-family: 'Unistra';
     box-sizing: border-box;
+    position: relative;
+    z-index:1;
 }
 
 div.header-wrapper {
-    position: relative;
-    z-index:1;
     margin: auto;
     
     width: var(--page-width);
@@ -196,8 +196,6 @@ nav a {
         color: black;
 
         box-shadow: 0px 2px 10px #aaa;
-        border-bottom-right-radius: 75px;
-        border-bottom-left-radius: 75px;
     }
 
     #main-menu>li:hover>ul.sub-menu {
