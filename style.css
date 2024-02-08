@@ -542,6 +542,28 @@ ul.article-list time{
     font-size: 18px;
 }
 
+/* Pagination search and archives*/
+.nav-links{
+    font-family: Unistra;
+    font-weight:bold;
+    font-size:24px;
+    margin:20px 0px;
+
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    gap:5px;
+}
+
+.nav-links span.current{
+    font-size:28px;
+    text-decoration: underline;
+}
+
+.nav-links .prev, .nav-links .next{
+    padding:0px 20px;
+} 
+
 /* Some tests for single posts random articles */
 main aside li{
     max-width:200px;

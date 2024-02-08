@@ -17,7 +17,10 @@
             <?php endwhile ?>
         </ul>
 
-        <?php the_posts_pagination(['container' => 'nav']); ?>
+        <?php the_posts_pagination([
+            'prev_text' => '<i class="fa-solid fa-chevron-left"></i>',
+            'next_text' => '<i class="fa-solid fa-chevron-right"></i>',
+        ]);?>
 
     <?php else : ?>
 
