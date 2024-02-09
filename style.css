@@ -462,8 +462,25 @@ nav.next-previous-posts {
     justify-content: space-between;
 }
 
-div.author-box {
-    border: solid 1px black;
+div.author-box{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin:15px 0px;
+}
+
+div.author-box h4{
+    margin-bottom:0px;
+}
+
+div.author-box a{
+    text-decoration: none;
+    color:var(--wp--preset--color--bleu);
+    font-size:20px;
+}
+
+body.single-post hr{
+    width:90%;
 }
 
 /* Blog archive page CSS */

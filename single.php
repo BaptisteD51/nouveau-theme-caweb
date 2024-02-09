@@ -9,6 +9,8 @@
             <?php the_content(); ?>
         <?php endwhile ?>
 
+        <hr>
+
         <div class='author-box'>
 
             <?php
@@ -23,11 +25,18 @@
                 $authPicUrl = $authPic['sizes']['author-format'];
             ?>
 
-            <p> Auteur : </p>
-            <h4> <?php the_author_meta('display_name'); ?> </h4>
-            <p><img src="<?= $authPicUrl ?>" alt="<?= $authPicAlt?>" title="<?= $authPicTitle ?>"></p>
-            <p> <?php the_field('author_biography', $acfAuthorID); ?></p>
+            <div>
+                <h4>
+                    <a href="<?php the_field('author_linkedin', $acfAuthorID); ?>" rel="author">
+                        <i class="fa-brands fa-linkedin"></i> <?php the_author_meta('display_name'); ?>
+                    </a> 
+                </h4>
+                <figure><img src="<?= $authPicUrl ?>" alt="<?= $authPicAlt?>" title="<?= $authPicTitle ?>"></figure>
+            </div>
+            <blockquote> <?php the_field('author_biography', $acfAuthorID); ?></blockquote>
         </div>
+
+        <hr>
 
         <nav class='next-previous-posts'>
             <p><?php echo previous_post_link(); ?></p>

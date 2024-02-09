@@ -1,4 +1,4 @@
-<?php
+<?php 
 add_action( 'acf/include_fields', function() {
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 		return;
@@ -143,6 +143,26 @@ add_action( 'acf/include_fields', function() {
 			'preview_size' => 'medium',
 		),
 		array(
+			'key' => 'field_65c648911bb2e',
+			'label' => 'Profil LinkedIn',
+			'name' => 'author_linkedin',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'maxlength' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
+		array(
 			'key' => 'field_65b1991655b99',
 			'label' => 'Biographie de l\'auteur',
 			'name' => 'author_biography',
@@ -173,7 +193,7 @@ add_action( 'acf/include_fields', function() {
 		),
 	),
 	'menu_order' => 0,
-	'position' => 'normal',
+	'position' => 'acf_after_title',
 	'style' => 'default',
 	'label_placement' => 'top',
 	'instruction_placement' => 'label',
@@ -346,3 +366,4 @@ add_action( 'acf/include_fields', function() {
 	'show_in_rest' => 0,
 ) );
 } );
+
