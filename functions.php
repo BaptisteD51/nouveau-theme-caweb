@@ -141,6 +141,14 @@ function caweb_theme_register_widgets(){
         'before_sidebar'=>"<div class='bottom-footer-sidebar'>",
         'after_sidebar'=>"</div>",
     ]);
+    register_sidebar([
+        'id' => 'column-footer-sidebar',
+        'name'=>'Colonne de droite du footer',
+        'before_widget'=>"<div class='column-footer-widget-element'>",
+        'after_widget'=>"</div>",
+        'before_sidebar'=>"<div class='column-footer-sidebar'>",
+        'after_sidebar'=>"</div>",
+    ]);
 }
 
 function caweb_theme_excerpt_length($length){

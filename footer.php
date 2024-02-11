@@ -16,10 +16,7 @@
                 ?>
             </div>
             <div class="footer-element-container">
-                <h4>Rechercher :</h4>
-                <?php 
-                    get_search_form();
-                ?>
+                <?= get_sidebar('column-footer-sidebar');?>
             </div>
         </div>
         <div id="bottom-footer-wrapper">
