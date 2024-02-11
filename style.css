@@ -393,6 +393,10 @@ footer h4{
     margin-bottom:15px;
 }
 
+footer .column-footer-sidebar{
+    max-width:180px;
+}
+
 #bottom-footer-wrapper{
     background-color: #132935;
 }
@@ -457,9 +461,36 @@ h3 {
 
 /* Single post styles */
 
-nav.next-previous-posts {
+ul.next-previous-posts {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap:35px;
+
+    padding:0px;
+
+    font-size:22px;
+    font-family:Unistra;
+}
+
+ul.next-previous-posts li{
+    list-style-type: none;
+    width:300px;
+    max-width: 100%;
+}
+
+ul.next-previous-posts h4{
+    margin:0px;
+}
+
+ul.next-previous-posts a{
+    text-decoration: none;
+    color:inherit;
+}
+
+ul.next-previous-posts img{
+    max-width:100%;
+    height: auto;
 }
 
 div.author-box{

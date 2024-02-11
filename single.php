@@ -38,10 +38,27 @@
 
         <hr>
 
-        <nav class='next-previous-posts'>
-            <p><?php echo previous_post_link(); ?></p>
-            <p><?php echo next_post_link(); ?></p>
-        </nav>
+        <ul class='next-previous-posts'>
+                <?php if(get_next_post()!=""): ?>
+                    <?php $nextPostId = get_next_post()->ID; ?>
+                    <li>
+                        <a href="<?= get_permalink($nextPostId); ?>">
+                            <?= get_the_post_thumbnail($nextPostId, 'thumbnail');?>
+                            <h4><i class="fa-solid fa-arrow-left"></i> <?= get_next_post()->post_title; ?></h4>
+                        </a> 
+                    </li>
+                <?php endif;?>
+
+                <?php if(get_previous_post()!=""): ?>
+                    <?php $previousPostId = get_previous_post()->ID; ?>
+                    <li>
+                        <a href="<?= get_permalink($previousPostId); ?>">
+                            <?= get_the_post_thumbnail($previousPostId, 'thumbnail');?>
+                            <h4><?= get_previous_post()->post_title; ?> <i class="fa-solid fa-arrow-right"></i></h4>
+                        </a>
+                    </li>
+                <?php endif;?>
+        </ul>
 
     <?php else : ?>
 
