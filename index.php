@@ -2,7 +2,10 @@
 <main>
     <?php if (have_posts()) : ?>
 
-        <h1>Blog</h1>
+        <div class="archive-title">
+            <h1>Blog</h1>
+            <?php get_search_form(); ?>
+        </div>
 
         <ul class="article-list">
 

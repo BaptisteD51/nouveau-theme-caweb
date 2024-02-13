@@ -445,6 +445,10 @@ main li {
     margin-bottom: 5px;
 }
 
+h1{
+    font-size: 60px;
+}
+
 h2 {
     font-size: 36px;
     margin-top: 40px;
@@ -515,6 +519,21 @@ body.single-post hr{
 }
 
 /* Blog archive page CSS */
+
+.archive-title{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap:30px;
+
+    margin:40px 0px;
+}
+
+.archive-title h1{
+    margin:0px;
+}
+
 ul.article-list{
     padding:0px;
     margin:0px;
