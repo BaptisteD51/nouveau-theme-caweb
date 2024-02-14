@@ -628,7 +628,60 @@ ul.article-list time{
 
 .nav-links .prev, .nav-links .next{
     padding:0px 20px;
-} 
+}
+
+/* Intervenants archive page */
+ul.teacher-list{
+    padding: 0px;
+    margin:0px 0px 100px 0px;
+
+    display:flex;
+    flex-wrap: wrap;
+    gap:70px;
+}
+
+ul.teacher-list li{
+    list-style-type: none;
+    width:450px;
+    max-width: 100%;
+    box-shadow: 0px 2px 5px #ccc;
+    box-sizing: border-box;
+    padding:15px;
+    background-color: #FEF4EB;
+}
+
+ul.teacher-list div.teacher-header{
+    display:flex;
+    flex-wrap: wrap;
+    gap:0px 15px;
+    margin-bottom: 15px;
+}
+
+ul.teacher-list h2{
+    margin:0px 0px 5px 0px;
+    font-size: 30px;
+}
+
+ul.teacher-list figure{
+    margin:0px;
+}
+
+ul.teacher-list a.teacher-interview{
+    background-color: var(--wp--preset--color--rouge);
+    color:white;
+    text-decoration:none;
+    font-weight: bold;
+    font-family: Unistra;
+    display:inline-block;
+    padding:5px 15px;
+    border-radius: 50px;
+}
+
+ul.teacher-list a.teacher-linkedin{
+    color:var(--wp--preset--color--bleu);
+    text-decoration: none;
+    font-weight: bold;
+}
 
 /* Some tests for single posts random articles */
 main aside li{

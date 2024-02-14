@@ -76,13 +76,25 @@ function caweb_theme_assets_footer(){//to add script at the bottom of the body
 
 function caweb_theme_init(){
     register_post_type('intervenant',[
-        'label' => 'Intervenant',
+        'label' => 'Intervenants',
+        'labels' => [
+            'name'=>'Intervenants',
+            'singular_name'=>'Intervenant',
+            'add_new_item' => 'Ajouter un intervenant',
+            'edit_item' => 'Modifier l\'intervant',
+            'add_new' => 'Ajouter un intervenant',
+            'add_new_item' => 'Ajouter un intervenant',
+        ],
         'public' => true,
         'menu_position' => 22,
         'has_archive' => true,
         'menu_icon' => 'dashicons-businesswoman',
         'supports' => ['title', 'thumbnail', 'editor'],
         'show_in_nav_menus' => false,
+        'exclude_from_search' => true,
+        'rewrite'=>[
+            'slug'=>'intervenants',
+        ],
     ]);
 }
 
