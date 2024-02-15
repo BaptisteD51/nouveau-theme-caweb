@@ -658,7 +658,7 @@ ul.teacher-list div.teacher-header{
 }
 
 ul.teacher-list h2{
-    margin:0px 0px 5px 0px;
+    margin:0px;
     font-size: 30px;
 }
 
@@ -681,6 +681,17 @@ ul.teacher-list a.teacher-linkedin{
     color:var(--wp--preset--color--bleu);
     text-decoration: none;
     font-weight: bold;
+}
+
+ul.teacher-list p.teacher-subject{
+    margin:0px;
+    font-weight:bold;
+    font-family: Unistra;
+    color:var(--wp--preset--color--orange);
+}
+
+ul.teacher-list p.teacher-subject:last-of-type{
+    margin-bottom:5px;
 }
 
 /* Some tests for single posts random articles */

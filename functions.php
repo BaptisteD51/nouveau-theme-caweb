@@ -96,6 +96,23 @@ function caweb_theme_init(){
             'slug'=>'intervenants',
         ],
     ]);
+
+    register_taxonomy(
+        'matiere',
+        'intervenant',[
+            'labels'=>[
+                'name'=>'Matières',
+                'singular_name'=>'Matière',
+                'add_new_item'=>'Ajouter une nouvelle matière',
+                'not_found'=>'Aucune matière trouvée',
+                'edit_item'=>'Modifier la matière',
+                'back_to_items'=>'&larr; Aller aux matières',
+            ],
+            'hierarchical'=>true,
+            'show_in_nav_menus' => false,
+            'show_admin_column' =>true,
+        ],
+    );
 }
 
 /**
