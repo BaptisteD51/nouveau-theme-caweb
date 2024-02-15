@@ -12,9 +12,12 @@
                 ];
             }; 
         ?>
-        <?php foreach($allMatieres as $matiere):?>
-            <button id="<?= $matiere['slug'];?>"><?= $matiere['name'];?></button>
-        <?php endforeach;?>
+        <div class='subject-list'>
+            <button id='all'>Tous</button>
+            <?php foreach($allMatieres as $matiere):?>
+                <button id="<?= $matiere['slug'];?>"><?= $matiere['name'];?></button>
+            <?php endforeach;?>
+        </div>
 
         <ul class='teacher-list'>
             <?php while (have_posts()) : the_post(); ?>
@@ -30,7 +33,7 @@
                         };
                     }
                 ?>
-                <li class="<?php foreach($postMatieres as $matiere){echo $matiere['slug'];} ?>">
+                <li class="<?php foreach($postMatieres as $matiere){echo $matiere['slug'].' ';} ?>">
                     <div class='teacher-header'>
                         <figure>
                             <?php the_post_thumbnail("author-format"); ?>
@@ -59,4 +62,5 @@
 
     <?php endif; ?>
 </main>
+<script src='<?php echo get_template_directory_uri()."/js/subject-selector.js"; ?>'></script>
 <?php get_footer() ?>
