@@ -318,18 +318,9 @@ main {
     padding:0px var(--padding-main);
 }
 
-body.single main{
-    display:flex;
-    flex-wrap: wrap;
-}
-
 body.single main>article{
     width: var(--post-width);
     max-width: 100%;
-}
-
-body.single main>aside{
-    flex:1 25%;
 }
 
 body.single main figure.post-image img{
@@ -447,6 +438,7 @@ main li {
 
 h1{
     font-size: 60px;
+    margin:20px 0px;
 }
 
 h2 {
@@ -465,7 +457,7 @@ h3 {
 
 /* Single post styles */
 
-ul.next-previous-posts {
+ul.next-previous-posts, div.other-posts ul {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -477,22 +469,22 @@ ul.next-previous-posts {
     font-family:Unistra;
 }
 
-ul.next-previous-posts li{
+ul.next-previous-posts li, div.other-posts li{
     list-style-type: none;
     width:300px;
     max-width: 100%;
 }
 
-ul.next-previous-posts h4{
+ul.next-previous-posts h4, div.other-posts h4{
     margin:0px;
 }
 
-ul.next-previous-posts a{
+ul.next-previous-posts a, div.other-posts a{
     text-decoration: none;
     color:inherit;
 }
 
-ul.next-previous-posts img{
+ul.next-previous-posts img,div.other-posts img{
     max-width:100%;
     height: auto;
 }
@@ -501,7 +493,7 @@ div.author-box{
     display:flex;
     flex-wrap: wrap;
     align-items: center;
-    margin:15px 0px;
+    margin:15px 0px 100px 0px;
 }
 
 div.author-box h4{
@@ -514,9 +506,32 @@ div.author-box a{
     font-size:20px;
 }
 
-body.single-post hr{
-    width:90%;
+body.single-post h1{
+    font-size:48px;
+    margin-bottom:0px;
+    margin-top: 20px;
 }
+
+body.single-post div.post-meta{
+    display:flex;
+    justify-content: space-between;
+}
+
+body.single-post div.post-meta{
+    font-family: Unistra;
+    font-weight:bold;
+    font-size: 20px;
+}
+
+body.single-post p.post-categories span:not(span:last-of-type)::after{
+    content:' | '
+}
+
+body.single-post p.post-categories{
+    margin-bottom:16px;
+    color: var(--wp--preset--color--orange);
+}
+
 
 /* Blog archive page CSS */
 
@@ -694,22 +709,26 @@ ul.teacher-list p.teacher-subject:last-of-type{
     margin-bottom:5px;
 }
 
-/* Some tests for single posts random articles */
-main aside li{
-    max-width:200px;
-    list-style-type: none;
+div.subject-list{
+    margin-bottom:25px;
 }
 
-main aside ul{
-    padding:0px;
-    margin:0px;
+div.subject-list button{
+    background-color: var(--wp--preset--color--rouge);
+    color:white;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Unistra;
+    display:inline-block;
+    padding:5px 15px;
+    margin-bottom:10px;
+    margin-left: 10px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
 }
 
-main aside{
-    padding-left:20px;
+div.subject-list button.selected-subject{
+    background-color: var(--wp--preset--color--bleu);
 }
 
-main aside img{
-    max-width:250px;
-    height:auto;
-}

@@ -4,6 +4,10 @@ var buttonAll = document.getElementById('all');
 
 buttons.forEach(function(button){
     button.addEventListener("click",function(){
+        buttons.forEach((button)=>button.classList.remove('selected-subject'))
+        buttonAll.classList.remove('selected-subject')
+        button.classList.add('selected-subject')
+
         var hidden = intervenants.filter(function(intervenant){
             return !intervenant.classList.contains(button.id)
         })
@@ -17,6 +21,8 @@ buttons.forEach(function(button){
 
 buttonAll.addEventListener('click',function(){
     intervenants.forEach(function(intervenant){
+        buttons.forEach((button)=>button.classList.remove('selected-subject'))
+        buttonAll.classList.add('selected-subject')
         intervenant.style.display=""
     })
 })

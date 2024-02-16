@@ -13,7 +13,7 @@
             }; 
         ?>
         <div class='subject-list'>
-            <button id='all'>Tous</button>
+            <button id='all' class='selected-subject'>Tous</button>
             <?php foreach($allMatieres as $matiere):?>
                 <button id="<?= $matiere['slug'];?>"><?= $matiere['name'];?></button>
             <?php endforeach;?>

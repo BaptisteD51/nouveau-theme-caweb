@@ -4,12 +4,24 @@
     <?php if (have_posts()) : ?>
 
         <?php while (have_posts()) : the_post(); ?>
+            <?php 
+                $categories = [];
+                foreach(get_the_category() as $categorie){
+                    $categories[] = $categorie->name;
+                } 
+            ?>
             <h1><?php the_title(); ?></h1>
+            <div class="post-meta">
+                <p class="post-categories">
+                    <?php foreach($categories as $categorie):?>
+                        <span><?= $categorie; ?></span>
+                    <?php endforeach;?>
+                </p>
+                <time><?php the_date();?></time>
+            </div>
             <figure class='post-image'><?php the_post_thumbnail("medium"); ?></figure>
             <?php the_content(); ?>
         <?php endwhile ?>
-
-        <hr>
 
         <div class='author-box'>
 
@@ -35,9 +47,8 @@
             </div>
             <blockquote> <?php the_field('author_biography', $acfAuthorID); ?></blockquote>
         </div>
-
-        <hr>
-
+        
+        <h3> Articles précedents et suivants </h3>
         <ul class='next-previous-posts'>
                 <?php if(get_next_post()!=""): ?>
                     <?php $nextPostId = get_next_post()->ID; ?>
@@ -65,8 +76,8 @@
         <h1>Pas de posts</h1>
 
     <?php endif; ?>
-    </article>
-    <aside>
+    
+    <div class='other-posts'>
         <h3> Autres articles </h3>
         <ul>
         <?php
@@ -83,13 +94,14 @@
             <?php while ( $query->have_posts() ) : $query->the_post();?>
                 <li>
                     <a href="<?php the_permalink();?>">
-                        <?= the_title();?>
                         <?php the_post_thumbnail("thumbnail"); ?>
+                        <h4><?= the_title();?></h4>
                     </a>
                 </li>
             <?php endwhile; wp_reset_postdata();?>
         <?php endif;?>
         </ul>
-    </aside>
+    <div>
+    </article>
 </main>
 <?php get_footer() ?>
