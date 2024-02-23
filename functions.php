@@ -2,6 +2,8 @@
 
 include 'advanced-custom-fields.php';
 
+load_theme_textdomain( 'caweb_theme', get_template_directory_uri() . '/languages' );
+
 function caweb_theme_supports(){
     add_theme_support( "title-tag" );
 
