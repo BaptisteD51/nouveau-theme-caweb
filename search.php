@@ -1,7 +1,7 @@
 <?php get_header() ?>
 <main>
 
-    <h1>Résultats de la recherche</h1>
+    <h1><?= __("Résultats de la recherche", 'theme_caweb'); ?></h1>
     <?php get_search_form(); ?>
 
     <?php if (have_posts()) : ?>
@@ -42,7 +42,7 @@
 
     <?php else : ?>
 
-        <p>Pas de résultats à votre requête</p>
+        <p><?= __("Pas de résultats à votre requête", 'theme_caweb'); ?></p>
         
     <?php endif; ?>
 </main>

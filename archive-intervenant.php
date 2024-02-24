@@ -2,7 +2,7 @@
 <main>
     <?php if (have_posts()) : ?>
 
-        <h1>Intervenants du Master Caweb</h1>
+        <h1><?= __('Intervenants du Master Caweb', 'theme_caweb'); ?></h1>
         <?php 
             $allMatieres = []; 
             foreach(get_terms('matiere') as $matiere){
@@ -13,7 +13,7 @@
             }; 
         ?>
         <div class='subject-list'>
-            <button id='all' class='selected-subject'>Tous</button>
+            <button id='all' class='selected-subject'> <?= __('Tous', 'theme_caweb'); ?> </button>
             <?php foreach($allMatieres as $matiere):?>
                 <button id="<?= $matiere['slug'];?>"><?= $matiere['name'];?></button>
             <?php endforeach;?>
@@ -58,7 +58,7 @@
 
     <?php else : ?>
 
-        <h1>Pas d'intervants à présenter</h1>
+        <h1><?= __("Pas d'intervants à présenter", 'theme_caweb'); ?></h1>
 
     <?php endif; ?>
 </main>

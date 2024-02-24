@@ -48,7 +48,7 @@
             <blockquote> <?php the_field('author_biography', $acfAuthorID); ?></blockquote>
         </div>
         
-        <h3> Articles précedents et suivants </h3>
+        <h3> <?= __("Articles précedents et suivants", 'theme_caweb'); ?></h3>
         <ul class='next-previous-posts'>
                 <?php if(get_next_post()!=""): ?>
                     <?php $nextPostId = get_next_post()->ID; ?>
@@ -73,12 +73,12 @@
 
     <?php else : ?>
 
-        <h1>Pas de posts</h1>
+        <h1><?= __("Pas de posts", 'theme_caweb'); ?></h1>
 
     <?php endif; ?>
     
     <div class='other-posts'>
-        <h3> Autres articles </h3>
+        <h3> <?= __("Autres articles", 'theme_caweb'); ?></h3>
         <ul>
         <?php
         $query = new WP_Query([

@@ -7,7 +7,7 @@
             <?php the_content();?>
     <?php endwhile; ?>
 <?php else : ?>
-    <h1>Pas de posts</h1>
+    <h1><?= __('Pas de posts', 'theme_caweb');?></h1>
 <?php endif; ?>
 
 </main>

@@ -53,20 +53,18 @@ function caweb_theme_supports(){
     add_theme_support('menus');
     add_theme_support( 'custom-logo', ["height"=>60,"width"=>210]);
     register_nav_menus([
-        'footer-menu'=> 'Menu secondaire',
-        'main-menu'=>'Menu principal',
-        'social-menu'=>'Menu réseaux sociaux',
-        'contact-menu'=>'Menu contact secrétariat ',
+        'footer-menu'=> __('Menu secondaire', 'theme_caweb'),
+        'main-menu'=> __('Menu principal', 'theme_caweb'),
+        'social-menu'=> __('Menu réseaux sociaux', 'theme_caweb'),
+        'contact-menu'=> __('Menu contact secrétariat', 'theme_caweb'),
     ]);
 
     add_image_size('author-format', 150, 150, true);
 };
 
 function caweb_theme_assets(){
-    wp_register_style( 'baptiste', 'https://baptistedufour.fr/style.css');
     wp_register_style( 'caweb_theme_style', get_template_directory_uri() . '/style.css');
     wp_register_script('fontawesome', 'https://kit.fontawesome.com/1c552aca57.js');
-    /*wp_enqueue_style('baptiste');*/
     wp_enqueue_style('caweb_theme_style');
     wp_enqueue_script('fontawesome');
 };
@@ -78,14 +76,14 @@ function caweb_theme_assets_footer(){//to add script at the bottom of the body
 
 function caweb_theme_init(){
     register_post_type('intervenant',[
-        'label' => 'Intervenants',
+        'label' => __('Intervenants', 'theme_caweb'),
         'labels' => [
-            'name'=>'Intervenants',
-            'singular_name'=>'Intervenant',
-            'add_new_item' => 'Ajouter un intervenant',
-            'edit_item' => 'Modifier l\'intervant',
-            'add_new' => 'Ajouter un intervenant',
-            'add_new_item' => 'Ajouter un intervenant',
+            'name'=>__('Intervenants', 'theme_caweb'),
+            'singular_name'=>__('Intervenant', 'theme_caweb'),
+            'add_new_item' => __('Ajouter un intervenant', 'theme_caweb'),
+            'edit_item' => __('Modifier l\'intervant', 'theme_caweb'),
+            'add_new' => __('Ajouter un intervenant', 'theme_caweb'),
+            'add_new_item' => __('Ajouter un intervenant', 'theme_caweb'),
         ],
         'public' => true,
         'menu_position' => 22,
@@ -95,7 +93,7 @@ function caweb_theme_init(){
         'show_in_nav_menus' => false,
         'exclude_from_search' => true,
         'rewrite'=>[
-            'slug'=>'intervenants',
+            'slug'=>__('intervenants', 'theme_caweb'),
         ],
     ]);
 
@@ -103,12 +101,12 @@ function caweb_theme_init(){
         'matiere',
         'intervenant',[
             'labels'=>[
-                'name'=>'Matières',
-                'singular_name'=>'Matière',
-                'add_new_item'=>'Ajouter une nouvelle matière',
-                'not_found'=>'Aucune matière trouvée',
-                'edit_item'=>'Modifier la matière',
-                'back_to_items'=>'&larr; Aller aux matières',
+                'name'=>__('Matières', 'theme_caweb'),
+                'singular_name'=>__('Matière', 'theme_caweb'),
+                'add_new_item'=>__('Ajouter une nouvelle matière', 'theme_caweb'),
+                'not_found'=>__('Aucune matière trouvée', 'theme_caweb'),
+                'edit_item'=>__('Modifier la matière', 'theme_caweb'),
+                'back_to_items'=>__('&larr; Aller aux matières', 'theme_caweb'),
             ],
             'hierarchical'=>true,
             'show_in_nav_menus' => false,
@@ -166,7 +164,7 @@ function caweb_theme_wp_nav_menu_objects($items, $args){
 function caweb_theme_register_widgets(){
     register_sidebar([
         'id' => 'bottom-footer-sidebar',
-        'name'=>'Bandeau en bas du footer',
+        'name'=>__('Bandeau en bas du footer', 'theme_caweb'),
         'before_widget'=>"<div class='bottom-footer-widget-element'>",
         'after_widget'=>"</div>",
         'before_sidebar'=>"<div class='bottom-footer-sidebar'>",
@@ -174,7 +172,7 @@ function caweb_theme_register_widgets(){
     ]);
     register_sidebar([
         'id' => 'column-footer-sidebar',
-        'name'=>'Colonne de droite du footer',
+        'name'=>__('Colonne de droite du footer', 'theme_caweb'),
         'before_widget'=>"<div class='column-footer-widget-element'>",
         'after_widget'=>"</div>",
         'before_sidebar'=>"<div class='column-footer-sidebar'>",

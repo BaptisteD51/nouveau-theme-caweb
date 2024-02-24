@@ -3,7 +3,7 @@
     <?php if (have_posts()) : ?>
 
         <div class="archive-title">
-            <h1>Blog</h1>
+            <h1><?= __('Blog', 'theme_caweb'); ?></h1>
             <?php get_search_form(); ?>
         </div>
 
@@ -37,7 +37,7 @@
 
     <?php else : ?>
 
-        <h1>Pas d'articles à afficher</h1>
+        <h1><?= __("Pas d'articles à afficher", 'theme_caweb'); ?></h1>
 
     <?php endif; ?>
 </main>
