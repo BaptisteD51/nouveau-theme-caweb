@@ -1,0 +1,145 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Nouveau theme CAWEB\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-26 18:39+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.6; wp-6.4.3\n"
+"X-Domain: theme_caweb"
+
+#: functions.php:109
+msgid "&larr; Aller aux matières"
+msgstr ""
+
+#: functions.php:83 functions.php:85 functions.php:86
+msgid "Ajouter un intervenant"
+msgstr ""
+
+#: functions.php:106
+msgid "Ajouter une nouvelle matière"
+msgstr ""
+
+#. Author of the theme
+msgid "Anonyme"
+msgstr ""
+
+#: single.php:51
+msgid "Articles précedents et suivants"
+msgstr ""
+
+#: functions.php:107
+msgid "Aucune matière trouvée"
+msgstr ""
+
+#: single.php:81
+msgid "Autres articles"
+msgstr ""
+
+#: functions.php:167
+msgid "Bandeau en bas du footer"
+msgstr ""
+
+#: index.php:6
+msgid "Blog"
+msgstr ""
+
+#: functions.php:175
+msgid "Colonne de droite du footer"
+msgstr ""
+
+#: 404.php:3
+msgid "Erreur 404"
+msgstr ""
+
+#: functions.php:82
+msgid "Intervenant"
+msgstr ""
+
+#: functions.php:79 functions.php:81
+msgid "Intervenants"
+msgstr ""
+
+#: functions.php:96
+msgid "intervenants"
+msgstr ""
+
+#: archive-intervenant.php:5
+msgid "Intervenants du Master Caweb"
+msgstr ""
+
+#: 404.php:4
+msgid "La ressource que vous recherchez est introuvable"
+msgstr ""
+
+#: functions.php:105
+msgid "Matière"
+msgstr ""
+
+#: functions.php:104
+msgid "Matières"
+msgstr ""
+
+#: functions.php:59
+msgid "Menu contact secrétariat"
+msgstr ""
+
+#: functions.php:57
+msgid "Menu principal"
+msgstr ""
+
+#: functions.php:58
+msgid "Menu réseaux sociaux"
+msgstr ""
+
+#: functions.php:56
+msgid "Menu secondaire"
+msgstr ""
+
+#: functions.php:84
+msgid "Modifier l'intervant"
+msgstr ""
+
+#: functions.php:108
+msgid "Modifier la matière"
+msgstr ""
+
+#. Name of the theme
+msgid "Nouveau theme CAWEB"
+msgstr ""
+
+#. Name of the template
+msgid "Page with no title"
+msgstr ""
+
+#: index.php:40
+msgid "Pas d'articles à afficher"
+msgstr ""
+
+#: archive-intervenant.php:61
+msgid "Pas d'intervants à présenter"
+msgstr ""
+
+#: page.php:10 single.php:76 template-no-title.php:15
+msgid "Pas de posts"
+msgstr ""
+
+#: search.php:45
+msgid "Pas de résultats à votre requête"
+msgstr ""
+
+#: search.php:4
+msgid "Résultats de la recherche"
+msgstr ""
+
+#: archive-intervenant.php:16
+msgid "Tous"
+msgstr ""
