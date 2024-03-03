@@ -108,7 +108,7 @@ div.header-wrapper {
 }
 
 div.site-logo {
-    padding: 15px 10px 10px 0px;
+    padding: 15px 15px 15px 0px;
 }
 
 div.site-logo a{
@@ -123,6 +123,46 @@ div.site-logo a{
 
 #main-menu-wrapper {
     flex: 1;
+}
+
+/* Custom language switcher styles */
+ul.language-switcher, li.other-languages ul{
+    padding:0px;
+    margin:0px;
+}
+
+ul.language-switcher{
+    position:relative;
+    color:white;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+nav.language-switcher-wrapper{
+    display:flex;
+    align-items: center;
+}
+
+ul.language-switcher li{
+    list-style-type: none;
+    width:100%;
+}
+
+li.active-language a{
+    cursor: pointer;
+}
+
+li.other-languages{
+    position:absolute;
+    top:100%;
+}
+
+@media screen and (max-width:999px){
+    nav.language-switcher-wrapper{
+        position: absolute;
+        height: 100%;
+        right: 100px;
+    }
 }
 
 /* Nav styles */

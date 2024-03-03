@@ -72,6 +72,8 @@ function caweb_theme_assets(){
 function caweb_theme_assets_footer(){//to add script at the bottom of the body
     wp_register_script( 'menu-burger', get_template_directory_uri() . '/js/menu-burger.js');
     wp_enqueue_script('menu-burger');
+    wp_register_script('language-switcher', get_template_directory_uri() . '/js/language-switcher.js');
+    wp_enqueue_script('language-switcher');
 }
 
 function caweb_theme_init(){
@@ -198,8 +200,8 @@ function caweb_theme_custom_language_switcher(){
             }
         }
 
-        echo "<ul class='language-switcher'>";
-        echo "<li class='language-item active-language'><a href='".$activeLanguage["url"]."'>".$activeLanguage['translated_name']."</a></li>";
+        echo "<nav class='language-switcher-wrapper'><ul class='language-switcher'>";
+        echo "<li class='language-item active-language'><a>".$activeLanguage['translated_name']." <i class='fa-solid fa-chevron-down'></i>"."</a></li>";
         echo "<li class='other-languages'><ul>";
         foreach($otherLanguages as $language){
             $name = $language['translated_name'];
@@ -209,7 +211,7 @@ function caweb_theme_custom_language_switcher(){
             echo '</li>';
         }
         echo "</li></ul>";
-        echo "</ul>";
+        echo "</ul></nav>";
     }
 }
 
