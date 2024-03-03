@@ -87,7 +87,7 @@ function caweb_theme_init(){
         ],
         'public' => true,
         'menu_position' => 22,
-        'has_archive' => true,
+        'has_archive' => true,//test
         'menu_icon' => 'dashicons-businesswoman',
         'supports' => ['title', 'thumbnail', 'editor'],
         'show_in_nav_menus' => false,
@@ -184,6 +184,35 @@ function caweb_theme_excerpt_length($length){
     return 20;
 }
 
+function caweb_theme_custom_language_switcher(){
+    $languages = apply_filters('wpml_active_languages', NULL);
+    if($languages !== NULL){
+        $activeLanguage = [];
+        $otherLanguages = [];
+
+        foreach($languages as $language){
+            if($language['active']){
+                $activeLanguage = $language;
+            }else{
+                $otherLanguages[] = $language;
+            }
+        }
+
+        echo "<ul class='language-switcher'>";
+        echo "<li class='language-item active-language'><a href='".$activeLanguage["url"]."'>".$activeLanguage['translated_name']."</a></li>";
+        echo "<li class='other-languages'><ul>";
+        foreach($otherLanguages as $language){
+            $name = $language['translated_name'];
+            $url = $language['url'];
+            echo '<li class="language-item">';
+            echo '<a href='.$url.'>'.$name.'</a>';
+            echo '</li>';
+        }
+        echo "</li></ul>";
+        echo "</ul>";
+    }
+}
+
 /**
  * This add a shortcode to easily display the current year in WordPress posts and widgets 
  */
@@ -206,4 +235,3 @@ add_action( 'widgets_init', 'caweb_theme_register_widgets');
  */
 add_filter('wp_nav_menu_objects', 'caweb_theme_wp_nav_menu_objects', 10, 2);
 add_filter( 'excerpt_length', 'caweb_theme_excerpt_length'/*, 999 */);
-

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html <?php language_attributes(); ?>>
 
 <head>
     <meta charset="UTF-8">
@@ -24,5 +24,6 @@
             <div id="burger">
                 <i class="fa-solid fa-bars"></i>
             </div>
+            <?php caweb_theme_custom_language_switcher();?>
         </div>
     </header>
