@@ -8,7 +8,7 @@
                 $categories = [];
                 foreach(get_the_category() as $categorie){
                     $categories[] = $categorie->name;
-                } 
+                }
             ?>
             <h1><?php the_title(); ?></h1>
             <div class="post-meta">
@@ -19,34 +19,38 @@
                 </p>
                 <time><?php the_date();?></time>
             </div>
-            <figure class='post-image'><?php the_post_thumbnail("medium"); ?></figure>
-            <?php the_content(); ?>
+            <?php if(get_field("display_post_thumbnail")!=[]): ?>
+                <figure class='post-image'><?php the_post_thumbnail("medium"); ?></figure>
+                <?php the_content(); ?>
+            <?php endif;?>
         <?php endwhile ?>
 
-        <div class='author-box'>
+        <?php if(get_field("display_author_box")!=[]): ?>
+            <div class='author-box'>
 
-            <?php
-                $authorID = get_the_author_meta('id');
-                $acfAuthorID = 'user_'.$authorID; // need to add 'user_' before the id, check on acf doc
-                $authPic = get_field('author_picture', $acfAuthorID);
-                //echo get_avatar($authorID);
-                //the_author_meta('description');
+                <?php
+                    $authorID = get_the_author_meta('id');
+                    $acfAuthorID = 'user_'.$authorID; // need to add 'user_' before the id, check on acf doc
+                    $authPic = get_field('author_picture', $acfAuthorID);
+                    //echo get_avatar($authorID);
+                    //the_author_meta('description');
 
-                $authPicAlt = $authPic['alt'];
-                $authPicTitle = $authPic['title'];
-                $authPicUrl = $authPic['sizes']['author-format'];
-            ?>
+                    $authPicAlt = $authPic['alt'];
+                    $authPicTitle = $authPic['title'];
+                    $authPicUrl = $authPic['sizes']['author-format'];
+                ?>
 
-            <div>
-                <h4>
-                    <a href="<?php the_field('author_linkedin', $acfAuthorID); ?>" rel="author">
-                        <i class="fa-brands fa-linkedin"></i> <?php the_author_meta('display_name'); ?>
-                    </a> 
-                </h4>
-                <figure><img src="<?= $authPicUrl ?>" alt="<?= $authPicAlt?>" title="<?= $authPicTitle ?>"></figure>
+                <div>
+                    <h4>
+                        <a href="<?php the_field('author_linkedin', $acfAuthorID); ?>" rel="author">
+                            <i class="fa-brands fa-linkedin"></i> <?php the_author_meta('display_name'); ?>
+                        </a> 
+                    </h4>
+                    <figure><img src="<?= $authPicUrl ?>" alt="<?= $authPicAlt?>" title="<?= $authPicTitle ?>"></figure>
+                </div>
+                <blockquote> <?php the_field('author_biography', $acfAuthorID); ?></blockquote>
             </div>
-            <blockquote> <?php the_field('author_biography', $acfAuthorID); ?></blockquote>
-        </div>
+        <?php endif; ?>
         
         <h3> <?= __("Articles précedents et suivants", 'theme_caweb'); ?></h3>
         <ul class='next-previous-posts'>

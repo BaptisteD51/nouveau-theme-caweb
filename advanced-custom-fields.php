@@ -1,4 +1,4 @@
-<?php 
+<?php
 add_action( 'acf/include_fields', function() {
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 		return;
@@ -6,7 +6,7 @@ add_action( 'acf/include_fields', function() {
 
 	acf_add_local_field_group( array(
 	'key' => 'group_65bd13c2cc86d',
-	'title' => 'Class personnalisées pour menu principal',
+	'title' => 'Personalized classes for main menu',
 	'fields' => array(
 		array(
 			'key' => 'field_65bd13c3c23e5',
@@ -260,6 +260,88 @@ add_action( 'acf/include_fields', function() {
 ) );
 
 	acf_add_local_field_group( array(
+	'key' => 'group_65e4da12c3f03',
+	'title' => 'Options d\'affichage des articles',
+	'fields' => array(
+		array(
+			'key' => 'field_65e4da1314185',
+			'label' => 'Utiliser l\'image mise en avant comme image en début d\'article',
+			'name' => 'display_post_thumbnail',
+			'aria-label' => '',
+			'type' => 'checkbox',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'wpml_cf_preferences' => 1,
+			'choices' => array(
+				'Utiliser' => 'Utiliser',
+			),
+			'default_value' => array(
+				0 => 'Utiliser',
+			),
+			'return_format' => 'value',
+			'allow_custom' => 0,
+			'layout' => 'vertical',
+			'toggle' => 0,
+			'save_custom' => 0,
+			'custom_choice_button_text' => 'Add new choice',
+		),
+		array(
+			'key' => 'field_65e4dc8eae426',
+			'label' => 'Afficher la description de l\'auteur',
+			'name' => 'display_author_box',
+			'aria-label' => '',
+			'type' => 'checkbox',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'wpml_cf_preferences' => 1,
+			'choices' => array(
+				'Afficher' => 'Afficher',
+			),
+			'default_value' => array(
+				0 => 'Afficher',
+			),
+			'return_format' => 'value',
+			'allow_custom' => 0,
+			'layout' => 'vertical',
+			'toggle' => 0,
+			'save_custom' => 0,
+			'custom_choice_button_text' => 'Add new choice',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'side',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+	'acfml_field_group_mode' => 'translation',
+) );
+
+	acf_add_local_field_group( array(
 	'key' => 'group_65ae65d03c01d',
 	'title' => 'Social Icons',
 	'fields' => array(
@@ -363,4 +445,3 @@ add_action( 'acf/include_fields', function() {
 	'show_in_rest' => 0,
 ) );
 } );
-
