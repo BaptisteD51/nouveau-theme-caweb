@@ -497,9 +497,14 @@ ul.next-previous-posts, div.other-posts ul {
     gap:35px;
 
     padding:0px;
+    margin-top:5px;
 
     font-size:22px;
     font-family:Unistra;
+}
+
+div.next-previous-posts h3, div.other-posts h3{
+    font-size:32px;
 }
 
 ul.next-previous-posts li, div.other-posts li{

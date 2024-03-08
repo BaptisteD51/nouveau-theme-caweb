@@ -54,28 +54,30 @@
             </div>
         <?php endif; ?>
         
-        <h3> <?= __("Articles précedents et suivants", 'theme_caweb'); ?></h3>
-        <ul class='next-previous-posts'>
-                <?php if(get_next_post()!=""): ?>
-                    <?php $nextPostId = get_next_post()->ID; ?>
-                    <li>
-                        <a href="<?= get_permalink($nextPostId); ?>">
-                            <?= get_the_post_thumbnail($nextPostId, 'thumbnail');?>
-                            <h4><i class="fa-solid fa-arrow-left"></i> <?= get_next_post()->post_title; ?></h4>
-                        </a> 
-                    </li>
-                <?php endif;?>
+        <div class="next-previous-posts">
+            <h3> <?= __("Articles précedents et suivants", 'theme_caweb'); ?></h3>
+            <ul class='next-previous-posts'>
+                    <?php if(get_next_post()!=""): ?>
+                        <?php $nextPostId = get_next_post()->ID; ?>
+                        <li>
+                            <a href="<?= get_permalink($nextPostId); ?>">
+                                <?= get_the_post_thumbnail($nextPostId, 'thumbnail');?>
+                                <h4><i class="fa-solid fa-arrow-left"></i> <?= get_next_post()->post_title; ?></h4>
+                            </a> 
+                        </li>
+                    <?php endif;?>
 
-                <?php if(get_previous_post()!=""): ?>
-                    <?php $previousPostId = get_previous_post()->ID; ?>
-                    <li>
-                        <a href="<?= get_permalink($previousPostId); ?>">
-                            <?= get_the_post_thumbnail($previousPostId, 'thumbnail');?>
-                            <h4><?= get_previous_post()->post_title; ?> <i class="fa-solid fa-arrow-right"></i></h4>
-                        </a>
-                    </li>
-                <?php endif;?>
-        </ul>
+                    <?php if(get_previous_post()!=""): ?>
+                        <?php $previousPostId = get_previous_post()->ID; ?>
+                        <li>
+                            <a href="<?= get_permalink($previousPostId); ?>">
+                                <?= get_the_post_thumbnail($previousPostId, 'thumbnail');?>
+                                <h4><?= get_previous_post()->post_title; ?> <i class="fa-solid fa-arrow-right"></i></h4>
+                            </a>
+                        </li>
+                    <?php endif;?>
+            </ul>
+        </div>
 
     <?php else : ?>
 
@@ -92,7 +94,7 @@
             'post_status' => 'publish',
             'post__not_in' => [get_the_id()],
             'orderby' => 'rand',
-            'posts_per_page' => 3,
+            'posts_per_page' => 4,
         ]);
         //var_dump($query->get_posts());
         ?>
