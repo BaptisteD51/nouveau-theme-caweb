@@ -60,7 +60,11 @@ function caweb_theme_supports(){
     ]);
 
     add_image_size('author-format', 150, 150, true);
+
+    add_theme_support('editor-styles');
 };
+
+add_editor_style(get_template_directory_uri() . '/css/editor-style.css');
 
 function caweb_theme_assets(){
     wp_register_style( 'caweb_theme_style', get_template_directory_uri() . '/style.css');
