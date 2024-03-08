@@ -1,0 +1,45 @@
+.has-gradient-caweb-gradient-background{
+    background: var(--wp--preset--gradient--gradient-caweb);
+}
+
+body {
+    font-family: Brill, Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: Unistra, Arial, Helvetica, sans-serif;
+}
+
+p {
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+main li {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+h1{
+    font-size: 48px;
+    margin:20px 0px;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 36px;
+    margin-top: 40px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+h3 {
+    font-size: 26px;
+    margin-top: 24px;
+    margin-bottom: 0px;
+    letter-spacing: 1px;
+}

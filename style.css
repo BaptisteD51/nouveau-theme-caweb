@@ -71,20 +71,10 @@ Domain Path: /languages
 }
 
 /* Wordpress Classes Styles */
-.alignfull{
-    width: 100vw;
-}
-
-@media screen and (min-width:1000px){
-    .alignfull {
-        margin-left: calc( (-1 * ((100vw - var(--page-width)) / 2)) - var(--padding-main));
-    }
-}
-
-@media screen and (max-width:1000px){
-    .alignfull{
-        margin-left: calc( -1 * var(--padding-main))
-    }
+.alignfull {
+	margin: 0px calc(50% - 50vw);
+	max-width: 100vw;
+	width: 100vw;
 }
 
 /* Header styles */
@@ -481,6 +471,7 @@ main li {
 h1{
     font-size: 60px;
     margin:20px 0px;
+    letter-spacing: 2px;
 }
 
 h2 {

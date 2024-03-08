@@ -62,6 +62,9 @@ function caweb_theme_supports(){
     add_image_size('author-format', 150, 150, true);
 
     add_theme_support('editor-styles');
+    add_theme_support('align-wide');
+    add_theme_support('appearance-tools'); // this work when installing the gutenberg plugin, should be available in wordpress core 6.5
+    add_theme_support('custom-spacing');
 };
 
 add_editor_style(get_template_directory_uri() . '/css/editor-style.css');
