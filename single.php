@@ -19,13 +19,15 @@
                 </p>
                 <time><?php the_date();?></time>
             </div>
-            <?php if(get_field("display_post_thumbnail")!=[]): ?>
+            <?php if(function_exists('get_field') && (get_field("display_post_thumbnail")!=[])): ?>
                 <figure class='post-image'><?php the_post_thumbnail("medium"); ?></figure>
-                <?php the_content(); ?>
+            <?php elseif(!function_exists('get_field')):?>
+                <figure class='post-image'><?php the_post_thumbnail("medium"); ?></figure>
             <?php endif;?>
+            <?php the_content(); ?>
         <?php endwhile ?>
 
-        <?php if(get_field("display_author_box")!=[]): ?>
+        <?php if(function_exists('get_field') && (get_field("display_author_box")!=[])): ?>
             <div class='author-box'>
 
                 <?php

@@ -43,14 +43,16 @@
                         <?php foreach($postMatieres as $matiere):?>
                             <p class='teacher-subject'><?= $matiere['name']; ?></p>
                         <?php endforeach;?>
-                        <?php if(get_field("youtube_video")!=null):?>
+                        <?php if(function_exists('get_field') && (get_field("youtube_video")!=null)):?>
                             <a class='teacher-interview' href="<?= get_field("youtube_video"); ?>">Entretien <i class="fa-solid fa-play"></i></a>
                         <?php endif; ?>
                         </div>
                     </div>
                     <div class='teacher-description'>
                         <?php the_content(); ?>
-                        <a class="teacher-linkedin" href="<?= get_field("linkedin_profile"); ?>"><i class="fa-brands fa-linkedin"></i> <?php the_title();?></a>
+                        <?php if(function_exists('get_field')): ?>
+                            <a class="teacher-linkedin" href="<?= get_field("linkedin_profile"); ?>"><i class="fa-brands fa-linkedin"></i> <?php the_title();?></a>
+                        <?php endif;?> 
                     </div>
                 </li>
             <?php endwhile ?>

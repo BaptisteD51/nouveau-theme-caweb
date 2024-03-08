@@ -131,42 +131,45 @@ function caweb_theme_init(){
  * Don't hesitate to var_dump
  */
 function caweb_theme_wp_nav_menu_objects($items, $args){
-    if($args->theme_location == 'social-menu'){
-        foreach($items as $item){
-            $item->title = get_field('social_icon', $item);
-        }
-    }
-
-    if($args->theme_location == 'contact-menu'){
-        foreach($items as $item){
-            $phone = get_field('secretary_phone', $item);
-            $email = get_field('secretary_email', $item);
-
-            $html = '<ul>';
-            $html .= '<li>'.$item->title.'</li>';
-            $html .= '<li><a href="tel:'.$phone.'">'.$phone.'</a></li>';
-            $html .= '<li><a href="mailto:'.$email.'">'.$email.'</a></li>';
-            $html .= '</ul>';
-            
-            $item->title = $html;
-            $item->url = '';
-        }
-    }
-
-    if($args->theme_location == 'main-menu'){
-        foreach($items as $item){
-            if(get_field('menu-item-class', $item)!==''){
-                $item->classes[0] = get_field('menu-item-class', $item);
+    if(function_exists('get_field')){
+        if($args->theme_location == 'social-menu'){
+            foreach($items as $item){
+                $item->title = get_field('social_icon', $item);
             }
         }
-    }
 
-    if(($args->theme_location == 'contact-menu') || ($args->theme_location == 'footer-menu') || ($args->theme_location == 'social-menu')){
-        $menu = wp_get_nav_menu_object($args->menu);
-        $navTitle = get_field('nav_title', $menu);
-        echo '<h4>'.$navTitle.'</h4>';
-    }
+        if($args->theme_location == 'contact-menu'){
+            foreach($items as $item){
+                $phone = get_field('secretary_phone', $item);
+                $email = get_field('secretary_email', $item);
 
+                $html = '<ul>';
+                $html .= '<li>'.$item->title.'</li>';
+                $html .= '<li><a href="tel:'.$phone.'">'.$phone.'</a></li>';
+                $html .= '<li><a href="mailto:'.$email.'">'.$email.'</a></li>';
+                $html .= '</ul>';
+                
+                $item->title = $html;
+                $item->url = '';
+            }
+        }
+
+        if($args->theme_location == 'main-menu'){
+            foreach($items as $item){
+                if(get_field('menu-item-class', $item)!==''){
+                    $item->classes[0] = get_field('menu-item-class', $item);
+                }
+            }
+        }
+
+        if(($args->theme_location == 'contact-menu') || ($args->theme_location == 'footer-menu') || ($args->theme_location == 'social-menu')){
+            $menu = wp_get_nav_menu_object($args->menu);
+            $navTitle = get_field('nav_title', $menu);
+            echo '<h4>'.$navTitle.'</h4>';
+        }
+
+    }
+    
     return $items;
 }
 
