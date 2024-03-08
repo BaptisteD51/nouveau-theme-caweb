@@ -1,7 +1,4 @@
 <?php
-
-include 'advanced-custom-fields.php';
-
 function caweb_theme_supports(){
     load_theme_textdomain( 'theme_caweb', get_template_directory() . '/languages' );
 
