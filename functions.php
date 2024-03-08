@@ -102,7 +102,7 @@ function caweb_theme_init(){
         'show_in_nav_menus' => false,
         'exclude_from_search' => true,
         'rewrite'=>[
-            'slug'=>__('intervenants', 'theme_caweb'),
+            'slug'=>'intervenants', // I don't use i18n functions here because it causes compatibility problems with WPML
         ],
     ]);
 
@@ -169,7 +169,7 @@ function caweb_theme_wp_nav_menu_objects($items, $args){
         }
 
     }
-    
+
     return $items;
 }
 
