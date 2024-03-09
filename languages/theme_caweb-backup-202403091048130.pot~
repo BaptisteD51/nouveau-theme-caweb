@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nouveau theme CAWEB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-09 10:48+0000\n"
+"POT-Creation-Date: 2024-02-26 18:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,15 +16,15 @@ msgstr ""
 "X-Loco-Version: 2.6.6; wp-6.4.3\n"
 "X-Domain: theme_caweb"
 
-#: functions.php:228
+#: functions.php:109
 msgid "&larr; Aller aux matières"
 msgstr ""
 
-#: functions.php:202 functions.php:204 functions.php:205
+#: functions.php:83 functions.php:85 functions.php:86
 msgid "Ajouter un intervenant"
 msgstr ""
 
-#: functions.php:225
+#: functions.php:106
 msgid "Ajouter une nouvelle matière"
 msgstr ""
 
@@ -32,19 +32,19 @@ msgstr ""
 msgid "Anonyme"
 msgstr ""
 
-#: single.php:58
+#: single.php:51
 msgid "Articles précedents et suivants"
 msgstr ""
 
-#: functions.php:226
+#: functions.php:107
 msgid "Aucune matière trouvée"
 msgstr ""
 
-#: single.php:89
+#: single.php:81
 msgid "Autres articles"
 msgstr ""
 
-#: functions.php:282
+#: functions.php:167
 msgid "Bandeau en bas du footer"
 msgstr ""
 
@@ -52,24 +52,24 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: functions.php:290
+#: functions.php:175
 msgid "Colonne de droite du footer"
-msgstr ""
-
-#: footer.php:19
-msgid "Contactez-nous !"
 msgstr ""
 
 #: 404.php:3
 msgid "Erreur 404"
 msgstr ""
 
-#: functions.php:201
+#: functions.php:82
 msgid "Intervenant"
 msgstr ""
 
-#: functions.php:198 functions.php:200
+#: functions.php:79 functions.php:81
 msgid "Intervenants"
+msgstr ""
+
+#: functions.php:96
+msgid "intervenants"
 msgstr ""
 
 #: archive-intervenant.php:5
@@ -80,39 +80,35 @@ msgstr ""
 msgid "La ressource que vous recherchez est introuvable"
 msgstr ""
 
-#: footer.php:5
-msgid "Master Caweb"
-msgstr ""
-
-#: functions.php:224
+#: functions.php:105
 msgid "Matière"
 msgstr ""
 
-#: functions.php:223
+#: functions.php:104
 msgid "Matières"
 msgstr ""
 
-#: functions.php:83
+#: functions.php:59
 msgid "Menu contact secrétariat"
 msgstr ""
 
-#: functions.php:81
+#: functions.php:57
 msgid "Menu principal"
 msgstr ""
 
-#: functions.php:82
+#: functions.php:58
 msgid "Menu réseaux sociaux"
 msgstr ""
 
-#: functions.php:80
+#: functions.php:56
 msgid "Menu secondaire"
 msgstr ""
 
-#: functions.php:203
+#: functions.php:84
 msgid "Modifier l'intervant"
 msgstr ""
 
-#: functions.php:227
+#: functions.php:108
 msgid "Modifier la matière"
 msgstr ""
 
@@ -128,20 +124,16 @@ msgstr ""
 msgid "Pas d'articles à afficher"
 msgstr ""
 
-#: archive-intervenant.php:63
+#: archive-intervenant.php:61
 msgid "Pas d'intervants à présenter"
 msgstr ""
 
-#: page.php:10 single.php:84 template-no-title.php:15
+#: page.php:10 single.php:76 template-no-title.php:15
 msgid "Pas de posts"
 msgstr ""
 
 #: search.php:45
 msgid "Pas de résultats à votre requête"
-msgstr ""
-
-#: footer.php:12
-msgid "Rejoignez-nous"
 msgstr ""
 
 #: search.php:4

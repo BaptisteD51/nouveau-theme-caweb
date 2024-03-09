@@ -1,11 +1,17 @@
 <?php
+/**
+ * Link this function to the hook after_setup_theme
+ */
 function caweb_theme_supports(){
     load_theme_textdomain( 'theme_caweb', get_template_directory() . '/languages' );
-
+    
+    /**
+     * Allow <title> tag in <head>
+     */
     add_theme_support( "title-tag" );
 
     /**
-     * Activate the post-thumbnail fonctionality only for posts ans intervanant pages
+     * Activate the post-thumbnail fonctionality for posts and "intervenants" pages
      */
     add_theme_support('post-thumbnails',['post', 'intervenant']);
 
@@ -32,6 +38,15 @@ function caweb_theme_supports(){
             "name" => "Rouge"
         ],
     ];
+    /**
+     * Add a color palette to the editor.
+     * This also generate CSS variables, 
+     * but you have to add CSS rules in style.css to the classes that WordPress uses,
+     * so that the colors are displayed in the front-end.
+     * 
+     * You may have to add some CSS rules in the css/editor-style.css,
+     * so that the colors are visible in the editor
+     */
     add_theme_support('editor-color-palette', $palette);
 
     $gradients = [
@@ -42,13 +57,25 @@ function caweb_theme_supports(){
         ]
     ];
     /**
-     * This function crate the css variable and the class relative to the slug. But you need to 
-     * create a rule in style.css in order for it to be displayed in front end
+     * Create the CSS variables and class relative to the slug.
+     * It's the same system as for the color palette :
+     * You need to create rule in style.css,
+     * so that you gradient is displayed in the front-end
      */
     add_theme_support('editor-gradient-presets', $gradients);
     
     add_theme_support('menus');
+
+    /**
+     * Added a height and a width to the logo
+     */
     add_theme_support( 'custom-logo', ["height"=>60,"width"=>210]);
+    
+    /**
+     * Here you can register menus.
+     * Then you have to add them to the relevant template part (such as header.php or footer.php)
+     * with the function wp_nav_menu()
+     */
     register_nav_menus([
         'footer-menu'=> __('Menu secondaire', 'theme_caweb'),
         'main-menu'=> __('Menu principal', 'theme_caweb'),
@@ -56,16 +83,59 @@ function caweb_theme_supports(){
         'contact-menu'=> __('Menu contact secrétariat', 'theme_caweb'),
     ]);
 
+    /**
+     * By default, when you upload an image via the library,
+     * WordPress generate 3 image sizes (thumbail, medium, large).
+     * You can register another image size via the following function.
+     * This "author-format" can be reused in template files to display
+     * an image at the right size in the front-end. 
+     * This helps improving the page loading performance.
+     * The fourth argument 'true' is here to automatically crop the image at the right
+     * aspect-ratio.
+     */
     add_image_size('author-format', 150, 150, true);
 
+    /**
+     * Allow custom styles in the editor.
+     * To add an editor stylesheet, use the function add_editor_style
+     */
     add_theme_support('editor-styles');
+    
+    /**
+     * This add an align-wide and an alignfull alignment in the editor.
+     * Then, you have to add CSS rules in style.css for the WordPress
+     * class .alignfull
+     */
     add_theme_support('align-wide');
+
+    /**
+     * This Theme Support works when installing the gutenberg plugin.
+     * It adds the same block layout options (margin, vw and vh...)
+     * as for the block themes, 
+     * but in the classic themes (such as this one).
+     * 
+     * This functionality should available in WordPress 6.5 without the plugin
+     */
     add_theme_support('appearance-tools'); // this work when installing the gutenberg plugin, should be available in wordpress core 6.5
+    
+    /**
+     * To add paddings for some blocks directly with the page Editor
+     */
     add_theme_support('custom-spacing');
 };
 
+/**
+ * Add CSS rules to customize the gutenberg editor appearance
+ */
 add_editor_style(get_template_directory_uri() . '/css/editor-style.css');
 
+/**
+ * Must be linked to the hook wp_enqueue_scripts
+ * Register and add styles and scripts that can be loaded in the <head> tag
+ * 
+ * First you have to register the script with a name you choose,
+ * then add it with wp_enqueue_script
+ */
 function caweb_theme_assets(){
     wp_register_style( 'caweb_theme_style', get_template_directory_uri() . '/style.css');
     wp_register_script('fontawesome', 'https://kit.fontawesome.com/1c552aca57.js');
@@ -73,11 +143,54 @@ function caweb_theme_assets(){
     wp_enqueue_script('fontawesome');
 };
 
-function caweb_theme_assets_footer(){//to add script at the bottom of the body
+/**
+ * Must be linked to the hook wp_footer
+ * Register scripts and put them before the closure of <body>
+ * 
+ * First you have to register the script with a name you choose,
+ * then add it with wp_enqueue_script
+ */
+function caweb_theme_assets_footer(){
+    /**
+     * The javascript used for the burger menu
+     */
     wp_register_script( 'menu-burger', get_template_directory_uri() . '/js/menu-burger.js');
     wp_enqueue_script('menu-burger');
+
+    /**
+     * The javascript used for the custom WPML language switcher
+     */
     wp_register_script('language-switcher', get_template_directory_uri() . '/js/language-switcher.js');
     wp_enqueue_script('language-switcher');
+}
+
+function caweb_theme_custom_language_switcher(){
+    $languages = apply_filters('wpml_active_languages', NULL);
+    if($languages !== NULL){
+        $activeLanguage = [];
+        $otherLanguages = [];
+
+        foreach($languages as $language){
+            if($language['active']){
+                $activeLanguage = $language;
+            }else{
+                $otherLanguages[] = $language;
+            }
+        }
+
+        echo "<nav class='language-switcher-wrapper'><ul class='language-switcher'>";
+        echo "<li class='language-item active-language'><a>".$activeLanguage['translated_name']." <i class='fa-solid fa-chevron-down'></i>"."</a></li>";
+        echo "<li class='other-languages'><ul>";
+        foreach($otherLanguages as $language){
+            $name = $language['translated_name'];
+            $url = $language['url'];
+            echo '<li class="language-item">';
+            echo '<a href='.$url.'>'.$name.'</a>';
+            echo '</li>';
+        }
+        echo "</li></ul>";
+        echo "</ul></nav>";
+    }
 }
 
 function caweb_theme_init(){
@@ -93,7 +206,7 @@ function caweb_theme_init(){
         ],
         'public' => true,
         'menu_position' => 22,
-        'has_archive' => true,//test
+        'has_archive' => true,
         'menu_icon' => 'dashicons-businesswoman',
         'supports' => ['title', 'thumbnail', 'editor'],
         'show_in_nav_menus' => false,
@@ -158,13 +271,6 @@ function caweb_theme_wp_nav_menu_objects($items, $args){
                 }
             }
         }
-
-        if(($args->theme_location == 'contact-menu') || ($args->theme_location == 'footer-menu') || ($args->theme_location == 'social-menu')){
-            $menu = wp_get_nav_menu_object($args->menu);
-            $navTitle = get_field('nav_title', $menu);
-            echo '<h4>'.$navTitle.'</h4>';
-        }
-
     }
 
     return $items;
@@ -191,35 +297,6 @@ function caweb_theme_register_widgets(){
 
 function caweb_theme_excerpt_length($length){
     return 20;
-}
-
-function caweb_theme_custom_language_switcher(){
-    $languages = apply_filters('wpml_active_languages', NULL);
-    if($languages !== NULL){
-        $activeLanguage = [];
-        $otherLanguages = [];
-
-        foreach($languages as $language){
-            if($language['active']){
-                $activeLanguage = $language;
-            }else{
-                $otherLanguages[] = $language;
-            }
-        }
-
-        echo "<nav class='language-switcher-wrapper'><ul class='language-switcher'>";
-        echo "<li class='language-item active-language'><a>".$activeLanguage['translated_name']." <i class='fa-solid fa-chevron-down'></i>"."</a></li>";
-        echo "<li class='other-languages'><ul>";
-        foreach($otherLanguages as $language){
-            $name = $language['translated_name'];
-            $url = $language['url'];
-            echo '<li class="language-item">';
-            echo '<a href='.$url.'>'.$name.'</a>';
-            echo '</li>';
-        }
-        echo "</li></ul>";
-        echo "</ul></nav>";
-    }
 }
 
 /**
