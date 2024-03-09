@@ -2,7 +2,7 @@
 /**
  * Contains all the caweb_theme custom functions and the relative filter and Hooks
  */
-
+ 
 /**
  * Link this function to the hook after_setup_theme
  */
@@ -322,6 +322,33 @@ function caweb_theme_init(){
             'show_admin_column' =>true,
         ],
     );
+
+    /**
+     * As the website doesn't use comments in any ways,
+     * we can deactivate them for posts and pages
+     */
+    remove_post_type_support( 'post', 'comments' );
+    remove_post_type_support( 'page', 'comments' );
+}
+
+/**
+ * Must be hooked with admin_menu.
+ * 
+ * As we don't use the comments, we remove the comment menu in the admin menu. 
+ * It avoids cluttering the admin with useless menus.
+ */
+function caweb_theme_admin_menu(){
+    remove_menu_page( 'edit-comments.php' );
+}
+
+/**
+ * Must be hooked with wp_before_admin_bar_render.
+ * Removes the comment section in the top admin bar.
+ * We have to declare the global variable $wp_admin_bar in order to make it work.
+ */
+function caweb_theme_admin_bar() {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('comments');
 }
 
 /**
@@ -457,6 +484,8 @@ add_action('after_setup_theme', 'caweb_theme_supports');
 add_action('wp_enqueue_scripts', 'caweb_theme_assets');
 add_action( 'wp_footer', 'caweb_theme_assets_footer');
 add_action( 'widgets_init', 'caweb_theme_register_widgets');
+add_action( 'admin_menu', 'caweb_theme_admin_menu' );
+add_action( 'wp_before_admin_bar_render', 'caweb_theme_admin_bar' );
 
 /**
  * 10 -> the priority
