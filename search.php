@@ -1,15 +1,26 @@
-<?php get_header() ?>
+<?php 
+/**
+ * Template for the search results page.
+ */
+get_header();
+?>
+
 <main>
 
-    <h1><?= __("Résultats de la recherche", 'theme_caweb'); ?></h1>
-    <?php get_search_form(); ?>
+    <div class="archive-title">
+        <h1><?= __("Résultats de la recherche", 'theme_caweb'); ?></h1>
+        <?php get_search_form(); ?>
+    </div>
 
     <?php if (have_posts()) : ?>
         
         <ul class='article-list'>
         <?php while (have_posts()) : the_post(); ?>
+                
                 <?php $postType = get_post_type();?>
+                
                 <li class='<?= $postType ?>'>
+                    
                     <?php if($postType == 'post'): ?> 
                         <a href="<?php the_permalink(); ?>">
                             <?php the_post_thumbnail("thumbnail"); ?>
@@ -25,6 +36,7 @@
                             </div>
                             <p class="post-excerpt"><?= get_the_excerpt(); ?></p>
                         </a>
+                    
                     <?php else: ?>
                         <a href="<?php the_permalink(); ?>">
                             <h2><?php the_title(); ?></h2>

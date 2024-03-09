@@ -1,4 +1,9 @@
-<?php get_header() ?>
+<?php 
+/**
+ * The index.php is used as the template for the BLOG archive page
+ */
+get_header(); 
+?>
 <main>
     <?php if (have_posts()) : ?>
 
