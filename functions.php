@@ -1,5 +1,9 @@
 <?php
 /**
+ * Contains all the caweb_theme custom functions and the relative filter and Hooks
+ */
+
+/**
  * Link this function to the hook after_setup_theme
  */
 function caweb_theme_supports(){
@@ -164,12 +168,25 @@ function caweb_theme_assets_footer(){
     wp_enqueue_script('language-switcher');
 }
 
+/**
+ * The default languages switchers provided by WPML where not fit to correspond to the Figma models.
+ * That's why there is this function that generate a custom language switcher.
+ * You have to call it in the template part where you want the swithcher (header.php in our case)
+ */
 function caweb_theme_custom_language_switcher(){
+    /**
+     * This filter return an array with the active languages on the current page
+     */
     $languages = apply_filters('wpml_active_languages', NULL);
+    
     if($languages !== NULL){
         $activeLanguage = [];
         $otherLanguages = [];
 
+        /**
+         * This loop is here to sort out the active language from the other languages,
+         * as we want the active language on top of the switcher
+         */
         foreach($languages as $language){
             if($language['active']){
                 $activeLanguage = $language;
@@ -178,6 +195,9 @@ function caweb_theme_custom_language_switcher(){
             }
         }
 
+        /**
+         * The HTML output
+         */
         echo "<nav class='language-switcher-wrapper'><ul class='language-switcher'>";
         echo "<li class='language-item active-language'><a>".$activeLanguage['translated_name']." <i class='fa-solid fa-chevron-down'></i>"."</a></li>";
         echo "<li class='other-languages'><ul>";
@@ -193,9 +213,25 @@ function caweb_theme_custom_language_switcher(){
     }
 }
 
+/**
+ * Must be linked to the hook init.
+ * It registers the 'intervenant' post type and the relative 'matiere' taxonomy
+ */
 function caweb_theme_init(){
+    /**
+     * Registers the post type intervenant
+     */
     register_post_type('intervenant',[
+        
+        /**
+         * The label shown in the admin right menu.
+         */
         'label' => __('Intervenants', 'theme_caweb'),
+
+        /**
+         * By default, the buttons to edit custom posts in the admin keep the same labels as post types.
+         * You have to update them to correspond to the custom post
+         */
         'labels' => [
             'name'=>__('Intervenants', 'theme_caweb'),
             'singular_name'=>__('Intervenant', 'theme_caweb'),
@@ -204,18 +240,62 @@ function caweb_theme_init(){
             'add_new' => __('Ajouter un intervenant', 'theme_caweb'),
             'add_new_item' => __('Ajouter un intervenant', 'theme_caweb'),
         ],
+
+        /**
+         * To make the post accessible from the front end
+         */
         'public' => true,
+
+        /**
+         * The higher the number is, the lower the menu item will be.
+         */
         'menu_position' => 22,
+
+        /**
+         * Must be set to true, because we want to display all the teachers on one archive page
+         */
         'has_archive' => true,
+
+        /**
+         * Here you can set the icon you want to be displayed in the menu.
+         * It can be an url or an icon from the Dashicons WordPress icon bank. 
+         */
         'menu_icon' => 'dashicons-businesswoman',
+
+        /**
+         * Title and editor are activated by default,
+         * but you have to activate the post-thumbnail fonctionnality
+         */
         'supports' => ['title', 'thumbnail', 'editor'],
+        
+        /**
+         * We don't want to individually add the intervants in the menu. 
+         * No need to clutter the back-end with that
+         */
         'show_in_nav_menus' => false,
+
+        /**
+         * Don't need to clutter the search results with that 
+         */
         'exclude_from_search' => true,
+        
+        /**
+         * The rewrite rule is here to rewrite the slug for the archive page.
+         * We want it with a plural.
+         * I don't use internationalization functions here, 
+         * because it causes compatibility problems with WPML.
+         * To translate the slug, you must use WPML :
+         * Settings -> Post Types
+         * Set the intervenant post type as translatable, then -> Set different slugs  
+         */
         'rewrite'=>[
-            'slug'=>'intervenants', // I don't use i18n functions here because it causes compatibility problems with WPML
+            'slug'=>'intervenants',
         ],
     ]);
 
+    /**
+     * Registers the custom taxonomy matiere for intervenant
+     */
     register_taxonomy(
         'matiere',
         'intervenant',[
@@ -227,27 +307,65 @@ function caweb_theme_init(){
                 'edit_item'=>__('Modifier la matière', 'theme_caweb'),
                 'back_to_items'=>__('&larr; Aller aux matières', 'theme_caweb'),
             ],
+
+            /**
+             * We put hierarchical as true to have checkoxes in the post editor,
+             * the same way as for categories
+             */
             'hierarchical'=>true,
+        
             'show_in_nav_menus' => false,
+
+            /**
+             * We need that to access the matiere in the admin menu
+             */
             'show_admin_column' =>true,
         ],
     );
 }
 
 /**
- * That's such a pain... I figured out how to make it work in the end though
- * $items are each individual menu items
- * $args is an anonymous object (stdobject) that contains infos on each menu items
- * Don't hesitate to var_dump
+ * Must be linked to the wp_nav_menu_objects filter.
+ * This function is here to personalize menu items with the help of ACF fields.
+ * The $items argument is an array that contains each individual menu item.
+ * The $args argument is an anonymous object (stdobject) that contains infos on each menu items
+ * 
+ * This is a filter : you can modify each individual items that pass through it,
+ * at the end, you must return them with the return statement 
  */
 function caweb_theme_wp_nav_menu_objects($items, $args){
+
+    /**
+     * As the menu items custom fields are created with the ACF plugin,
+     * we check if the ACF function get_field() exists,
+     * so that there is no error when the plugin is deactivated 
+     */
     if(function_exists('get_field')){
+
+        /**
+         * Displays the fontawesome icon inputed in the ACF field for the social menu 
+         */
         if($args->theme_location == 'social-menu'){
             foreach($items as $item){
                 $item->title = get_field('social_icon', $item);
             }
         }
 
+        /**
+         * Add the class inputed in the ACF field for the main menu
+         */
+        if($args->theme_location == 'main-menu'){
+            foreach($items as $item){
+                if(get_field('menu-item-class', $item)!==''){
+                    $item->classes[0] = get_field('menu-item-class', $item);
+                }
+            }
+        }
+
+        /**
+         * Retrieves the phone number and the email inputed in the contact-menu item,
+         * Then create a custom HTML structure to display phone and email.
+         */
         if($args->theme_location == 'contact-menu'){
             foreach($items as $item){
                 $phone = get_field('secretary_phone', $item);
@@ -263,28 +381,43 @@ function caweb_theme_wp_nav_menu_objects($items, $args){
                 $item->url = '';
             }
         }
-
-        if($args->theme_location == 'main-menu'){
-            foreach($items as $item){
-                if(get_field('menu-item-class', $item)!==''){
-                    $item->classes[0] = get_field('menu-item-class', $item);
-                }
-            }
-        }
     }
 
     return $items;
 }
 
+/**
+ * Must ke linked to the widgets_init hook.
+ * This function is here to register sidebars.
+ * Sidebars are zone where you can input WordPress blocks (or widgets) via the admin.
+ * On the Caweb Theme, there is a sidebar at the bottom of the footer, 
+ * and a sidebar for the fourth column of the footer.
+ * 
+ * After registration, we also need to create template parts for each sidebar,
+ * named like this : sidebar + 'id' + .php  
+ */
 function caweb_theme_register_widgets(){
     register_sidebar([
         'id' => 'bottom-footer-sidebar',
+
+        /**
+         * The name displayed in the admin
+         */
         'name'=>__('Bandeau en bas du footer', 'theme_caweb'),
+
+        /**
+         * HTML content before and after each individual widget of the side bar
+         */
         'before_widget'=>"<div class='bottom-footer-widget-element'>",
         'after_widget'=>"</div>",
+
+        /**
+         * HTML before and after the sidebar in itself
+         */
         'before_sidebar'=>"<div class='bottom-footer-sidebar'>",
         'after_sidebar'=>"</div>",
     ]);
+
     register_sidebar([
         'id' => 'column-footer-sidebar',
         'name'=>__('Colonne de droite du footer', 'theme_caweb'),
@@ -295,15 +428,26 @@ function caweb_theme_register_widgets(){
     ]);
 }
 
+/**
+ * Must be added to the filter excerpt_length
+ * It's here ta change the default excerpt length for the archive pages
+ * The default 55 words were too long
+ */
 function caweb_theme_excerpt_length($length){
     return 20;
 }
 
 /**
- * This add a shortcode to easily display the current year in WordPress posts and widgets 
+ * This add a shortcode to easily display the current year in WordPress posts and widgets.
+ * You just have to write [year] in the content.
+ * 
+ * In the add_shortcode() action, the first parameter is the tag you want to use for the shortcode (between the []),
+ * the second parameter is the function that will be called.
  */
-//[year]
 function display_current_year(){
+    /**
+     * This is the native date() PHP function
+     */
     return date('Y');
 }
 add_shortcode('year', 'display_current_year');
@@ -317,7 +461,7 @@ add_action( 'widgets_init', 'caweb_theme_register_widgets');
 /**
  * 10 -> the priority
  * 2 -> the number of arguments that the callback takes
- * They are needed in order to avoid any error messages
+ * These 2 numerical arguments are needed in order to avoid any error messages
  */
 add_filter('wp_nav_menu_objects', 'caweb_theme_wp_nav_menu_objects', 10, 2);
 add_filter( 'excerpt_length', 'caweb_theme_excerpt_length'/*, 999 */);
