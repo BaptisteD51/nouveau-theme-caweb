@@ -6,7 +6,7 @@
 ?>
 <?php 
 /**
- * Be default, WordPress puts an <h1> tag at the top of the page.
+ * By default, WordPress puts an <h1> tag at the top of the page.
  * But for some layouts, we want to put the <h1> elsewhere.
  * With this template, the <h1> must be added manually with gutenberg. 
  */
