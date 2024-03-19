@@ -91,23 +91,31 @@ To internationalize the theme, the first step is to create a textdomain. As it i
 
 Follow the following steps if you need to register a textdomain for a WordPress theme :
 1. Register the textdomain in *functions.php* with the function 
+        ```
         load_theme_textdomain( 'the_textdomain_name', 'absolute_path_where_you_want_to_save_translation_files' );
+        ```
 This function must be hooked with *after_setup_theme* like this :
+        ```
         my_function(){
             load_theme_textdomain([...])
         }
         add_action('after_setup_theme', 'my_function');
+        ```
 2. Specify the text domain and the path in the comments at the top of *style.css*
+    ```
     /*
     [...]
     Text Domain: the_textdomain_name
     Domain Path: /relative_path_where_you_want_to_save_translation_files
     */
+    ```
 3. Don't forget to create the repository you indicated in your path. A repository called *languages* is well suited for that.
 
 #### Internationalization functions
 Now you need to encapsulate each hardcoded string of the theme in internationalization functions like this :
+```
     <?php __('the_string', 'the_textdomain_name') ?>
+```
 
 #### Generate translation files
 To generate translation files, you have to use a third party application such as [Poedit](https://poedit.net/) or the free WordPress plugin [Loco Translate](https://fr.wordpress.org/plugins/loco-translate/). As the Poedit software was all but intuitive to me, I used the WordPress plugin **LocoTranslate**.
@@ -146,9 +154,11 @@ For the Master CAWEB website, we needed a simple way to easily manage the teache
 With the **register_post_type()** function in function.php you can add a new custom post type accessible from the back-office. [More documentation here](https://developer.wordpress.org/plugins/post-types/registering-custom-post-types/).
 
 You can rewrite the slugs of your custom post type using the rewrite parameter, in our case :
+    ```
     'rewrite'=>[
         'slug'=>'intervenants',
     ],
+    ```
 **Be careful :** don't use internationalization functions for the 'slug'. It causes compatibility problems with the WPML plugin.
 
 #### Custom Taxonomy
