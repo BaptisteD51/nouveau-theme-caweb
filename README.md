@@ -15,6 +15,14 @@
         3. Internationalization functions
         4. Generate translation files
         5. Update translation files
+    2. ACF Custom fields
+        1. How it works
+    3. Custom post type : "intervenant"
+        1. Introduction
+        2. Register custom post types
+        3. Translate custom post types
+        4. Translate custom taxonomies
+    
 
 ## Introduction
 In 2023, from a development point of view, the CAWEB master website suffer from several flaws : 
@@ -114,6 +122,45 @@ This is somtehing you are very likely to do. Whenever you add code to the theme 
 
 To do this, you have to : 
 1. Update the .pot template. Proceed as such : *Locotranslate -> Themes -> Your_Theme -> Edit template*. Click on the *sync* button.
-2. Then, you can go to *Locotranslate -> Themes -> Your_Theme* and update each language by tranlating the new string and saving. This will update your .po and .mo files. 
+2. Then, you can go to *Locotranslate -> Themes -> Your_Theme* and update each language by tranlating the new string and saving. This will update your .po and .mo files.
 
+### ACF Custom fields
 
+#### How it works
+With the plugin *Advanced Custom Fields (ACF)*, it's very easy to add custom fields to the admin interface, from the admin interface. For example you can add input fields in the posts editing pages, in navigation menu items or even in users profiles. The type of fields are various : text inputs, checkboxes, images... You have to indicate a *Field Name* which is a key to retrieve the inputed data.
+
+To retrieve the data inputed in ACF Fields and use them in your template files, you have to use the ACF function *get_field('Field Name', 'Post/User/Menu item/... ID')*. You don't have to indicate the ID for posts while in the WordPress Loop.
+
+You can export your custom fields in *ACF->Tools->Export*. This is useful if you want to use the fields with an other WordPress installation, as the fields are saved by default in the database. You have two export options : PhP or JSON. JSON is a more flexible option, so I choose it for the CAWEB theme. Then, you have to include the exported code in the theme files. You just have to create a *acf-json* repository in your theme files and paste the exported .json code to retrieve your fields in every WP installation.
+
+Note that it's possible to add custom fields with WordPress base functionnalities, but as it is very painful, the ACF plugin is a way better option.
+
+### Custom post type : "intervenant"
+
+#### Introduction
+By default, in WordPress, there is two post types : Posts and Pages. But it is possible to register Custom Post Types that are independant from these two.
+
+For the Master CAWEB website, we needed a simple way to easily manage the teachers. The custom post type "intervenant" was made for that.
+
+#### Register custom post types
+With the **register_post_type()** function in function.php you can add a new custom post type accessible from the back-office. [More documentation here](https://developer.wordpress.org/plugins/post-types/registering-custom-post-types/).
+
+You can rewrite the slugs of your custom post type using the rewrite parameter, in our case :
+    'rewrite'=>[
+        'slug'=>'intervenants',
+    ],
+**Be careful :** don't use internationalization functions for the 'slug'. It causes compatibility problems with the WPML plugin.
+
+#### Custom Taxonomy
+In WordPress, posts have two taxonomies *categories* and *tags*. The same system can be added to custom post types with the function **register_taxonomy()**. In our case, for the custom post type *intervenant*, we wanted to attach the taxonomy 'matiere' to intervenant, so that we can sort teachers by the subject they teach.
+
+[More information about custom taxonomies here](https://developer.wordpress.org/reference/functions/register_taxonomy/)
+
+#### Translate custom post types
+You have to use the plugin WPML to translate the Custom post types in english or other languages.
+Go to *WPML->settings->Post Types Translation*. First set your custom post type as *translatable*, then you can click on *Set different slugs in different languages for [...]* to translate the slug. 
+
+As always when working with urls in WordPress, you may need very likely to save the permalinks so that the modifcations take effect. For that, go to the general WordPress settings *Settings->Permalinks->Save changes*.
+
+#### Translate custom taxonomies
+It's the same as for custom post types translation : activate them in WPML settings : *WPML->settings->Taxonomies Translation*. Then you will be able to translate them in english.
