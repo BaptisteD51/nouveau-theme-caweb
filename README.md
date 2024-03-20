@@ -25,9 +25,10 @@
     3. Custom post type : "intervenant"
         1. Introduction
         2. Register custom post types
-        3. Translate custom post types
-        4. Translate custom taxonomies
-    
+        3. Custom Taxonomy
+        4. Translate custom post types
+        5. Translate custom taxonomies
+    4. Page template
 
 ## Introduction
 In 2023, from a development point of view, the CAWEB master website suffer from several flaws : 
@@ -171,7 +172,7 @@ With ACF, it is possible to add fields in menu items. It's a bit more complicate
 The function you hook to this filter takes two arguments, the *menu items* and the *arguments*. These "arguments" contains information about each items. You also must indicate the parameters 10 and 2, or it won't work for some reason :
     '''
         function your_function($items, $args){
-            // modification of the items through the filter
+            ... modification of the items through the filter ...
 
             return $items;
         }
@@ -221,3 +222,22 @@ As always when working with urls in WordPress, you may need very likely to save 
 
 #### Translate custom taxonomies
 It's the same as for custom post types translation : activate them in WPML settings : *WPML->settings->Taxonomies Translation*. Then you will be able to translate them in english.
+
+### Page template
+In WordPress, you can make specific templates for post types that the Webmaster can choose from the back office.
+
+In the Caweb theme case, there is a page template for the post type *page*. You can select it when you edit a page with Gutenberb. Go to the *Settings->Page->Template*. You can switch between the default template (defined by *page.php*) and *Page with no title* (defined in out case by *template-no-title.php*).
+With this template, the <h1> tag isn't inputed in the front office by default. You must add it with gutenberg with the header block. This is very useful if you want to place the <h1> elsewhere in the page, for example in a banner.
+
+Creating a page template isn't very difficult :
+1. Create a .php file in your theme files. You can name it how you want.
+2. At the top of the file, open <?php tags and put the following comments :
+    '''
+    <?php
+    /**
+    \* Template Name: The Name of your template
+    \* Template Post Type: The Post type you want to apply it to
+    \*/
+    ?>
+    '''
+3. Then you can use the WP loop just as you normally do with generic template parts.
