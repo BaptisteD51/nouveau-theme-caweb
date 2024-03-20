@@ -170,6 +170,7 @@ There are two url input fields for teachers :
 With ACF, it is possible to add fields in menu items. It's a bit more complicated to retreve the data as for other content type, but its manageable through the filter *wp_nav_menu_objects*
 
 The function you hook to this filter takes two arguments, the *menu items* and the *arguments*. These "arguments" contains information about each items. You also must indicate the parameters 10 and 2, or it won't work for some reason :
+
     '''
         function your_function($items, $args){
             ... modification of the items through the filter ...
@@ -179,6 +180,7 @@ The function you hook to this filter takes two arguments, the *menu items* and t
 
         add_filter('wp_nav_menu_objects', 'your_function', 10, 2);
     '''
+    
 In a WordPress filter, you make modification on the items and return them at the end, so that the modification are taken into account.
 
 In the Caweb theme, there are some functionnalities with ACF fields in nav menus :
@@ -227,7 +229,7 @@ It's the same as for custom post types translation : activate them in WPML setti
 In WordPress, you can make specific templates for post types that the Webmaster can choose from the back office.
 
 In the Caweb theme case, there is a page template for the post type *page*. You can select it when you edit a page with Gutenberb. Go to the *Settings->Page->Template*. You can switch between the default template (defined by *page.php*) and *Page with no title* (defined in out case by *template-no-title.php*).
-With this template, the <h1> tag isn't inputed in the front office by default. You must add it with gutenberg with the header block. This is very useful if you want to place the <h1> elsewhere in the page, for example in a banner.
+With this template, the h1 tag isn't inputed in the front office by default. You must add it with gutenberg with the header block. This is very useful if you want to place the h1 elsewhere in the page, for example in a banner.
 
 Creating a page template isn't very difficult :
 1. Create a .php file in your theme files. You can name it how you want.
