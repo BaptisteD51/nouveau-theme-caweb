@@ -17,6 +17,11 @@
         5. Update translation files
     2. ACF Custom fields
         1. How it works
+        2. Custom fields for authors
+        3. Custom fields for posts
+        4. Custom fields for intervenant post type
+        5. Custom fields for navigation menus
+        6. Translate ACF fields
     3. Custom post type : "intervenant"
         1. Introduction
         2. Register custom post types
@@ -135,13 +140,55 @@ To do this, you have to :
 ### ACF Custom fields
 
 #### How it works
-With the plugin *Advanced Custom Fields (ACF)*, it's very easy to add custom fields to the admin interface, from the admin interface. For example you can add input fields in the posts editing pages, in navigation menu items or even in users profiles. The type of fields are various : text inputs, checkboxes, images... You have to indicate a *Field Name* which is a key to retrieve the inputed data.
+With the plugin *Advanced Custom Fields (ACF)*, it's very easy to add custom fields to the admin interface, from the admin interface (*ACF->Field groups*). For example you can add input fields in the posts editing pages, in navigation menu items or even in users profiles. The type of fields are various : text inputs, checkboxes, images... You have to indicate a *Field Name* which is a key to retrieve the inputed data.
 
-To retrieve the data inputed in ACF Fields and use them in your template files, you have to use the ACF function *get_field('Field Name', 'Post/User/Menu item/... ID')*. You don't have to indicate the ID for posts while in the WordPress Loop.
+To retrieve the data inputed in ACF Fields and use them in your template files, you have to use the ACF function : 
+    '''
+    get_field('Field Name', 'Post/User/Menu item/... ID')
+    ''' 
+You don't have to indicate the ID for posts while in the WordPress Loop.
 
 You can export your custom fields in *ACF->Tools->Export*. This is useful if you want to use the fields with an other WordPress installation, as the fields are saved by default in the database. You have two export options : PhP or JSON. JSON is a more flexible option, so I choose it for the CAWEB theme. Then, you have to include the exported code in the theme files. You just have to create a *acf-json* repository in your theme files and paste the exported .json code to retrieve your fields in every WP installation.
 
-Note that it's possible to add custom fields with WordPress base functionnalities, but as it is very painful, the ACF plugin is a way better option.
+Note that it's possible to add custom fields with WordPress base functionnalities, but as it is very painful, the ACF plugin is a better option.
+
+#### Custom fields for authors
+As it was requested, I added custom Fields to create author boxes for post authors. These author boxes are located at the bottom of posts. To modify your author box, go to to your WordPress profile : *Users->Profile*. At the bottom of your profile you can add a profile picture, a description and a link to your LinkedIn account. The displayed name in the author box is the one you define in the basic WordPress Field *Display name publicly as*
+
+#### Custom fields for posts
+I added two checkboxes for post. One checkbox is there to allow the author to choose if he wants the author box to be displayed.
+
+In the theme, by default, the illustration image is the same as the one for the post-thumbnail (in a different format). If the author wants a different image, he can uncheck the checkbox and add another image at the top with gutenberg.
+
+#### Custom fields for intervenant post type
+There are two url input fields for teachers : 
+- An input for the LinkedIn profile
+- An input for a Youtube interview, if there is one. 
+
+#### Custom fields for navigation menus
+With ACF, it is possible to add fields in menu items. It's a bit more complicated to retreve the data as for other content type, but its manageable through the filter *wp_nav_menu_objects*
+
+The function you hook to this filter takes two arguments, the *menu items* and the *arguments*. These "arguments" contains information about each items. You also must indicate the parameters 10 and 2, or it won't work for some reason :
+    '''
+        function your_function($items, $args){
+            // modification of the items through the filter
+
+            return $items;
+        }
+
+        add_filter('wp_nav_menu_objects', 'your_function', 10, 2);
+    '''
+In a WordPress filter, you make modification on the items and return them at the end, so that the modification are taken into account.
+
+In the Caweb theme, there are some functionnalities with ACF fields in nav menus :
+- For the main menu, you can add classes for each individual menu item. To obtain a menu item in the form of a *Call to Action*, input the class **main-menu-button**.
+- For the social menu, you input the [Fontawesome](https://fontawesome.com/) html for the icon you want.
+- The contact menu is built entirely with ACF fields and the *wp_nav_menu_objects* filter. There is a field for the phone number and one for the adress. Maybe there is a more elegant way to do it, but it works.
+
+#### Translate ACF fields
+WPML comes with an add-on to translate ACF fields :
+1. Go to *ACF->Field groups* and select the group you want to translate. You have three options, I strongly advice to choose *Same fields across languages*, as we only want to translte the labels.
+2. Go to to *WPML->String translation*. You will be able to find the labels in the list and easily translate them. 
 
 ### Custom post type : "intervenant"
 
