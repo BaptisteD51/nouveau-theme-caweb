@@ -275,14 +275,14 @@ With this template, the **h1 tag** isn't inputed in the front office by default.
 Creating a page template isn't very difficult:
 1. Create a .php file in your theme files. You choose whatever name you want.
 2. At the top of the file, open <?php tags and put the following comments:
+
     '''
-    <?php
-    /**
+    /*
     Template Name: The Name of your template
     Template Post Type: The Post type you want to apply it to
     */
-    ?>
     '''
+
 3. Then, you can use the WordPress loop just as you normally do with generic template parts.
 
 ### Custom language switcher
