@@ -219,53 +219,71 @@ WPML comes with an add-on to translate ACF fields:
 ### Custom post type: "intervenant"
 
 #### Introduction
-By default, in WordPress, there is two post types: Posts and Pages. But it is possible to register Custom Post Types that are independant from these two.
+By default, in WordPress, there are two main content types: Posts and Pages. But it is possible to register Custom Post Types that are independant from this two.
 
-For the Master CAWEB website, we needed a simple way to easily manage the teachers. The custom post type "intervenant" was made for that.
+For the Master CAWEB website, we needed a way to easily manage the teachers. The custom post type "intervenant" was espacially made for that.
 
 #### Register custom post types
-With the **register_post_type()** function in function.php you can add a new custom post type accessible from the back-office. [More documentation here](https://developer.wordpress.org/plugins/post-types/registering-custom-post-types/).
+With **register_post_type()**, in function.php, you can add a new custom post type accessible from the back-office. [More documentation about custom post types here](https://developer.wordpress.org/plugins/post-types/registering-custom-post-types/).
 
-You can rewrite the slugs of your custom post type using the rewrite parameter, in our case:
+    '''
+    function my_function(){
+        register_post_type(){
+            'name_of_the_custom_post_type',[
+                ... parameters ...
+            ],
+        }
+    }
+    
+    add_action('init', 'my_function');
+    '''
+
+You can rewrite the slug of your custom post type using the rewrite parameter:
+    
     ```
     'rewrite'=>[
-        'slug'=>'intervenants',
+        'slug'=>'the_base_slug_you_want',
     ],
     ```
-**Be careful:** don't use internationalization functions for the 'slug'. It causes compatibility problems with the WPML plugin.
+
+In our case : *'slug'=>'intervenants'*
+
+**Be careful:** don't use internationalization functions for the 'slug' parameter. It causes compatibility problems with the WPML plugin (slugs must be translated within WPML).
 
 #### Custom Taxonomy
-In WordPress, posts have two taxonomies *categories* and *tags*. The same system can be added to custom post types with the function **register_taxonomy()**. In our case, for the custom post type *intervenant*, we wanted to attach the taxonomy 'matiere' to intervenant, so that we can sort teachers by the subject they teach.
+In WordPress, posts have two taxonomies: *categories* and *tags*. A similar system can be added to custom post types. For that, use the function **register_taxonomy()**. In our case, we wanted to attach the taxonomy 'matiere' to 'intervenant' post type, so that we can sort teachers by the subject they teach.
 
 [More information about custom taxonomies here](https://developer.wordpress.org/reference/functions/register_taxonomy/)
 
 #### Translate custom post types
-You have to use the plugin WPML to translate the Custom post types in english or other languages.
-Go to *WPML->settings->Post Types Translation*. First set your custom post type as *translatable*, then you can click on *Set different slugs in different languages for [...]* to translate the slug. 
+You have to use the plugin WPML to translate the Custom post types in english or other languages:
+1. Go to *WPML->settings->Post Types Translation*. 
+2. Set your custom post type as *translatable*. 
+3. Click on *Set different slugs in different languages for [...]* to **translate the slug**. 
 
-As always when working with urls in WordPress, you may need very likely to save the permalinks so that the modifcations take effect. For that, go to the general WordPress settings *Settings->Permalinks->Save changes*.
+As always, when working with urls in WordPress, you will have to **refresh the permalinks** so that the modifications take effect. For that, go to the general WordPress settings *Settings->Permalinks->Save changes*.
 
 #### Translate custom taxonomies
-It's the same as for custom post types translation: activate them in WPML settings: *WPML->settings->Taxonomies Translation*. Then you will be able to translate them in english.
+It's the same system as for custom post types. Indicate them as translatable in WPML settings: *WPML->settings->Taxonomies Translation*. Then, you will be able to translate them in english.
 
 ### Page template
-In WordPress, you can make specific templates for post types that the Webmaster can choose from the back office.
+In WordPress, you can add page templates for specific post types. The Webmaster will be able to switch between page templates from the back office.
 
-In the Caweb theme case, there is a page template for the post type *page*. You can select it when you edit a page with Gutenberb. Go to the *Settings->Page->Template*. You can switch between the default template (defined by *page.php*) and *Page with no title* (defined in out case by *template-no-title.php*).
-With this template, the h1 tag isn't inputed in the front office by default. You must add it with gutenberg with the header block. This is very useful if you want to place the h1 elsewhere in the page, for example in a banner.
+In the Caweb theme case, there is a page template for the post type *page*. You can select it when you edit a page with Gutenberg. Go to *Settings->Page->Template*. You can switch between the default template (defined by *page.php*) and *Page with no title* (defined in our case by *template-no-title.php*).
+With this template, the **h1 tag** isn't inputed in the front office by default. You can add it with the Gutenberg with the header block. This is very useful if you want to place the h1 elsewhere in the page, for example in a banner block.
 
 Creating a page template isn't very difficult:
-1. Create a .php file in your theme files. You can name it how you want.
+1. Create a .php file in your theme files. You choose whatever name you want.
 2. At the top of the file, open <?php tags and put the following comments:
     '''
     <?php
     /**
-    \* Template Name: The Name of your template
-    \* Template Post Type: The Post type you want to apply it to
-    \*/
+    * Template Name: The Name of your template
+    * Template Post Type: The Post type you want to apply it to
+    */
     ?>
     '''
-3. Then you can use the WP loop just as you normally do with generic template parts.
+3. Then, you can use the WordPress loop just as you normally do with generic template parts.
 
 ### Custom language switcher
 
