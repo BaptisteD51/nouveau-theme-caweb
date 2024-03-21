@@ -278,8 +278,8 @@ Creating a page template isn't very difficult:
     '''
     <?php
     /**
-    * Template Name: The Name of your template
-    * Template Post Type: The Post type you want to apply it to
+    Template Name: The Name of your template
+    Template Post Type: The Post type you want to apply it to
     */
     ?>
     '''
