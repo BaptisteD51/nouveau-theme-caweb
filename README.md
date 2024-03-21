@@ -287,29 +287,29 @@ Creating a page template isn't very difficult:
 
 ### Custom language switcher
 
-With WPML there is a functionality to add a language switcher in the nav menus or at the footer. No code is needed, but unfortunately the design did not correspond to the website rework models. So we needed to create a custom language switcher.
+With WPML there is a functionality to add a language switcher in nav menus or at the footer. No code is needed, but unfortunately the design did not correspond to the website rework models. So we needed to create a custom language switcher.
 
-I thought it was a good solution to define a *caweb_theme_custom_language_switcher* function in *functions.php*, which we could use later in template parts files (in our case header.php).
+I thought it was a good solution to define a *caweb_theme_custom_language_switcher* function in *functions.php*, which we could call later in template part files (in our case header.php).
 
 The logic of the function is the following:
-1. We retrieve the active languages for the current page, with the *wpml_active_languages* filter, [as it is advised in the WPML documentation](https://wpml.org/wpml-hook/wpml_active_languages/).
-2. We sort the languages so that the currently displayed language can be differenciated from the other languages.
+1. We retrieve the available languages for the current page, with the *wpml_active_languages* filter, [as it is advised in the WPML documentation](https://wpml.org/wpml-hook/wpml_active_languages/).
+2. We sort the languages, so that the currently active language can be differenciated from the other languages.
 3. We echo the HTML we want for the language switcher.
 
-After that, we need to add some javascript (*./js/language-switcher.js*) so that the HTML is displayed as a dropdown menu.
+After that, we just need some javascript (*./js/language-switcher.js*) to display the HTML as an interactive dropdown menu.
 
 Now you can call this function wherever you want in template parts to display the switcher.
 
 ### "Sidebars" and widgets
 "Sidebars" are a WordPress functionnality to output HTML content in an assigned zone. This zone is not necessarily an HTML "aside" next to the main content, it can be located in the footer for example.
 
-The content can be edited from the back-office, go to: *Appearance->Widgets*. Choose you sidebar you want to edit. Then you can add whichever Gutenberg blocks you want. These blocks are called the **Widgets**.
+The content can be edited from the back-office, go to: *Appearance->Widgets*. Choose the sidebar you want to edit. You can add whichever Gutenberg blocks you want. These blocks are called **Widgets**.
 
-With WPML you can choose on which language you want to display the widget. This allow you to translate the sidebars by duplicating your widgets for each language. It works fine as long as there isn't too much languages.
+With WPML you can choose on which language you want to display the widget. This allow you to translate the sidebars by duplicating the widgets for each language. It works fine as long as there isn't too much languages.
 
 **In the WordPress theme**, there are two sidebars:
 1. A sidebar at the very bottom for the copyrights and that kind of links.
 2. A sidebar in the right column of the footer. That's where we can display a search bar for example.
 
-If you need to create other emplacements for widgets, here is a pretty good [tutorial to register sidebars](https://www.youtube.com/watch?v=Pfh9xKk1jXI&list=PLjwdMgw5TTLWF1VV9TFWrsUTvWjtGS7Qt).
+If you need to create other emplacements for widgets, here is a very good [tutorial to register sidebars](https://www.youtube.com/watch?v=Pfh9xKk1jXI&list=PLjwdMgw5TTLWF1VV9TFWrsUTvWjtGS7Qt).
 

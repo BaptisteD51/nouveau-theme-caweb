@@ -1,7 +1,7 @@
 [
     {
         "key": "group_65bd13c2cc86d",
-        "title": "Class personnalisées pour menu principal",
+        "title": "Personalized classes for main menu",
         "fields": [
             {
                 "key": "field_65bd13c3c23e5",
@@ -21,7 +21,8 @@
                 "maxlength": "",
                 "placeholder": "",
                 "prepend": "",
-                "append": ""
+                "append": "",
+                "wpml_cf_preferences": 2
             }
         ],
         "location": [
@@ -29,7 +30,7 @@
                 {
                     "param": "nav_menu_item",
                     "operator": "==",
-                    "value": "location\/main-menu"
+                    "value": "all"
                 }
             ]
         ],
@@ -41,7 +42,8 @@
         "hide_on_screen": "",
         "active": true,
         "description": "",
-        "show_in_rest": 0
+        "show_in_rest": 0,
+        "acfml_field_group_mode": "translation"
     },
     {
         "key": "group_65b1231aa88b4",
