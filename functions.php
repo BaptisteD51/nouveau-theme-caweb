@@ -73,7 +73,7 @@ function caweb_theme_supports(){
     /**
      * Added a height and a width to the logo
      */
-    add_theme_support( 'custom-logo', ["height"=>60,"width"=>210]);
+     add_theme_support( 'custom-logo');
     
     /**
      * Here you can register menus.

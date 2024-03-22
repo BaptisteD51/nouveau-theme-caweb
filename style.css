@@ -111,6 +111,11 @@ div.site-logo a{
     gap:15px;
 }
 
+div.site-logo img.custom-logo{
+    max-height:60px;
+    width:auto;
+}
+
 #main-menu-wrapper {
     flex: 1;
 }
