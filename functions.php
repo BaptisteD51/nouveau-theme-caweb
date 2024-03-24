@@ -456,6 +456,28 @@ function caweb_theme_register_widgets(){
 }
 
 /**
+ * This function is here to change the number of posts per page for the post type intervenant.
+ * By default it is limited at the same number as posts.
+ */
+function caweb_theme_pre_get_posts($query){
+    /**
+     * Checks if we are on the admin interface or if we are not on the main query. If it's the
+     * case, no modifications are added.
+     */
+    if(is_admin() || !$query->is_main_query()){
+        return;
+    }
+
+    /**
+     * If we are on the archive page of intervenant, show max 100 posts per page.
+     * That will be enough for all the teachers of the master
+     */
+    if(is_post_type_archive('intervenant')){
+        $query->set('posts_per_page', 100);
+    }
+}
+
+/**
  * Must be added to the filter excerpt_length
  * It's here ta change the default excerpt length for the archive pages
  * The default 55 words were too long
@@ -494,3 +516,4 @@ add_action( 'wp_before_admin_bar_render', 'caweb_theme_admin_bar' );
  */
 add_filter('wp_nav_menu_objects', 'caweb_theme_wp_nav_menu_objects', 10, 2);
 add_filter( 'excerpt_length', 'caweb_theme_excerpt_length'/*, 999 */);
+add_filter('pre_get_posts', 'caweb_theme_pre_get_posts');
