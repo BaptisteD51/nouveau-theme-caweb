@@ -290,6 +290,11 @@ function caweb_theme_init(){
          */
         'rewrite'=>[
             'slug'=>'intervenants',
+            /**
+             * with_front is set to false. If true, the rewriting will follow the rules set in the permalink
+             * settings of the back-office : we don't want the same url struture as for posts   
+             */
+            'with_front'=>false,
         ],
     ]);
 
