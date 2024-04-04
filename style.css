@@ -716,12 +716,12 @@ ul.teacher-list div.teacher-header{
 }
 
 ul.teacher-list h2{
-    margin:0px;
+    margin: 0px;
     font-size: 30px;
 }
 
 ul.teacher-list figure{
-    margin:0px;
+    margin: 0px;
 }
 
 ul.teacher-list a.teacher-interview{
@@ -736,14 +736,14 @@ ul.teacher-list a.teacher-interview{
 }
 
 ul.teacher-list a.teacher-linkedin{
-    color:var(--wp--preset--color--bleu);
+    color: var(--wp--preset--color--bleu);
     text-decoration: none;
     font-weight: bold;
 }
 
 ul.teacher-list p.teacher-subject{
-    margin:0px;
-    font-weight:bold;
+    margin: 0px;
+    font-weight: bold;
     font-family: Unistra;
     color:var(--wp--preset--color--orange);
 }
@@ -773,5 +773,207 @@ div.subject-list button{
 
 div.subject-list button.selected-subject{
     background-color: var(--wp--preset--color--bleu);
+}
+
+/* Page d'accueil - Home page */
+body.home main {
+    width: 90dvw;
+    padding: 0;
+    margin: 0 5%;
+}
+
+.wp-block-cover,
+.wp-block-columns.has-background,
+.wp-container-core-columns-is-layout-3 {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+/* gestion boutons */
+.wp-block-button {
+    position: relative;
+}
+
+.wp-block-button a {
+    font-size: 28px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    font-family: 'Unistra A';
+    font-weight: bold;
+    max-width: none;
+    min-width: 0;
+    position: relative;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.wp-block-button__link,
+.wp-block-button > .wp-block-button__link {
+    transition-property: background-color;
+    transition-duration: 0.2s;
+}
+
+.wp-block-button__link.has-rouge-background-color:hover {
+    background-color: #F77B65 !important;
+}
+.wp-block-button__link.has-orange-background-color:hover {
+    background-color: #fc9644 !important
+}
+
+.wp-block-button__link::before {
+    content: "";
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0px;
+    height: 3px;
+    border-radius: 5px;
+    background-color: #fff;
+    transition-property: width;
+    transition-duration: 0.2s;
+}
+
+.wp-block-button__link:hover::before {
+    width: 70px;
+    transition-property: width;
+    transition-duration: 0.2s;
+}
+
+
+/* trois (3) boutons découvrez, candidatez et caweb in english */
+.wp-container-core-buttons-is-layout-1 .wp-block-button a {
+    width: 360px;
+}
+
+.wp-block-button:nth-child(2) > .wp-block-button__link:hover {
+    background-color: var(--wp--preset--color--rose) !important;
+    color: white !important;
+}
+
+.wp-block-button:nth-child(3) > .wp-block-button__link:hover {
+    background-color: var(--wp--preset--color--bleu) !important;
+    color: white !important;
+}
+
+.wp-container-core-buttons-is-layout-1 .wp-block-button > .wp-block-button__link::after {
+    /*content: "\f054";
+    font-family: "Font Awesome 6 Free";*/
+    content: ">";
+    margin-left: 8px; 
+    color: white;
+}
+
+.wp-block-button:nth-child(2) > .wp-block-button__link::after {
+    color: var(--wp--preset--color--rose);
+}
+
+.wp-block-button:nth-child(3) > .wp-block-button__link::after {
+    color: var(--wp--preset--color--bleu);
+}
+
+.wp-block-button:nth-child(2) > .wp-block-button__link:hover::after,
+.wp-block-button:nth-child(3) > .wp-block-button__link:hover::after {
+    color: white;
+}  
+
+/* réglages généraux accueil */
+p, a, li {
+    font-family: 'Unistra A';
+}
+
+h2 {
+    font-family: 'Unistra D';
+    letter-spacing: 0;
+}
+
+h2:not(.wp-block-post-title) {
+    margin-bottom: 50px !important;
+}
+
+ul {
+    margin-block-end: 24px;
+}
+
+.wp-container-core-columns-is-layout-1 {
+    padding: 0 0 0 5% !important;
+}
+
+.wp-container-core-columns-is-layout-1 figure {
+    margin: 0 !important;
+}
+
+.wp-container-core-columns-is-layout-2 {
+    padding: 0 5% 0 5%;
+}
+
+.wp-container-core-columns-is-layout-3 {
+    margin-bottom: 0;
+    padding: 0 5% 0 0;
+}
+
+/* débouchés */
+.wp-container-core-group-is-layout-6 {
+    margin: auto !important;
+}
+
+/* section youtube */
+.wp-container-core-columns-is-layout-2 .wp-block-column:nth-child(1) {
+    display: flex;
+    justify-content: center;
+}
+
+/* affichage articles page d'accueil - query loop */
+.wp-block-query .wp-block-post-featured-image {
+    aspect-ratio: 2.32 / 1 !important;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+}
+
+.wp-block-query .wp-block-post-featured-image:hover img {
+    transform: scale(1.1);
+    transition: all 0.1s ease-in;
+}
+
+.wp-block-query .wp-block-post-title {
+    margin-top: 10px;
+}
+
+.wp-block-query .wp-block-post-title > a {
+    line-height: 1;
+    color: black;
+    text-decoration: none;
+    font-size: 0.7em;
+    font-weight: bold;
+    letter-spacing: 0;
+}
+
+.wp-block-query .taxonomy-category {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.wp-block-post-terms__separator {
+    display: none;
+}
+
+.wp-block-query .taxonomy-category > a {
+    text-decoration: none;
+    color: white;
+    background-color: var(--wp--preset--color--orange) !important;
+    border-radius: 0 20px 20px 0;
+    padding: 5px 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.wp-block-query .wp-block-read-more {
+    color: var(--wp--preset--color--bleu) !important;
+    text-decoration: underline;
 }
 
