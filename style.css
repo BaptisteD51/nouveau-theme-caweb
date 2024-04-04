@@ -775,7 +775,8 @@ div.subject-list button.selected-subject{
     background-color: var(--wp--preset--color--bleu);
 }
 
-/* Page d'accueil - Home page */
+/* PAGE D'ACCUEIL - HOME */
+
 body.home main {
     width: 90dvw;
     padding: 0;
@@ -916,7 +917,7 @@ ul {
 }
 
 /* débouchés */
-.wp-container-core-group-is-layout-6 {
+.wp-container-core-group-is-layout-5 {
     margin: auto !important;
 }
 
@@ -976,4 +977,3 @@ ul {
     color: var(--wp--preset--color--bleu) !important;
     text-decoration: underline;
 }
-
