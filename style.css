@@ -348,11 +348,11 @@ nav a {
 
 /* Main styles */
 main {
-    width: var(--page-width);
+    width: 90dvw;
+    padding: 0;
+    margin: 0 5%;
     max-width: 100%;
-    margin: auto;
     box-sizing: border-box;
-    padding:0px var(--padding-main);
 }
 
 body.single main>article{
@@ -441,6 +441,11 @@ footer .column-footer-sidebar{
     margin:0px;
     text-align: center;
     font-size:18px;
+}
+
+.wp-block-search__inside-wrapper input,
+.wp-block-search__inside-wrapper button {
+    border-radius: 10px;
 }
 
 /* General styles */
@@ -716,12 +721,12 @@ ul.teacher-list div.teacher-header{
 }
 
 ul.teacher-list h2{
-    margin: 0px;
+    margin:0px;
     font-size: 30px;
 }
 
 ul.teacher-list figure{
-    margin: 0px;
+    margin:0px;
 }
 
 ul.teacher-list a.teacher-interview{
@@ -736,14 +741,14 @@ ul.teacher-list a.teacher-interview{
 }
 
 ul.teacher-list a.teacher-linkedin{
-    color: var(--wp--preset--color--bleu);
+    color:var(--wp--preset--color--bleu);
     text-decoration: none;
     font-weight: bold;
 }
 
 ul.teacher-list p.teacher-subject{
-    margin: 0px;
-    font-weight: bold;
+    margin:0px;
+    font-weight:bold;
     font-family: Unistra;
     color:var(--wp--preset--color--orange);
 }
@@ -777,15 +782,9 @@ div.subject-list button.selected-subject{
 
 /* PAGE D'ACCUEIL - HOME */
 
-body.home main {
-    width: 90dvw;
-    padding: 0;
-    margin: 0 5%;
-}
-
 .wp-block-cover,
 .wp-block-columns.has-background,
-.wp-container-core-columns-is-layout-3 {
+.wp-block-columns {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
 }
@@ -806,7 +805,6 @@ body.home main {
     min-width: 0;
     position: relative;
     justify-content: center;
-    margin: 2rem;
 }
 
 .wp-block-button__link,
@@ -838,29 +836,46 @@ body.home main {
     transition-duration: 0.2s;
 }
 
-.wp-block-button__link:hover::before {
+.wp-block-button__link:hover::before,
+.wp-block-button__link:nth-child(2):hover::before,
+.wp-block-button__link:nth-child(3):hover::before  {
     width: 70px;
     transition-property: width;
     transition-duration: 0.2s;
 }
 
-
 /* trois (3) boutons découvrez, candidatez et caweb in english */
-.wp-container-core-buttons-is-layout-1 .wp-block-button a {
+body.main .wp-container-core-buttons-is-layout-1 .wp-block-button a {
     width: 360px;
+    margin: 2rem;
 }
 
-.wp-block-button:nth-child(2) > .wp-block-button__link:hover {
-    background-color: var(--wp--preset--color--rose) !important;
-    color: white !important;
+.wp-block-button__link.has-rose-color::before {
+    background-color: #d85139;
+}
+.wp-block-button__link.has-bleu-color::before {
+    background-color: #0a222f;
 }
 
-.wp-block-button:nth-child(3) > .wp-block-button__link:hover {
-    background-color: var(--wp--preset--color--bleu) !important;
-    color: white !important;
+.wp-block-button__link.has-rose-color:hover {
+    color: #d85139 !important;
+    border-color: #d85139;
 }
 
-.wp-container-core-buttons-is-layout-1 .wp-block-button > .wp-block-button__link::after {
+.wp-block-button:nth-child(2) > .wp-block-button__link.has-rose-color:hover::after {
+    color: #d85139 !important;
+}
+
+.wp-block-button__link.has-bleu-color:hover {
+    color: #0a222f !important;
+    border-color: #0a222f;
+}
+
+.wp-block-button:nth-child(3) > .wp-block-button__link.has-bleu-color:hover::after {
+    color: #0a222f !important;
+}
+
+body.home .wp-container-core-buttons-is-layout-1 .wp-block-button > .wp-block-button__link::after {
     /*content: "\f054";
     font-family: "Font Awesome 6 Free";*/
     content: ">";
@@ -869,17 +884,12 @@ body.home main {
 }
 
 .wp-block-button:nth-child(2) > .wp-block-button__link::after {
-    color: var(--wp--preset--color--rose);
+    color: var(--wp--preset--color--rose) !important;
 }
 
 .wp-block-button:nth-child(3) > .wp-block-button__link::after {
-    color: var(--wp--preset--color--bleu);
+    color: var(--wp--preset--color--bleu) !important;
 }
-
-.wp-block-button:nth-child(2) > .wp-block-button__link:hover::after,
-.wp-block-button:nth-child(3) > .wp-block-button__link:hover::after {
-    color: white;
-}  
 
 /* réglages généraux accueil */
 p, a, li {
@@ -976,4 +986,58 @@ ul {
 .wp-block-query .wp-block-read-more {
     color: var(--wp--preset--color--bleu) !important;
     text-decoration: underline;
+}
+
+/* PAGE DEBOUCHES */
+#buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+
+.tablink {
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    border-radius: 20px;
+    margin-right: 4px;
+    color: white;
+    width: 229px;
+    font-family: 'Unistra A';
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: all 0.2s ease-in;
+}
+
+.tablink:nth-child(1) { background-color: #DA2317; } 
+.tablink:nth-child(2) { background-color: #F77B65; }
+.tablink:nth-child(3) { background-color: #FCA45D; }
+.tablink:nth-child(4) { background-color: #78999C; }
+.tablink:nth-child(5) { background-color: #27526A; }
+
+.tablink.active:nth-child(1) { color: #DA2317; outline: solid 2px #DA2317; }
+.tablink.active:nth-child(2) { color: #F77B65; outline: solid 2px #F77B65; }
+.tablink.active:nth-child(3) { color: #FCA45D; outline: solid 2px #FCA45D; } 
+.tablink.active:nth-child(4) { color: #78999C; outline: solid 2px #78999C; }
+.tablink.active:nth-child(5) { color: #27526A; outline: solid 2px #27526A; }
+
+.tablink.active {
+    background-color: #fff;
+}
+
+.tablink:hover:not(.active) {
+    opacity: 0.8;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
+
+.tabcontent.active {
+    display: block;
 }
