@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nouveau theme CAWEB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-11 21:56+0000\n"
+"POT-Creation-Date: 2024-04-13 12:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Loco-Version: 2.6.6; wp-6.4.3\n"
 "X-Domain: theme_caweb"
 
-#: functions.php:308
+#: functions.php:313
 msgid "&larr; Aller aux matières"
 msgstr ""
 
@@ -24,7 +24,11 @@ msgstr ""
 msgid "Ajouter un intervenant"
 msgstr ""
 
-#: functions.php:305
+#: functions.php:340 functions.php:342 functions.php:343
+msgid "Ajouter une création"
+msgstr ""
+
+#: functions.php:310
 msgid "Ajouter une nouvelle matière"
 msgstr ""
 
@@ -36,7 +40,7 @@ msgstr ""
 msgid "Articles précedents et suivants"
 msgstr ""
 
-#: functions.php:306
+#: functions.php:311
 msgid "Aucune matière trouvée"
 msgstr ""
 
@@ -44,7 +48,7 @@ msgstr ""
 msgid "Autres articles"
 msgstr ""
 
-#: functions.php:433
+#: functions.php:479
 msgid "Bandeau en bas du footer"
 msgstr ""
 
@@ -52,12 +56,20 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: functions.php:450
+#: functions.php:496
 msgid "Colonne de droite du footer"
 msgstr ""
 
 #: footer.php:19
 msgid "Contactez-nous !"
+msgstr ""
+
+#: functions.php:339
+msgid "Création"
+msgstr ""
+
+#: functions.php:335 functions.php:338
+msgid "Créations"
 msgstr ""
 
 #: 404.php:3
@@ -84,11 +96,11 @@ msgstr ""
 msgid "Master Caweb"
 msgstr ""
 
-#: functions.php:304
+#: functions.php:309
 msgid "Matière"
 msgstr ""
 
-#: functions.php:303
+#: functions.php:308
 msgid "Matières"
 msgstr ""
 
@@ -112,7 +124,11 @@ msgstr ""
 msgid "Modifier l'intervant"
 msgstr ""
 
-#: functions.php:307
+#: functions.php:341
+msgid "Modifier la création"
+msgstr ""
+
+#: functions.php:312
 msgid "Modifier la matière"
 msgstr ""
 
@@ -132,7 +148,7 @@ msgstr ""
 msgid "Pas d'intervants à présenter"
 msgstr ""
 
-#: page.php:10 single.php:116 template-no-title.php:22
+#: page.php:10 single-creation.php:10 single.php:116 template-no-title.php:22
 msgid "Pas de posts"
 msgstr ""
 

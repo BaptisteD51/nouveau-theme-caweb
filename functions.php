@@ -178,8 +178,8 @@ function caweb_theme_custom_language_switcher(){
      * This filter return an array with the active languages on the current page
      */
     $languages = apply_filters('wpml_active_languages', NULL);
-    
-    if($languages !== NULL){
+
+    if(($languages !== NULL) && ($languages !== [])){
         $activeLanguage = [];
         $otherLanguages = [];
 
@@ -358,14 +358,14 @@ function caweb_theme_init(){
         'exclude_from_search' => false,
 
         
-       /** 
-        * To activate gutenberg 
-        */
-       'show_in_rest' => true,
-        
-        'rewrite'=>[
-            'slug'=>'creations',
-            'with_front'=>false,
+        /** 
+            * To activate gutenberg 
+            */
+        'show_in_rest' => true,
+            
+            'rewrite'=>[
+                'slug'=>'creations',
+                'with_front'=>false,
         ],
     ]);
 

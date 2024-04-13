@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Nouveau theme CAWEB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 18:39+0000\n"
-"PO-Revision-Date: 2024-03-09 10:50+0000\n"
+"PO-Revision-Date: 2024-04-13 12:26+0000\n"
 "Last-Translator: Admin\n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -15,43 +15,47 @@ msgstr ""
 "X-Loco-Version: 2.6.6; wp-6.4.3\n"
 "X-Domain: theme_caweb"
 
-#: functions.php:228
+#: functions.php:313
 msgid "&larr; Aller aux matières"
 msgstr "&larr; Go back to subjects"
 
-#: functions.php:202 functions.php:204 functions.php:205
+#: functions.php:238 functions.php:240 functions.php:241
 msgid "Ajouter un intervenant"
 msgstr "Add new instructor"
 
-#: functions.php:225
+#: functions.php:340 functions.php:342 functions.php:343
+msgid "Ajouter une création"
+msgstr "Add a creation"
+
+#: functions.php:310
 msgid "Ajouter une nouvelle matière"
 msgstr "Add new subject"
 
 #. Author of the theme
-msgid "Anonyme"
+msgid "Anonymous"
 msgstr "Anonymous"
 
-#: single.php:58
+#: single.php:89
 msgid "Articles précedents et suivants"
 msgstr "Next and previous articles"
 
-#: functions.php:226
+#: functions.php:311
 msgid "Aucune matière trouvée"
 msgstr "No subject found"
 
-#: single.php:89
+#: single.php:121
 msgid "Autres articles"
 msgstr "Other articles"
 
-#: functions.php:282
+#: functions.php:479
 msgid "Bandeau en bas du footer"
 msgstr "Bottom footer banner "
 
-#: index.php:6
+#: index.php:11
 msgid "Blog"
 msgstr "Blog"
 
-#: functions.php:290
+#: functions.php:496
 msgid "Colonne de droite du footer"
 msgstr "Bottom footer right column"
 
@@ -59,19 +63,27 @@ msgstr "Bottom footer right column"
 msgid "Contactez-nous !"
 msgstr "Contact us!"
 
+#: functions.php:339
+msgid "Création"
+msgstr "Creation"
+
+#: functions.php:335 functions.php:338
+msgid "Créations"
+msgstr "Creations"
+
 #: 404.php:3
 msgid "Erreur 404"
 msgstr "404 not found"
 
-#: functions.php:201
+#: functions.php:237
 msgid "Intervenant"
 msgstr "Instructor"
 
-#: functions.php:198 functions.php:200
+#: functions.php:229 functions.php:236
 msgid "Intervenants"
 msgstr "Instructors"
 
-#: archive-intervenant.php:5
+#: archive-intervenant.php:10
 msgid "Intervenants du Master Caweb"
 msgstr "CAWEB Master instructors"
 
@@ -83,35 +95,39 @@ msgstr "The ressource you are requesting can't be found"
 msgid "Master Caweb"
 msgstr "Caweb Master"
 
-#: functions.php:224
+#: functions.php:309
 msgid "Matière"
 msgstr "Subject"
 
-#: functions.php:223
+#: functions.php:308
 msgid "Matières"
 msgstr "Subjects"
 
-#: functions.php:83
+#: functions.php:87
 msgid "Menu contact secrétariat"
 msgstr "School office Contact menu"
 
-#: functions.php:81
+#: functions.php:85
 msgid "Menu principal"
 msgstr "Main menu"
 
-#: functions.php:82
+#: functions.php:86
 msgid "Menu réseaux sociaux"
 msgstr "Social menu"
 
-#: functions.php:80
+#: functions.php:84
 msgid "Menu secondaire"
 msgstr "Secondary menu"
 
-#: functions.php:203
+#: functions.php:239
 msgid "Modifier l'intervant"
 msgstr "Edit instructor"
 
-#: functions.php:227
+#: functions.php:341
+msgid "Modifier la création"
+msgstr "Edit creation"
+
+#: functions.php:312
 msgid "Modifier la matière"
 msgstr "Edit subject"
 
@@ -123,19 +139,19 @@ msgstr "New Caweb Theme"
 msgid "Page with no title"
 msgstr "Page with no title"
 
-#: index.php:40
+#: index.php:45
 msgid "Pas d'articles à afficher"
 msgstr "No posts to display"
 
-#: archive-intervenant.php:63
+#: archive-intervenant.php:102
 msgid "Pas d'intervants à présenter"
 msgstr "No instructors to display"
 
-#: page.php:10 single.php:84 template-no-title.php:15
+#: page.php:10 single-creation.php:10 single.php:116 template-no-title.php:22
 msgid "Pas de posts"
 msgstr "No posts"
 
-#: search.php:45
+#: search.php:57
 msgid "Pas de résultats à votre requête"
 msgstr "No results to your search query "
 
@@ -143,10 +159,10 @@ msgstr "No results to your search query "
 msgid "Rejoignez-nous"
 msgstr "Join us!"
 
-#: search.php:4
+#: search.php:11
 msgid "Résultats de la recherche"
 msgstr "Search results"
 
-#: archive-intervenant.php:16
+#: archive-intervenant.php:32
 msgid "Tous"
 msgstr "All"
