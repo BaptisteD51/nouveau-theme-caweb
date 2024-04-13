@@ -17,7 +17,7 @@ function caweb_theme_supports(){
     /**
      * Activate the post-thumbnail fonctionality for posts and "intervenants" pages
      */
-    add_theme_support('post-thumbnails',['post', 'intervenant']);
+    add_theme_support('post-thumbnails',['post', 'intervenant', 'creation']);
 
     $palette = [
         [
@@ -327,6 +327,47 @@ function caweb_theme_init(){
             'show_admin_column' =>true,
         ],
     );
+
+    /** 
+     * Creation post type for the websites created by the M1 students
+     */
+    register_post_type('creation',[
+        'label' => __('Créations', 'theme_caweb'),
+
+        'labels' => [
+            'name'=>__('Créations', 'theme_caweb'),
+            'singular_name'=>__('Création', 'theme_caweb'),
+            'add_new_item' => __('Ajouter une création', 'theme_caweb'),
+            'edit_item' => __('Modifier la création', 'theme_caweb'),
+            'add_new' => __('Ajouter une création', 'theme_caweb'),
+            'add_new_item' => __('Ajouter une création', 'theme_caweb'),
+        ],
+
+        'public' => true,
+        
+        'menu_position' => 23,
+
+        'has_archive' => true,
+
+        'menu_icon' => 'dashicons-admin-site-alt3',
+
+        'supports' => ['title', 'thumbnail', 'editor'],
+        
+        'show_in_nav_menus' => false,
+
+        'exclude_from_search' => false,
+
+        
+       /** 
+        * To activate gutenberg 
+        */
+       'show_in_rest' => true,
+        
+        'rewrite'=>[
+            'slug'=>'creations',
+            'with_front'=>false,
+        ],
+    ]);
 
     /**
      * As the website doesn't use comments in any ways,
