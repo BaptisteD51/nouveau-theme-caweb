@@ -4,7 +4,7 @@
  */
 get_header(); 
 ?>
-<main>
+<main class='article-page'>
     <?php if (have_posts()) : ?>
 
         <div class="archive-title">

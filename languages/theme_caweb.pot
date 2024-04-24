@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nouveau theme CAWEB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-13 12:24+0000\n"
+"POT-Creation-Date: 2024-04-24 17:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -70,6 +70,10 @@ msgstr ""
 
 #: functions.php:335 functions.php:338
 msgid "Créations"
+msgstr ""
+
+#: archive-creation.php:8
+msgid "Créations étudiantes"
 msgstr ""
 
 #: 404.php:3
@@ -146,6 +150,10 @@ msgstr ""
 
 #: archive-intervenant.php:102
 msgid "Pas d'intervants à présenter"
+msgstr ""
+
+#: archive-creation.php:33
+msgid "Pas de créations étudiantes à afficher"
 msgstr ""
 
 #: page.php:10 single-creation.php:10 single.php:116 template-no-title.php:22

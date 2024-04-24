@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Nouveau theme CAWEB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 18:39+0000\n"
-"PO-Revision-Date: 2024-04-13 12:26+0000\n"
+"PO-Revision-Date: 2024-04-24 17:27+0000\n"
 "Last-Translator: Admin\n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -70,6 +70,10 @@ msgstr "Creation"
 #: functions.php:335 functions.php:338
 msgid "Créations"
 msgstr "Creations"
+
+#: archive-creation.php:8
+msgid "Créations étudiantes"
+msgstr "Student creations"
 
 #: 404.php:3
 msgid "Erreur 404"
@@ -146,6 +150,10 @@ msgstr "No posts to display"
 #: archive-intervenant.php:102
 msgid "Pas d'intervants à présenter"
 msgstr "No instructors to display"
+
+#: archive-creation.php:33
+msgid "Pas de créations étudiantes à afficher"
+msgstr "No student creation to display"
 
 #: page.php:10 single-creation.php:10 single.php:116 template-no-title.php:22
 msgid "Pas de posts"

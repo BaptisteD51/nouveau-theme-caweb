@@ -16,13 +16,15 @@ Domain Path: /languages
 
 /* Include unistra fonts */
 @font-face {
-    font-family: 'Brill';
-    src: url("fonts/brill/Brill\ Roman\ 2.06\ 051.ttf") format("truetype"), url("fonts/brill/Brill\ Bold\ 2.06\ 051.ttf") format("truetype"), url("fonts/brill/Brill\ Italic\ 2.06\ 051.ttf") format("truetype"), url("fonts/brill/Brill\ Bold\ Italic\ 2.06\ 051.ttf") format("truetype");
+    /* For titles */
+    font-family: 'UnistraD';
+    src: url("fonts/unistraD/UnistraD-Regular.ttf") format("truetype"), url("fonts/unistraD/UnistraD-Bold.ttf") format("truetype"), url("fonts/unistraD/UnistraD-Italic.ttf") format("truetype"), url("fonts/unistraD/UnistraD-BoldItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'Unistra';
-    src: url("fonts/unistra/UnistraA-Regular.ttf") format("truetype"), url("fonts/unistra/UnistraA-Bold.ttf") format("truetype"), url("fonts/unistra/UnistraA-Italic.ttf") format("truetype"), url("fonts/unistra/UnistraA-BoldItalic.ttf") format("truetype");
+    /* For text */
+    font-family: 'UnistraA';
+    src: url("fonts/unistraA/UnistraA-Regular.ttf") format("truetype"), url("fonts/unistraA/UnistraA-Bold.ttf") format("truetype"), url("fonts/unistraA/UnistraA-Italic.ttf") format("truetype"), url("fonts/unistraA/UnistraA-BoldItalic.ttf") format("truetype");
 }
 
 /* Adding css for custom colors defined in the editor */
@@ -348,9 +350,9 @@ nav a {
 
 /* Main styles */
 main {
-    width: 90dvw;
-    padding: 0;
-    margin: 0 5%;
+    width: var(--page-width);
+    margin:auto;
+    padding: 0px var(--padding-main);
     max-width: 100%;
     box-sizing: border-box;
 }
@@ -457,13 +459,13 @@ body {
 }
 
 body {
-    font-family: Brill, Arial, Helvetica, sans-serif;
+    font-family: UnistraA, Arial, Helvetica, sans-serif;
 }
 
 h1,
 h2,
 h3 {
-    font-family: Unistra, Arial, Helvetica, sans-serif;
+    font-family: UnistraD, Arial, Helvetica, sans-serif;
 }
 
 p {
@@ -672,11 +674,15 @@ ul.article-list time{
 }
 
 /* Pagination search and archives*/
+main.article-page{
+    margin-bottom:20px;
+}
+
 .nav-links{
     font-family: Unistra;
     font-weight:bold;
     font-size:24px;
-    margin:20px 0px;
+    margin-top:20px;
 
     display:flex;
     justify-content: center;
@@ -799,7 +805,7 @@ div.subject-list button.selected-subject{
     height: 56px;
     display: flex;
     align-items: center;
-    font-family: 'Unistra A';
+    font-family: UnistraA;
     font-weight: bold;
     max-width: none;
     min-width: 0;
@@ -893,16 +899,7 @@ body.home .wp-container-core-buttons-is-layout-1 .wp-block-button > .wp-block-bu
 
 /* réglages généraux accueil */
 p, a, li {
-    font-family: 'Unistra A';
-}
-
-h2 {
-    font-family: 'Unistra D';
-    letter-spacing: 0;
-}
-
-h2:not(.wp-block-post-title) {
-    margin-bottom: 50px !important;
+    font-family: UnistraA;
 }
 
 ul {
@@ -1006,7 +1003,7 @@ ul {
     margin-right: 4px;
     color: white;
     width: 229px;
-    font-family: 'Unistra A';
+    font-family: UnistraA;
     font-weight: bold;
     font-size: 1.2em;
     transition: all 0.2s ease-in;

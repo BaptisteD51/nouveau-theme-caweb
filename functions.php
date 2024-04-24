@@ -363,7 +363,7 @@ function caweb_theme_init(){
             */
         'show_in_rest' => true,
             
-            'rewrite'=>[
+        'rewrite'=>[
                 'slug'=>'creations',
                 'with_front'=>false,
         ],
