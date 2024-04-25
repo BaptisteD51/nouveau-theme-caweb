@@ -9,7 +9,7 @@ Domain Path: /languages
 
 /* Css variables */
 :root {
-    --page-width: 1000px;
+    --page-width: 1440px;
     --post-width: 700px;
     --padding-main:15px;
 }
@@ -208,7 +208,7 @@ nav a {
 
     li.main-menu-button{
         color:var(--wp--preset--color--orange);
-        padding:0px 10px;
+        padding:0px 20px;
     }
 
     li.main-menu-button a{
