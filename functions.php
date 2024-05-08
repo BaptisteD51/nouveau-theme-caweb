@@ -166,6 +166,12 @@ function caweb_theme_assets_footer(){
      */
     wp_register_script('language-switcher', get_template_directory_uri() . '/js/language-switcher.js');
     wp_enqueue_script('language-switcher');
+
+        /**
+     * The JavaScript used to switch careers
+     */
+    wp_register_script('careers-switcher', get_template_directory_uri() . '/js/careers-switcher.js', array(), false, true);
+    wp_enqueue_script('careers-switcher');
 }
 
 /**
