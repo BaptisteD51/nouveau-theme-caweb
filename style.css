@@ -360,6 +360,7 @@ main {
 body.single main>article{
     width: var(--post-width);
     max-width: 100%;
+    margin:auto;
 }
 
 body.single main figure.post-image img{
