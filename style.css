@@ -787,6 +787,21 @@ div.subject-list button.selected-subject{
     background-color: var(--wp--preset--color--bleu);
 }
 
+/* Banner block specific CSS */
+.wp-block-cover .wp-block-cover__inner-container{
+    box-sizing: border-box;
+    margin:auto;
+}
+
+body.page .wp-block-cover .wp-block-cover__inner-container{
+    width: var(--page-width);
+    padding:0px var(--padding-main)
+}
+
+body.single-post .wp-block-cover .wp-block-cover__inner-container{
+    width: var(--post-width);
+}
+
 /* PAGE D'ACCUEIL - HOME */
 
 .wp-block-cover,
