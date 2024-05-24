@@ -1185,3 +1185,263 @@ ul {
     border-radius: 20px;
     padding: 40px 20px;
 }
+
+/* PAGE POURQUOI LE MASTER CAWEB? */
+.page-id-31 .wp-block-columns {
+    margin: auto !important;
+}
+
+.page-id-31 .full-background{
+    margin: -1em;
+    background-color: #dae5e1;
+}
+
+.page-id-31 .wp-block-group > .wp-block-group__inner-container{
+    display: flex;
+    column-gap: 2em;
+}
+
+.page-id-31 .wp-container-core-group-is-layout-3,
+.page-id-31 .wp-container-core-group-is-layout-6,
+.page-id-31 .wp-container-core-group-is-layout-7{
+    margin-top: 0;
+}
+
+
+.page-id-31 .wp-container-core-group-is-layout-5,
+.page-id-31 .wp-container-core-group-is-layout-6,
+.page-id-31 .wp-container-core-group-is-layout-7{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    width: 33%;
+}
+
+.page-id-31 .wp-container-core-group-is-layout-5 > p,
+.page-id-31 .wp-container-core-group-is-layout-6 > p,
+.page-id-31 .wp-container-core-group-is-layout-7 > p{
+    padding: 1em;
+}
+
+.page-id-31 .wp-container-core-group-is-layout-5 > .wp-block-cover,
+.page-id-31 .wp-container-core-group-is-layout-6 > .wp-block-cover,
+.page-id-31 .wp-container-core-group-is-layout-7 > .wp-block-cover{
+    width: 100%;
+}
+
+@media (max-width: 769px) {
+    .page-id-31 .wp-container-core-columns-is-layout-2 > .wp-block-column > .wp-block-image{
+        display: none;
+    }
+    .page-id-31 .wp-block-group > .wp-block-group__inner-container{
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 2em;
+    }
+    .page-id-31 .wp-container-core-group-is-layout-5,
+    .page-id-31 .wp-container-core-group-is-layout-6,
+    .page-id-31 .wp-container-core-group-is-layout-7,
+    .page-id-31 .wp-container-core-group-is-layout-2,
+    .page-id-31 .wp-container-core-group-is-layout-3{
+        width: 100%;
+    }
+    .page-id-31 .wp-block-button a{
+        font-size: 24px;
+    }
+
+}
+
+@media (max-width: 376px) {
+    .page-id-31 .wp-container-core-group-is-layout-2,
+    .page-id-31 .wp-container-core-group-is-layout-3{
+        padding: 0 !important;
+        width: 100%;
+    }
+
+    .page-id-31 .wp-container-core-group-is-layout-2 > .wp-block-buttons,
+    .page-id-31 .wp-container-core-group-is-layout-3 > .wp-block-buttons{
+        margin: 1em;
+    }
+
+    .page-id-31 .wp-block-button a{
+        font-size: 18px;
+    }
+}
+
+
+/* PAGE CREATIONS ETUDIANTES */
+.page-id-41 .wp-block-columns {
+    margin: auto !important;
+}
+
+.page-id-41 .wp-container-core-columns-is-layout-3{
+    margin: -1em !important;
+}
+
+.page-id-41 ul{
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.page-id-41 .wp-block-spacer + .wp-block-image img{
+    width: 100% !important;
+    max-width: none;
+    margin: 0 -1em;
+}
+
+
+/* PAGE EVENEMENTS CAWEB */
+.page-id-39 .wp-block-columns {
+    margin: auto !important;
+}
+
+.page-id-39 .flex-column > .wp-block-group__inner-container{
+    display: flex;
+    column-gap: 2em;
+}
+
+.page-id-39 .wp-container-core-group-is-layout-3{
+    margin-top: 0;
+}
+
+.page-id-39 .wp-container-core-group-is-layout-2,
+.page-id-39 .wp-container-core-group-is-layout-3{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    width: 49%;
+}
+
+.page-id-39 .wp-container-core-group-is-layout-2 > p,
+.page-id-39 .wp-container-core-group-is-layout-3 > p{
+    padding: 1em;
+}
+
+.page-id-39 .wp-container-core-group-is-layout-2 > .wp-block-cover,
+.page-id-39 .wp-container-core-group-is-layout-3 > .wp-block-cover{
+    width: 100%;
+}
+
+@media (max-width: 769px) {
+    .page-id-39 .wp-container-core-columns-is-layout-3{
+        flex-direction: column-reverse;
+    }
+    .page-id-39 .wp-container-core-columns-is-layout-2 .alignright{
+        float: none !important;
+    }
+
+    .page-id-39 .flex-column > .wp-block-group__inner-container{
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 2em;
+    }
+
+    .page-id-39 .wp-container-core-group-is-layout-2,
+    .page-id-39 .wp-container-core-group-is-layout-3{
+        width: 100%;
+    }
+
+    .page-id-39 .wp-block-button a{
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 376px) {
+    .page-id-39 .wp-container-core-group-is-layout-2,
+    .page-id-39 .wp-container-core-group-is-layout-3{
+        padding: 0 !important;
+        width: 100%;
+    }
+
+    .page-id-39 .wp-container-core-group-is-layout-2 > .wp-block-buttons,
+    .page-id-39 .wp-container-core-group-is-layout-3 > .wp-block-buttons{
+        margin: 1em;
+    }
+    .page-id-39 .wp-block-button a{
+        font-size: 18px;
+    }
+
+}
+
+
+/* PAGE CONTRAT D'APPRENTISSAGE */
+.page-id-65 .wp-block-columns {
+    margin: auto !important;
+}
+
+.page-id-65 .wp-block-group > .wp-block-group__inner-container{
+    display: flex;
+    column-gap: 2em;
+}
+
+.page-id-65 .wp-container-core-group-is-layout-2{
+    margin-top: 0;
+}
+
+@media (max-width: 769px){
+    .page-id-65 .wp-block-button a{
+        font-size: 24px;
+    }
+
+    .page-id-65 .wp-container-core-group-is-layout-1,
+    .page-id-65 .wp-container-core-group-is-layout-2{
+        width: 100%;
+    }
+
+    .page-id-65 .wp-block-group > .wp-block-group__inner-container{
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 2em;
+    }
+
+}
+
+@media (max-width: 376px) {
+    .page-id-65 .wp-block-button a{
+        font-size: 18px;
+    }
+
+    .page-id-65 .wp-container-core-group-is-layout-2,
+    .page-id-65 .wp-container-core-group-is-layout-1{
+        padding: 0 !important;
+        width: 100%;
+    }
+    .page-id-65 .wp-container-core-group-is-layout-2 > .wp-block-buttons,
+    .page-id-65 .wp-container-core-group-is-layout-1 > .wp-block-buttons{
+        margin: 1em;
+    }
+}
+
+
+/* PAGE CONTRAT DE PROFESSIONNALISATION */
+.page-id-63 .wp-block-columns {
+    margin: auto !important;
+}
+@media (max-width: 769px){
+    .page-id-63 .wp-block-button a{
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 376px) {
+    .page-id-63 .wp-block-button a{
+        font-size: 18px;
+    }
+}
+
+
+/* PAGE QUEL CONTRAT CHOISIR  */
+.page-id-19221  .wp-block-columns {
+    margin: auto !important;
+}
+@media (max-width: 769px){
+    .page-id-19221  .wp-block-button a{
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 376px) {
+    .page-id-19221 .wp-block-button a {
+        font-size: 18px;
+    }
+}
