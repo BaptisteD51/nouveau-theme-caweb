@@ -553,6 +553,19 @@ function display_current_year(){
 }
 add_shortcode('year', 'display_current_year');
 
+/**
+ * This allow to echo the post thumbnail if one is defined, and display a default placeholder if no
+ * post thumbnail was defined.
+ * It avoids posts without images in archive pages
+ */
+function caweb_theme_the_post_thumbnail($post = null){
+    if(get_the_post_thumbnail($post)!=''){
+        echo get_the_post_thumbnail($post, "thumbnail");
+    }else{
+        echo '<img src="'. get_template_directory_uri() .'/images/thumbnail-placeholder.webp">';
+    }
+}
+
 add_action('init', 'caweb_theme_init');
 add_action('after_setup_theme', 'caweb_theme_supports');
 add_action('wp_enqueue_scripts', 'caweb_theme_assets');

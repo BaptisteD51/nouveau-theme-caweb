@@ -14,7 +14,7 @@ get_header();
             <?php while (have_posts()) : the_post(); ?>
                 <li>
                     <a href="<?php the_permalink(); ?>">
-                        <?php the_post_thumbnail("thumbnail"); ?>
+                        <?php caweb_theme_the_post_thumbnail(); ?>
                         <h2><?php the_title(); ?></h2>
                         <p class="post-excerpt"><?= get_the_excerpt(); ?></p>
                     </a>

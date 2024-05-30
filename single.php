@@ -93,7 +93,7 @@ get_header();
                         <?php $nextPostId = get_next_post()->ID; ?>
                         <li>
                             <a href="<?= get_permalink($nextPostId); ?>">
-                                <?= get_the_post_thumbnail($nextPostId, 'thumbnail');?>
+                                <?php caweb_theme_the_post_thumbnail($nextPostId)?>
                                 <h4><i class="fa-solid fa-arrow-left"></i> <?= get_next_post()->post_title; ?></h4>
                             </a> 
                         </li>
@@ -103,7 +103,7 @@ get_header();
                         <?php $previousPostId = get_previous_post()->ID; ?>
                         <li>
                             <a href="<?= get_permalink($previousPostId); ?>">
-                                <?= get_the_post_thumbnail($previousPostId, 'thumbnail');?>
+                                <?php caweb_theme_the_post_thumbnail($previousPostId);?>
                                 <h4><?= get_previous_post()->post_title; ?> <i class="fa-solid fa-arrow-right"></i></h4>
                             </a>
                         </li>
@@ -144,7 +144,7 @@ get_header();
                 <?php while($query->have_posts()): $query->the_post();?>
                     <li>
                         <a href="<?php the_permalink();?>">
-                            <?php the_post_thumbnail("thumbnail"); ?>
+                            <?php caweb_theme_the_post_thumbnail();?>
                             <h4><?= the_title();?></h4>
                         </a>
                     </li>
