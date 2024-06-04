@@ -818,7 +818,8 @@ body.single-post .wp-block-cover .wp-block-cover__inner-container{
 
 .wp-block-button a,
 #wpcf7-f20368-p55-o1 > form > div:nth-child(25) > p > input {
-    font-size: 28px;
+    font-size: 1.5em;
+    line-height: 1;
     height: 56px;
     display: flex;
     align-items: center;
@@ -1197,13 +1198,13 @@ ul {
 }
 
 .page-id-31 .full-background{
-    margin: -1em;
-    background-color: #dae5e1;
+    margin: -1em !important;
 }
 
 .page-id-31 .wp-block-group > .wp-block-group__inner-container{
     display: flex;
     column-gap: 2em;
+    justify-content: center;
 }
 
 .page-id-31 .wp-container-core-group-is-layout-3,
@@ -1219,7 +1220,7 @@ ul {
     padding-left: 0 !important;
     padding-right: 0 !important;
     padding-top: 0 !important;
-    width: 33%;
+    width: 30%;
 }
 
 .page-id-31 .wp-container-core-group-is-layout-5 > p,
@@ -1289,6 +1290,10 @@ body.page-id-61 > main > div.wp-block-group.has-background > div > div.wp-block-
     margin: auto !important;
 }
 
+.page-id-41 .full-background {
+    margin: -1em !important;
+}
+
 .page-id-41 .wp-container-core-columns-is-layout-3{
     margin: -1em !important;
 }
@@ -1307,6 +1312,10 @@ body.page-id-61 > main > div.wp-block-group.has-background > div > div.wp-block-
 /* PAGE EVENEMENTS CAWEB */
 .page-id-39 .wp-block-columns {
     margin: auto !important;
+}
+
+.page-id-39 .full-background{
+    margin: -1em;
 }
 
 .page-id-39 .flex-column > .wp-block-group__inner-container{
@@ -1416,7 +1425,7 @@ body.page-id-61 > main > div.wp-block-group.has-background > div > div.wp-block-
 
     .page-id-65 .wp-container-core-group-is-layout-2,
     .page-id-65 .wp-container-core-group-is-layout-1{
-        padding: 0 !important;
+        padding: 0.5em !important;
         width: 100%;
     }
     .page-id-65 .wp-container-core-group-is-layout-2 > .wp-block-buttons,
