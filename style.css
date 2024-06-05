@@ -90,12 +90,10 @@ header {
 
 div.header-wrapper {
     margin: auto;
-
     width: var(--page-width);
     max-width: 100%;
     box-sizing: border-box;
     padding:0px var(--padding-main);
-
     display: flex;
 }
 
@@ -816,14 +814,13 @@ body.single-post .wp-block-cover .wp-block-cover__inner-container{
     position: relative;
 }
 
-.wp-block-button a,
-#wpcf7-f20368-p55-o1 > form > div:nth-child(25) > p > input {
-    font-size: 28px;
+.wp-block-button a {
+    font-size: 1.5em;
+    line-height: 1;
     height: 56px;
     display: flex;
     align-items: center;
     font-family: UnistraA;
-    border-radius: 20px;
     font-weight: bold;
     max-width: none;
     min-width: 0;
@@ -844,8 +841,7 @@ body.single-post .wp-block-cover .wp-block-cover__inner-container{
     background-color: #fc9644 !important
 }
 
-.wp-block-button__link::before,
-#wpcf7-f20368-p55-o1 > form > div:nth-child(25) > p > input::before {
+.wp-block-button__link::before {
     content: "";
     display: block;
     position: absolute;
@@ -863,8 +859,7 @@ body.single-post .wp-block-cover .wp-block-cover__inner-container{
 
 .wp-block-button__link:hover::before,
 .wp-block-button__link:nth-child(2):hover::before,
-.wp-block-button__link:nth-child(3):hover::before,
-#wpcf7-f20368-p55-o1 > form > div:nth-child(25) > p > input:hover::before  {
+.wp-block-button__link:nth-child(3):hover::before {
     width: 70px;
     transition-property: width;
     transition-duration: 0.2s;
@@ -944,8 +939,13 @@ ul {
 }
 
 /* débouchés */
-.home .wp-container-core-group-is-layout-5 {
+
+body.home > main > div.wp-block-group.is-vertical.is-layout-flex.wp-container-core-group-is-layout-6.wp-block-group-is-layout-flex > div {
     margin: auto !important;
+}
+
+body.home > main > div.wp-block-group.is-vertical.is-layout-flex.wp-container-core-group-is-layout-6.wp-block-group-is-layout-flex > div > div > div:nth-child(1) {
+    width: 325px;
 }
 
 /* section youtube */
@@ -1177,19 +1177,42 @@ ul {
     padding: 40px 20px;
 }
 
-.page-id-98 .wp-container-core-columns-is-layout-2 .wp-block-column:nth-child(1) {
+.page-id-98 > main > div.wp-block-columns.are-vertically-aligned-top.is-layout-flex.wp-container-core-columns-is-layout-3.wp-block-columns-is-layout-flex > div.wp-block-column.is-vertically-aligned-top.has-border-color.has-rose-border-color.is-layout-flow.wp-container-core-column-is-layout-5.wp-block-column-is-layout-flow,
+.page-id-100 > main > div.wp-block-columns.are-vertically-aligned-top.is-layout-flex.wp-container-core-columns-is-layout-2.wp-block-columns-is-layout-flex > div.wp-block-column.is-vertically-aligned-top.has-border-color.has-orange-border-color.is-layout-flow.wp-container-core-column-is-layout-3.wp-block-column-is-layout-flow {
     flex-direction: column;
     border: solid 1px #FCA45D;
-    border-radius: 20px;
+    border-radius: 20px !important;
     padding: 40px 20px;
 }
 
-.page-id-98 .wp-container-core-columns-is-layout-2 .wp-block-column:nth-child(2) {
+.page-id-98 > main > div.wp-block-columns.are-vertically-aligned-top.is-layout-flex.wp-container-core-columns-is-layout-3.wp-block-columns-is-layout-flex > div.wp-block-column.is-vertically-aligned-top.has-border-color.has-bleu-border-color.is-layout-flow.wp-block-column-is-layout-flow,
+.page-id-100 > main > div.wp-block-columns.are-vertically-aligned-top.is-layout-flex.wp-container-core-columns-is-layout-2.wp-block-columns-is-layout-flex > div.wp-block-column.is-vertically-aligned-top.has-border-color.has-bleu-border-color.is-layout-flow.wp-block-column-is-layout-flow {
     border: solid 1px #27526A;
-    border-radius: 20px;
+    border-radius: 20px !important;
     padding: 40px 20px;
 }
 
+.page-id-100 > main > div.wp-block-columns.are-vertically-aligned-top.is-layout-flex.wp-container-core-columns-is-layout-2.wp-block-columns-is-layout-flex > div.wp-block-column.is-vertically-aligned-top.has-border-color.has-bleu-border-color.is-layout-flow.wp-block-column-is-layout-flow {
+    align-self: stretch;
+}
+
+.page-id-100 > main > div:nth-child(7) > div > div > div {
+    margin: auto;
+}
+
+@media (max-width: 769px) {
+    .wp-block-group:not(.wp-block-group .wp-block-group), .wp-block-columns {
+        padding: 5% !important;
+    }
+
+    .page-id-98 > main > div.wp-block-group.is-vertical.is-layout-flex.wp-container-core-group-is-layout-4.wp-block-group-is-layout-flex {
+        padding: 1% !important;
+    }
+
+    .page-id-98 > main > div.wp-block-group.is-vertical.is-layout-flex.wp-container-core-group-is-layout-4.wp-block-group-is-layout-flex > div {
+        padding: 5% !important;
+    }
+}
 
 /* PAGE POURQUOI LE MASTER CAWEB? */
 .page-id-31 .wp-block-columns {
@@ -1197,13 +1220,13 @@ ul {
 }
 
 .page-id-31 .full-background{
-    margin: -1em;
-    background-color: #dae5e1;
+    margin: -1em !important;
 }
 
 .page-id-31 .wp-block-group > .wp-block-group__inner-container{
     display: flex;
     column-gap: 2em;
+    justify-content: center;
 }
 
 .page-id-31 .wp-container-core-group-is-layout-3,
@@ -1219,7 +1242,7 @@ ul {
     padding-left: 0 !important;
     padding-right: 0 !important;
     padding-top: 0 !important;
-    width: 33%;
+    width: 30%;
 }
 
 .page-id-31 .wp-container-core-group-is-layout-5 > p,
@@ -1283,6 +1306,16 @@ body.page-id-61 > main > div.wp-block-group.has-background > div > div.wp-block-
     align-self: stretch;
 }
 
+.page-id-61 > main > div.wp-block-group.has-background > div > div.wp-block-group.is-nowrap.is-layout-flex.wp-container-core-group-is-layout-4.wp-block-group-is-layout-flex,
+.page-id-61 > main > div.wp-block-group.has-background > div > div.wp-block-group.is-nowrap.is-layout-flex.wp-container-core-group-is-layout-7.wp-block-group-is-layout-flex {
+    flex-direction: column !important;
+}
+
+@media (max-width: 769px) {
+    .page-id-61 > main > div.wp-block-columns.is-layout-flex.wp-container-core-columns-is-layout-2.wp-block-columns-is-layout-flex > div:nth-child(1) {
+        padding: 0 !important;
+    }
+}
 
 /* PAGE CREATIONS ETUDIANTES */
 .page-id-41 .wp-block-columns {
@@ -1290,6 +1323,10 @@ body.page-id-61 > main > div.wp-block-group.has-background > div > div.wp-block-
 }
 
 .page-id-41 .wp-container-core-columns-is-layout-3{
+    margin: -1em !important;
+}
+
+.page-id-41 .full-background {
     margin: -1em !important;
 }
 
@@ -1307,6 +1344,10 @@ body.page-id-61 > main > div.wp-block-group.has-background > div > div.wp-block-
 /* PAGE EVENEMENTS CAWEB */
 .page-id-39 .wp-block-columns {
     margin: auto !important;
+}
+
+.page-id-39 .full-background{
+    margin: -1em;
 }
 
 .page-id-39 .flex-column > .wp-block-group__inner-container{
@@ -1416,7 +1457,7 @@ body.page-id-61 > main > div.wp-block-group.has-background > div > div.wp-block-
 
     .page-id-65 .wp-container-core-group-is-layout-2,
     .page-id-65 .wp-container-core-group-is-layout-1{
-        padding: 0 !important;
+        padding: 0.5em !important;
         width: 100%;
     }
     .page-id-65 .wp-container-core-group-is-layout-2 > .wp-block-buttons,
@@ -1463,17 +1504,36 @@ body.page-id-61 > main > div.wp-block-group.has-background > div > div.wp-block-
 }
 
 /* FORMULAIRES */
-
-/* Candidater M2 */
-
-#wpcf7-f20368-p55-o1 {
+main form:not(#wpcf7-f20369-p18562-o1 > form, .wp-block-search) {
     background-color: #dae5e1;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     padding: 10px 5%;
 }
 
-#wpcf7-f20368-p55-o1 h2, #wpcf7-f20368-p55-o1 h3 {
+main form #submit-button {
+    border-radius: 20px !important;
+    width: 325px;
+    border: none !important;
+    font-size: 1.2em;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    font-family: UnistraA;
+    font-weight: bold;
+    max-width: none;
+    min-width: 0;
+    position: relative;
+    justify-content: center;
+}
+
+/*formulaire Nadia*/
+.page-id-18562 > main > div.wp-block-group.has-background {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+form h2, form h3 {
     color: #004e47;
     font-weight: bold;
 }
@@ -1510,7 +1570,7 @@ select,
 textarea {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 4px;
     box-sizing: border-box;
     margin-bottom: 10px;
@@ -1528,24 +1588,9 @@ input[type="radio"] {
     margin-right: 5px;
 }
 
-p {
+main form p {
     margin: 0;
 }
-
-input[type="submit"] {
-    background-color: #e23d28;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #c6321d;
-}
-
 
 /* PAGE CONTACT */
 .page-id-29 .wp-block-table td, .wp-block-table th {
