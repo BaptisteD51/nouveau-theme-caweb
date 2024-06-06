@@ -791,6 +791,10 @@ div.subject-list button.selected-subject{
     margin:auto;
 }
 
+#title-separator {
+    margin-left: 0! important;
+}
+
 body.page .wp-block-cover .wp-block-cover__inner-container{
     width: var(--page-width);
     padding:0px var(--padding-main)
@@ -940,11 +944,23 @@ ul {
 
 /* débouchés */
 
+body.home > main > div.wp-block-group.is-vertical.is-layout-flex.wp-container-core-group-layout-6.wp-block-group-is-layout-flex > div > div {
+	display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+body.home .wp-container-core-group-layout-5.wp-container-core-group-layout-5 {
+	grid-template-columns: none;
+	margin: auto;
+}
+
 body.home > main > div.wp-block-group.is-vertical.is-layout-flex.wp-container-core-group-is-layout-6.wp-block-group-is-layout-flex > div {
     margin: auto !important;
 }
 
-body.home > main > div.wp-block-group.is-vertical.is-layout-flex.wp-container-core-group-is-layout-6.wp-block-group-is-layout-flex > div > div > div:nth-child(1) {
+body.home .wp-block-group__inner-container > .wp-block-group {
     width: 325px;
 }
 
@@ -1504,7 +1520,7 @@ body.page-id-61 > main > div.wp-block-group.has-background > div > div.wp-block-
 }
 
 /* FORMULAIRES */
-main form:not(#wpcf7-f20369-p18562-o1 > form, .wp-block-search) {
+main form:not(#wpcf7-f20369-p18562-o1 > form, .wp-block-search, #searchform) {
     background-color: #dae5e1;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
@@ -1562,7 +1578,7 @@ label .required {
     color: #da2317;
 }
 
-input[type="text"],
+input[type="text"]:not(.blog #s),
 input[type="email"],
 input[type="tel"],
 input[type="date"],
