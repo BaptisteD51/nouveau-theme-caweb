@@ -698,7 +698,12 @@ main.article-page{
     padding:0px 20px;
 }
 
-/* Intervenants archive page */
+/* Intervenants archive page and intervant single page */
+a.link-to-instructor{
+    text-decoration: none;
+    color:var(--wp--preset--color--bleu);
+}
+
 ul.teacher-list{
     padding: 0px;
     margin:0px 0px 100px 0px;
@@ -734,7 +739,7 @@ ul.teacher-list figure{
     margin:0px;
 }
 
-ul.teacher-list a.teacher-interview{
+a.teacher-interview{
     background-color: var(--wp--preset--color--rouge);
     color:white;
     text-decoration:none;
@@ -745,13 +750,13 @@ ul.teacher-list a.teacher-interview{
     border-radius: 50px;
 }
 
-ul.teacher-list a.teacher-linkedin{
+a.teacher-linkedin{
     color:var(--wp--preset--color--bleu);
     text-decoration: none;
     font-weight: bold;
 }
 
-ul.teacher-list p.teacher-subject{
+p.teacher-subject{
     margin:0px;
     font-weight:bold;
     font-family: UnistraD;
@@ -783,6 +788,19 @@ div.subject-list button{
 
 div.subject-list button.selected-subject{
     background-color: var(--wp--preset--color--bleu);
+}
+
+/* Intervant single page */
+h1.instructor-name{
+    margin-bottom: 0px;
+}
+
+body.single-intervenant main article{
+    margin-bottom:50px;
+}
+
+body.single-intervenant figure.instructor-picture{
+    margin-top:16px;
 }
 
 /* Banner block specific CSS */

@@ -62,7 +62,7 @@ get_header();
                         </figure>
 
                         <div>
-                            <h2><?php the_title(); ?></h2>
+                            <h2><a href="<?php the_permalink();?>" class="link-to-instructor"><?php the_title(); ?></a></h2>
 
                             <?php foreach($postMatieres as $matiere):?>
                                 <p class='teacher-subject'><?= $matiere['name']; ?></p>
