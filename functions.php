@@ -566,6 +566,8 @@ function caweb_theme_the_post_thumbnail($post = null){
     }
 }
 
+include_once 'functions/the_author_box.php';
+
 add_action('init', 'caweb_theme_init');
 add_action('after_setup_theme', 'caweb_theme_supports');
 add_action('wp_enqueue_scripts', 'caweb_theme_assets');

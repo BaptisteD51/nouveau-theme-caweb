@@ -47,43 +47,7 @@ get_header();
 
         <?php endwhile ?>
 
-        <?php
-            /** If ACF is active and if the field display_author_box is checked, display the author-box */ 
-            if(function_exists('get_field') && (get_field("display_author_box")!=[])): 
-        ?>
-            <div class='author-box'>
-
-                <?php
-                    /** Retrieves the post author id */
-                    $authorID = get_the_author_meta('id');
-
-                    /** Need to add 'user_' before the id, in order to make it work with ACF */
-                    $acfAuthorID = 'user_'.$authorID;
-
-                    $authPic = get_field('author_picture', $acfAuthorID);
-
-                    /** The ACF picture field returns a table with infos about the image */
-                    $authPicAlt = $authPic['alt'];
-                    $authPicTitle = $authPic['title'];
-                    $authPicUrl = $authPic['sizes']['author-format'] /** author-format is the custom image size resgistered in functions.php */;
-                ?>
-
-                <div>
-                    <h4>
-                        <a href="<?php the_field('author_linkedin', $acfAuthorID); ?>" rel="author">
-                            <i class="fa-brands fa-linkedin"></i> 
-                            <?php 
-                                the_author_meta('display_name');
-                                /** A WP function that echo the 'Display name publicly as' of WP user profile */?>
-                        </a> 
-                    </h4>
-
-                    <figure><img src="<?= $authPicUrl ?>" alt="<?= $authPicAlt?>" title="<?= $authPicTitle ?>"></figure>
-                </div>
-                
-                <blockquote> <?php the_field('author_biography', $acfAuthorID); ?></blockquote>
-            </div>
-        <?php endif; ?>
+        <?php the_author_box(); ?>
         
         <div class="next-previous-posts">
             <h3> <?= __("Articles précedents et suivants", 'theme_caweb'); ?></h3>
